@@ -69,27 +69,43 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + i * 0.05, duration: 0.5 }}
             >
-              <Link
-                to={item.href}
-                className={cn(
-                  'relative px-4 py-2 text-sm font-medium transition-colors',
-                  location.pathname === item.href 
-                    ? 'text-[hsl(43_74%_49%)]' 
-                    : 'text-[hsl(40_20%_75%)] hover:text-[hsl(40_33%_95%)]'
-                )}
-                data-testid={`nav-${item.label.toLowerCase().replace(' ', '-')}`}
-              >
-                {item.label}
-                {/* Animated underline */}
-                <motion.span
-                  className="absolute bottom-0 left-4 right-4 h-[2px] bg-[hsl(43_74%_49%)]"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: location.pathname === item.href ? 1 : 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ originX: 0.5 }}
-                />
-              </Link>
+              {item.special ? (
+                <Link
+                  to={item.href}
+                  className={cn(
+                    'relative flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full transition-all',
+                    location.pathname === item.href 
+                      ? 'bg-gradient-to-r from-[hsl(43_74%_49%)] to-[hsl(280_60%_50%)] text-[hsl(0_0%_2%)]' 
+                      : 'bg-gradient-to-r from-[hsl(43_74%_49%/0.15)] to-[hsl(280_60%_50%/0.15)] text-[hsl(43_74%_49%)] hover:from-[hsl(43_74%_49%/0.25)] hover:to-[hsl(280_60%_50%/0.25)]'
+                  )}
+                  data-testid={`nav-${item.label.toLowerCase().replace(/ /g, '-')}`}
+                >
+                  <Atom className="h-3.5 w-3.5" />
+                  {item.label}
+                </Link>
+              ) : (
+                <Link
+                  to={item.href}
+                  className={cn(
+                    'relative px-4 py-2 text-sm font-medium transition-colors',
+                    location.pathname === item.href 
+                      ? 'text-[hsl(43_74%_49%)]' 
+                      : 'text-[hsl(40_20%_75%)] hover:text-[hsl(40_33%_95%)]'
+                  )}
+                  data-testid={`nav-${item.label.toLowerCase().replace(/ /g, '-')}`}
+                >
+                  {item.label}
+                  {/* Animated underline */}
+                  <motion.span
+                    className="absolute bottom-0 left-4 right-4 h-[2px] bg-[hsl(43_74%_49%)]"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: location.pathname === item.href ? 1 : 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ originX: 0.5 }}
+                  />
+                </Link>
+              )}
             </motion.div>
           ))}
         </nav>
