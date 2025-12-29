@@ -1,12 +1,14 @@
 import "@/App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 // Layout
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { StickyCTA } from "@/components/StickyCTA";
 import { Toaster } from "@/components/ui/sonner";
+import { ScrollProgress, GrainOverlay, CustomCursor } from "@/components/animations";
 
 // Pages
 import Home from "@/pages/Home";
@@ -31,9 +33,26 @@ function ScrollToTop() {
   return null;
 }
 
+// Page transition wrapper
+function PageTransition({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 function Layout({ children }) {
   return (
     <div className="min-h-screen bg-noir">
+      <ScrollProgress />
+      <CustomCursor />
+      <GrainOverlay opacity={0.025} />
       <Navbar />
       <main>{children}</main>
       <Footer />
