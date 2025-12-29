@@ -3,165 +3,188 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="HQ.D - Headquarters of Drinks | Premium Cocktail & Mocktail Bar Setups for Weddings & Events. Molecular Mixology specialists." />
-        <meta property="og:title" content="HQ.D - Headquarters of Drinks" />
-        <meta property="og:description" content="Premium cocktail & mocktail bar setups for weddings, corporate events & private parties. Molecular mixology specialists." />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <!-- Primary Meta Tags -->
+        <title>HQ.D | Luxury Cocktail & Mocktail Bar Setups for Weddings & Events</title>
+        <meta name="title" content="HQ.D | Luxury Cocktail & Mocktail Bar Setups for Weddings & Events" />
+        <meta name="description" content="Premium cocktail & mocktail bar setups for weddings, corporate events & private parties. Molecular mixology specialists serving 500+ events across 15+ cities. Get a quote today!" />
+        <meta name="keywords" content="wedding bar setup, cocktail bar, mocktail bar, molecular mixology, wedding bartender, event bar, luxury bar service, sangeet bar, reception bar, corporate event bar" />
+        <meta name="author" content="HQ.D - Headquarters of Drinks" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#050505" />
+        <meta name="color-scheme" content="dark" />
+        
+        <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://headquartersofdrinks.com/" />
+        <meta property="og:title" content="HQ.D | Luxury Cocktail & Mocktail Bar Setups" />
+        <meta property="og:description" content="Premium bar setups for weddings & events. Molecular mixology specialists. 500+ events served." />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1574096079513-d8259312b785?w=1200&h=630&fit=crop" />
+        <meta property="og:site_name" content="HQ.D - Headquarters of Drinks" />
+        <meta property="og:locale" content="en_IN" />
+        
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://headquartersofdrinks.com/" />
+        <meta name="twitter:title" content="HQ.D | Luxury Cocktail & Mocktail Bar Setups" />
+        <meta name="twitter:description" content="Premium bar setups for weddings & events. Molecular mixology specialists." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1574096079513-d8259312b785?w=1200&h=630&fit=crop" />
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://headquartersofdrinks.com/" />
+        
+        <!-- Preconnect to external domains for faster loading -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        <title>HQ.D | Luxury Bar Setups for Weddings & Events</title>
-        <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
-        <!--
-        These two scripts have been added for the Visual Edits, please do not edit or remove them
-        -->
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://customer-assets.emergentagent.com" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        
+        <!-- Preload critical fonts -->
+        <link rel="preload" href="https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtM.woff2" as="font" type="font/woff2" crossorigin />
+        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
+        
+        <!-- Load fonts with display swap for faster FCP -->
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+        <noscript>
+            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+        </noscript>
+        
+        <!-- Critical CSS for initial paint -->
+        <style>
+            /* Critical CSS for fastest FCP */
+            *,*::before,*::after{box-sizing:border-box}
+            html{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+            body{margin:0;padding:0;background:#050505;color:#f5f3ef;min-height:100vh}
+            #root{min-height:100vh}
+            .font-display{font-family:'Playfair Display',Georgia,serif}
+            /* Loading skeleton */
+            .skeleton{background:linear-gradient(90deg,#111 25%,#1a1a1a 50%,#111 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+            @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+            /* Hide content until React loads */
+            #loading-screen{position:fixed;inset:0;background:#050505;display:flex;align-items:center;justify-content:center;z-index:9999;transition:opacity 0.3s}
+            #loading-screen.loaded{opacity:0;pointer-events:none}
+            .loader{width:40px;height:40px;border:3px solid #222;border-top-color:#d4af37;border-radius:50%;animation:spin 1s linear infinite}
+            @keyframes spin{to{transform:rotate(360deg)}}
+        </style>
+        
+        <!-- Structured Data for SEO -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "HQ.D - Headquarters of Drinks",
+            "description": "Premium cocktail & mocktail bar setups for weddings, corporate events & private parties with molecular mixology.",
+            "url": "https://headquartersofdrinks.com",
+            "telephone": "+91-9540343437",
+            "email": "Rupesh@Headquartersofdrinks.co.in",
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "IN"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "28.6139",
+                "longitude": "77.2090"
+            },
+            "priceRange": "₹₹₹",
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "09:00",
+                "closes": "21:00"
+            },
+            "sameAs": [
+                "https://www.instagram.com/headquartersofdrinks",
+                "https://wa.me/919540343437"
+            ],
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "200"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Bar Setup Services",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Wedding Bar Setup",
+                            "description": "Premium bar setups for wedding celebrations including Mehendi, Sangeet, and Reception"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Molecular Mixology",
+                            "description": "Advanced cocktail techniques including smoke bubbles, dry ice fog, and champagne foam"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Corporate Event Bar",
+                            "description": "Professional bar services for corporate events and product launches"
+                        }
+                    }
+                ]
+            }
+        }
+        </script>
+        
+        <script src="https://assets.emergent.sh/scripts/emergent-main.js" defer></script>
         <script>
-            // Only load visual edit scripts when inside an iframe
             if (window.self !== window.top) {
-                // Load debug monitor script
                 var debugMonitorScript = document.createElement('script');
                 debugMonitorScript.src = 'https://assets.emergent.sh/scripts/debug-monitor.js';
+                debugMonitorScript.defer = true;
                 document.head.appendChild(debugMonitorScript);
-
-                // Configure Tailwind
                 window.tailwind = window.tailwind || {};
-                tailwind.config = {
-                    corePlugins: { preflight: false },
-                };
-
-                // Load Tailwind CDN
+                tailwind.config = { corePlugins: { preflight: false } };
                 var tailwindScript = document.createElement('script');
                 tailwindScript.src = 'https://cdn.tailwindcss.com';
+                tailwindScript.defer = true;
                 document.head.appendChild(tailwindScript);
             }
         </script>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
+        
+        <!-- Loading screen for better perceived performance -->
+        <div id="loading-screen" aria-hidden="true">
+            <div class="loader"></div>
+        </div>
+        
         <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-        <a
-            id="emergent-badge"
-            target="_blank"
-            href="https://app.emergent.sh/?utm_source=emergent-badge"
-            style="
-                display: flex !important;
-                align-items: center !important;
-                position: fixed !important;
-                bottom: 20px;
-                right: 20px;
-                text-decoration: none;
-                padding: 6px 10px;
-                font-family: -apple-system, BlinkMacSystemFont,
-                    &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell,
-                    &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-                    sans-serif !important;
-                font-size: 12px !important;
-                z-index: 9999 !important;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-                border-radius: 8px !important;
-                background-color: #ffffff !important;
-                border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            "
-        >
-            <div
-                style="display: flex; flex-direction: row; align-items: center"
-            >
-                <img
-                    style="width: 20px; height: 20px; margin-right: 8px"
-                    src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4"
-                />
-                <p
-                    style="
-                        color: #000000;
-                        font-family: -apple-system, BlinkMacSystemFont,
-                            &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu,
-                            Cantarell, &quot;Open Sans&quot;,
-                            &quot;Helvetica Neue&quot;, sans-serif !important;
-                        font-size: 12px !important;
-                        align-items: center;
-                        margin-bottom: 0;
-                    "
-                >
-                    Made with Emergent
-                </p>
+        
+        <!-- Emergent Badge -->
+        <a id="emergent-badge" target="_blank" href="https://app.emergent.sh/?utm_source=emergent-badge" style="display:flex!important;align-items:center!important;position:fixed!important;bottom:20px;right:20px;text-decoration:none;padding:6px 10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif!important;font-size:12px!important;z-index:9999!important;box-shadow:0 2px 8px rgba(0,0,0,0.15)!important;border-radius:8px!important;background-color:#fff!important;border:1px solid rgba(255,255,255,0.25)!important">
+            <div style="display:flex;flex-direction:row;align-items:center">
+                <img style="width:20px;height:20px;margin-right:8px" src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" alt="Emergent" loading="lazy" />
+                <p style="color:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif!important;font-size:12px!important;margin:0">Made with Emergent</p>
             </div>
         </a>
+        
+        <!-- Analytics (deferred) -->
+        <script defer>
+            !(function(t,e){var o,n,p,r;e.__SV||((window.posthog=e),(e._i=[]),(e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&((t=t[o[0]]),(e=o[1])),(t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))})}((p=t.createElement("script")).type="text/javascript"),(p.crossOrigin="anonymous"),(p.async=!0),(p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js"),(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?(u=e[a]=[]):a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])}),(e.__SV=1))})(document,window.posthog||[]);
+            posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE",{api_host:"https://us.i.posthog.com",person_profiles:"identified_only"});
+        </script>
+        
+        <!-- Remove loading screen when app loads -->
         <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    var loader = document.getElementById('loading-screen');
+                    if (loader) loader.classList.add('loaded');
+                }, 100);
             });
         </script>
     </body>
