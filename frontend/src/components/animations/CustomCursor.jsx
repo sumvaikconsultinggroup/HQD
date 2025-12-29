@@ -1,10 +1,11 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, memo } from 'react';
 
-export function CustomCursor() {
+export const CustomCursor = memo(function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [cursorText, setCursorText] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
   
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -13,10 +14,23 @@ export function CustomCursor() {
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
   
+  // Check for touch device and reduced motion
+  const [shouldRender, setShouldRender] = useState(false);
+  
   useEffect(() => {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setShouldRender(!isTouchDevice && !prefersReducedMotion);
+  }, []);
+
+  useEffect(() => {
+    if (!shouldRender) return;
+    
+    // Use passive listeners for better scroll performance
     const moveCursor = (e) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
+      if (!isVisible) setIsVisible(true);
     };
     
     const handleMouseDown = () => setIsClicking(true);
@@ -39,11 +53,11 @@ export function CustomCursor() {
       }
     };
     
-    window.addEventListener('mousemove', moveCursor);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
-    window.addEventListener('mouseover', handleMouseOver);
-    window.addEventListener('mouseout', handleMouseOut);
+    window.addEventListener('mousemove', moveCursor, { passive: true });
+    window.addEventListener('mousedown', handleMouseDown, { passive: true });
+    window.addEventListener('mouseup', handleMouseUp, { passive: true });
+    window.addEventListener('mouseover', handleMouseOver, { passive: true });
+    window.addEventListener('mouseout', handleMouseOut, { passive: true });
     
     return () => {
       window.removeEventListener('mousemove', moveCursor);
