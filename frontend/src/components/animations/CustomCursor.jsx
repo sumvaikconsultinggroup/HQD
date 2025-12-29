@@ -66,21 +66,16 @@ export const CustomCursor = memo(function CustomCursor() {
       window.removeEventListener('mouseover', handleMouseOver);
       window.removeEventListener('mouseout', handleMouseOut);
     };
-  }, [cursorX, cursorY]);
+  }, [shouldRender, cursorX, cursorY, isVisible]);
   
-  // Hide on mobile/touch devices
-  const [isTouchDevice, setIsTouchDevice] = useState(true);
-  useEffect(() => {
-    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
-  }, []);
-  
-  if (isTouchDevice) return null;
+  // Don't render on touch devices or if reduced motion is preferred
+  if (!shouldRender || !isVisible) return null;
   
   return (
     <>
-      {/* Outer ring */}
+      {/* Outer ring - uses will-change for GPU acceleration */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[10000] mix-blend-difference"
+        className="fixed top-0 left-0 pointer-events-none z-[10000] mix-blend-difference will-change-transform"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -89,7 +84,7 @@ export const CustomCursor = memo(function CustomCursor() {
         }}
       >
         <motion.div
-          className="flex items-center justify-center rounded-full border border-white"
+          className="flex items-center justify-center rounded-full border border-white will-change-transform"
           animate={{
             width: isHovering ? 32 : 16,
             height: isHovering ? 32 : 16,
@@ -107,7 +102,7 @@ export const CustomCursor = memo(function CustomCursor() {
       
       {/* Inner dot */}
       <motion.div
-        className="fixed top-0 left-0 w-1 h-1 bg-white rounded-full pointer-events-none z-[10001] mix-blend-difference"
+        className="fixed top-0 left-0 w-1 h-1 bg-white rounded-full pointer-events-none z-[10001] mix-blend-difference will-change-transform"
         style={{
           x: cursorX,
           y: cursorY,
