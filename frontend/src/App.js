@@ -14,6 +14,7 @@ import { ScrollProgress, GrainOverlay, CustomCursor } from "@/components/animati
 import Home from "@/pages/Home";
 import Services from "@/pages/Services";
 import BarSetups from "@/pages/BarSetups";
+import BarSetupDetail from "@/pages/BarSetupDetail";
 import MolecularMixology from "@/pages/MolecularMixology";
 import Menus from "@/pages/Menus";
 import Packages from "@/pages/Packages";
