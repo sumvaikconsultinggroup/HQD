@@ -1,0 +1,46 @@
+[
+  {
+    "content": "Phase 1: Core POC - Email + Lead Capture Integration",
+    "status": "in_progress"
+  },
+  {
+    "content": "Phase 1: Install Resend and create email service",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: Create /api/leads endpoint with DB save + email send",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: Write and run test_core.py - verify email+DB works",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 1: POC Testing with testing agent",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 2: Call design_agent for UI guidelines",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 2: Backend - Complete API endpoints (setups, menus, gallery, testimonials)",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 2: Frontend - Full website with all pages and components",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 2: Interactive Features - Hashtag Generator + Drink Generator",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 2: All user stories covered in Development and testing",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 2: End to End Testing using Testing Agent",
+    "status": "pending"
+  }
+]
