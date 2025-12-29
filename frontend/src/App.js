@@ -1,31 +1,32 @@
 import "@/App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy, memo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-// Layout
+// Layout Components (loaded immediately - critical for FCP)
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { StickyCTA } from "@/components/StickyCTA";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollProgress, GrainOverlay, CustomCursor } from "@/components/animations";
 
-// Pages
-import Home from "@/pages/Home";
-import Services from "@/pages/Services";
-import BarSetups from "@/pages/BarSetups";
-import BarSetupDetail from "@/pages/BarSetupDetail";
-import MolecularMixology from "@/pages/MolecularMixology";
-import Menus from "@/pages/Menus";
-import Packages from "@/pages/Packages";
-import Gallery from "@/pages/Gallery";
-import Reviews from "@/pages/Reviews";
-import About from "@/pages/About";
-import FAQs from "@/pages/FAQs";
-import Contact from "@/pages/Contact";
-import HashtagGenerator from "@/pages/tools/HashtagGenerator";
-import DrinkGenerator from "@/pages/tools/DrinkGenerator";
+// Lazy load all pages for code splitting
+const Home = lazy(() => import("@/pages/Home"));
+const Services = lazy(() => import("@/pages/Services"));
+const BarSetups = lazy(() => import("@/pages/BarSetups"));
+const BarSetupDetail = lazy(() => import("@/pages/BarSetupDetail"));
+const MolecularMixology = lazy(() => import("@/pages/MolecularMixology"));
+const Menus = lazy(() => import("@/pages/Menus"));
+const Packages = lazy(() => import("@/pages/Packages"));
+const Gallery = lazy(() => import("@/pages/Gallery"));
+const Reviews = lazy(() => import("@/pages/Reviews"));
+const About = lazy(() => import("@/pages/About"));
+const FAQs = lazy(() => import("@/pages/FAQs"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const HashtagGenerator = lazy(() => import("@/pages/tools/HashtagGenerator"));
+const DrinkGenerator = lazy(() => import("@/pages/tools/DrinkGenerator"));
 
+// Scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -34,21 +35,24 @@ function ScrollToTop() {
   return null;
 }
 
-// Page transition wrapper
-function PageTransition({ children }) {
+// Loading skeleton for lazy pages
+const PageLoader = memo(function PageLoader() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
-    >
-      {children}
-    </motion.div>
+    <div className="min-h-screen flex items-center justify-center bg-[hsl(0_0%_2%)]">
+      <div className="text-center">
+        <motion.div
+          className="w-12 h-12 border-3 border-[hsl(43_74%_49%)] border-t-transparent rounded-full mx-auto mb-4"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+        />
+        <p className="text-[hsl(40_20%_65%)] text-sm">Loading...</p>
+      </div>
+    </div>
   );
-}
+});
 
-function Layout({ children }) {
+// Memoized Layout component
+const Layout = memo(function Layout({ children }) {
   return (
     <div className="min-h-screen bg-noir">
       <ScrollProgress />
@@ -60,29 +64,31 @@ function Layout({ children }) {
       <StickyCTA />
     </div>
   );
-}
+});
 
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/bar-setups" element={<BarSetups />} />
-          <Route path="/bar-setups/:slug" element={<BarSetupDetail />} />
-          <Route path="/molecular" element={<MolecularMixology />} />
-          <Route path="/menus" element={<Menus />} />
-          <Route path="/packages" element={<Packages />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/faqs" element={<FAQs />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/tools/hashtag-generator" element={<HashtagGenerator />} />
-          <Route path="/tools/drink-generator" element={<DrinkGenerator />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/bar-setups" element={<BarSetups />} />
+            <Route path="/bar-setups/:slug" element={<BarSetupDetail />} />
+            <Route path="/molecular" element={<MolecularMixology />} />
+            <Route path="/menus" element={<Menus />} />
+            <Route path="/packages" element={<Packages />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/faqs" element={<FAQs />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/tools/hashtag-generator" element={<HashtagGenerator />} />
+            <Route path="/tools/drink-generator" element={<DrinkGenerator />} />
+          </Routes>
+        </Suspense>
       </Layout>
       <Toaster />
     </BrowserRouter>
