@@ -6,6 +6,7 @@ export const CustomCursor = memo(function CustomCursor() {
   const [isClicking, setIsClicking] = useState(false);
   const [cursorText, setCursorText] = useState('');
   const [isVisible, setIsVisible] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
   
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -15,8 +16,6 @@ export const CustomCursor = memo(function CustomCursor() {
   const cursorYSpring = useSpring(cursorY, springConfig);
   
   // Check for touch device and reduced motion
-  const [shouldRender, setShouldRender] = useState(false);
-  
   useEffect(() => {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -26,7 +25,6 @@ export const CustomCursor = memo(function CustomCursor() {
   useEffect(() => {
     if (!shouldRender) return;
     
-    // Use passive listeners for better scroll performance
     const moveCursor = (e) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -73,7 +71,7 @@ export const CustomCursor = memo(function CustomCursor() {
   
   return (
     <>
-      {/* Outer ring - uses will-change for GPU acceleration */}
+      {/* Outer ring */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none z-[10000] mix-blend-difference will-change-transform"
         style={{
@@ -116,4 +114,4 @@ export const CustomCursor = memo(function CustomCursor() {
       />
     </>
   );
-}
+});
