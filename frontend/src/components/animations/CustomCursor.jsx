@@ -77,14 +77,14 @@ export function CustomCursor() {
         <motion.div
           className="flex items-center justify-center rounded-full border border-white"
           animate={{
-            width: isHovering ? 80 : 40,
-            height: isHovering ? 80 : 40,
+            width: isHovering ? 32 : 16,
+            height: isHovering ? 32 : 16,
             scale: isClicking ? 0.8 : 1
           }}
           transition={{ type: 'spring', damping: 25, stiffness: 400 }}
         >
           {cursorText && (
-            <span className="text-white text-[10px] font-medium uppercase tracking-wider">
+            <span className="text-white text-[8px] font-medium uppercase tracking-wider">
               {cursorText}
             </span>
           )}
