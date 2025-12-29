@@ -1,0 +1,9 @@
+# robots.txt for HQ.D Website
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://headquartersofdrinks.com/sitemap.xml
+
+# Disallow admin/private areas (if any)
+Disallow: /api/
