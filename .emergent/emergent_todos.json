@@ -1,30 +1,26 @@
 [
   {
-    "content": "Phase 1: Core POC - Email + Lead Capture Integration (SKIPPED - Using placeholder mode)",
+    "content": "Phase 2: Core build completed",
     "status": "completed"
   },
   {
-    "content": "Phase 2: Call design_agent for UI guidelines",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 2: Backend - Complete API endpoints (leads, setups, menus, gallery, testimonials)",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 2: Frontend - Full website with all pages and components",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 2: Interactive Features - Hashtag Generator + Drink Generator",
-    "status": "completed"
-  },
-  {
-    "content": "Phase 2: All user stories covered in Development and testing",
+    "content": "Phase 3: Major UI Redesign - Minimal aesthetic, better fonts, proper animations",
     "status": "in_progress"
   },
   {
-    "content": "Phase 2: End to End Testing using Testing Agent",
-    "status": "in_progress"
+    "content": "Phase 3: Fix video placement - ONLY on homepage above footer",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 3: Add Framer Motion animations throughout",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 3: Make Hashtag & Drink Generator tools visible/accessible",
+    "status": "pending"
+  },
+  {
+    "content": "Phase 3: End to End Testing",
+    "status": "pending"
   }
 ]
