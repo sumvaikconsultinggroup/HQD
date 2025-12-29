@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Sparkles, Users, Clock, Wine } from 'lucide-react';
-import { AutoPlayVideo } from '@/components/AutoPlayVideo';
+import { ArrowRight, Star, Sparkles, Hash, Wine, Play } from 'lucide-react';
+import { VideoReel } from '@/components/VideoReel';
 import { VIDEOS, BRAND } from '@/lib/constants';
 import { getSetups, getTestimonials, getFAQs } from '@/lib/api';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.2, 0.8, 0.2, 1] } }
+// Animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } }
 };
 
 const stagger = {
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } }
+  visible: { transition: { staggerChildren: 0.15 } }
 };
 
 export default function Home() {
@@ -29,11 +30,11 @@ export default function Home() {
           getTestimonials({ featured: true }),
           getFAQs()
         ]);
-        setSetups(setupsData.slice(0, 6));
-        setTestimonials(testimonialsData.slice(0, 4));
-        setFaqs(faqsData.slice(0, 5));
+        setSetups(setupsData.slice(0, 3));
+        setTestimonials(testimonialsData.slice(0, 3));
+        setFaqs(faqsData.slice(0, 4));
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error:', error);
       }
     };
     fetchData();
@@ -41,344 +42,241 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative hero-noir noir-noise">
-        <div className="container-hqd min-h-[85vh] py-12 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Copy */}
-            <motion.div 
-              initial="hidden"
-              animate="show"
-              variants={stagger}
-              className="space-y-6 lg:space-y-8 order-2 lg:order-1"
-            >
-              <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[hsl(46_64%_52%)]/30 bg-white/5">
-                <Sparkles className="h-4 w-4 text-[hsl(46_64%_52%)]" />
-                <span className="text-sm text-[hsl(35_33%_97%)]">{BRAND.tagline}</span>
-              </motion.div>
-              
-              <motion.h1 
-                variants={fadeIn}
-                className="text-h1 text-[hsl(35_33%_97%)]"
-              >
-                Cinematic Bars.
-                <br />
-                <span className="text-[hsl(46_64%_52%)]">Editorial Drinks.</span>
-              </motion.h1>
-              
-              <motion.p 
-                variants={fadeIn}
-                className="text-base lg:text-lg text-[hsl(35_33%_97%)]/80 max-w-xl leading-relaxed"
-              >
-                Premium cocktail & mocktail bar setups for weddings, corporate events, and private parties. 
-                Molecular mixology included.
-              </motion.p>
-              
-              <motion.div variants={fadeIn} className="flex flex-wrap gap-4">
-                <Link
-                  to="/contact"
-                  data-testid="primary-cta-button"
-                  className="inline-flex items-center gap-2 rounded-[12px] bg-[hsl(46_64%_52%)] text-[hsl(228_13%_4%)] px-6 h-12 font-medium hover:bg-[hsl(46_64%_45%)] transition-colors btn-gold-glow"
-                >
-                  Get a Quote
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  to="/bar-setups"
-                  data-testid="secondary-cta-button"
-                  className="inline-flex items-center gap-2 rounded-[12px] border border-[hsl(46_64%_52%)] text-[hsl(35_33%_97%)] px-6 h-12 font-medium hover:bg-white/5 transition-colors"
-                >
-                  Explore Setups
-                </Link>
-              </motion.div>
+      {/* Hero Section - Minimal */}
+      <section className="min-h-[90vh] flex items-center pt-20">
+        <div className="container-wide">
+          <motion.div 
+            initial="hidden" 
+            animate="visible" 
+            variants={stagger}
+            className="max-w-4xl"
+          >
+            <motion.p variants={fadeUp} className="label-gold mb-6">
+              Luxury Bar Experiences
+            </motion.p>
+            
+            <motion.h1 variants={fadeUp} className="heading-xl text-[hsl(40_33%_95%)] mb-8">
+              Crafting unforgettable
+              <br />
+              <span className="text-gold">moments in every glass</span>
+            </motion.h1>
+            
+            <motion.p variants={fadeUp} className="body-lg max-w-2xl mb-10">
+              Premium cocktail & mocktail bar setups for weddings, corporate events, 
+              and private celebrations. Molecular mixology included.
+            </motion.p>
+            
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+              <Link to="/contact" className="btn-primary" data-testid="hero-cta-quote">
+                Get a Quote
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/bar-setups" className="btn-outline" data-testid="hero-cta-setups">
+                Explore Setups
+              </Link>
+            </motion.div>
 
-              {/* Trust Strip */}
-              <motion.div variants={fadeIn} className="flex flex-wrap items-center gap-6 pt-4">
-                <div className="flex items-center gap-1">
+            {/* Trust Indicators */}
+            <motion.div variants={fadeUp} className="flex items-center gap-8 mt-16 pt-16 border-t border-white/5">
+              <div>
+                <div className="flex items-center gap-1 mb-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-[hsl(46_64%_52%)] text-[hsl(46_64%_52%)]" />
+                    <Star key={i} className="h-4 w-4 fill-[hsl(43_74%_49%)] text-[hsl(43_74%_49%)]" />
                   ))}
-                  <span className="ml-2 text-sm text-[hsl(35_33%_97%)]/70">500+ Events</span>
                 </div>
-                <div className="hidden sm:flex items-center gap-2">
-                  <span className="h-1 w-1 rounded-full bg-[hsl(46_64%_52%)]" />
-                  <span className="text-sm text-[hsl(35_33%_97%)]/70">Weddings</span>
-                  <span className="h-1 w-1 rounded-full bg-[hsl(46_64%_52%)]" />
-                  <span className="text-sm text-[hsl(35_33%_97%)]/70">Corporate</span>
-                  <span className="h-1 w-1 rounded-full bg-[hsl(46_64%_52%)]" />
-                  <span className="text-sm text-[hsl(35_33%_97%)]/70">Private</span>
-                </div>
-              </motion.div>
+                <p className="text-xs text-[hsl(40_20%_65%)]">500+ Events Served</p>
+              </div>
+              <div className="h-8 w-px bg-white/10" />
+              <div className="flex items-center gap-6 text-sm text-[hsl(40_20%_65%)]">
+                <span>Weddings</span>
+                <span>Corporate</span>
+                <span>Private</span>
+              </div>
             </motion.div>
-
-            {/* Video Grid */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="reel-grid order-1 lg:order-2"
-            >
-              {VIDEOS.slice(0, 4).map((video, index) => (
-                <AutoPlayVideo
-                  key={index}
-                  src={video}
-                  testid={`hero-reel-${index + 1}`}
-                  className={index % 2 === 1 ? 'mt-8' : ''}
-                />
-              ))}
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Molecular Mixology Strip */}
-      <section className="bg-[hsl(226_10%_6%)] border-y border-[hsl(46_64%_52%)]/10">
-        <div className="container-hqd py-12 lg:py-16">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <span className="text-sm text-[hsl(46_64%_52%)] tracking-wider uppercase">Signature Experience</span>
-              <h2 className="text-h2 text-[hsl(35_33%_97%)]">Molecular Mixology</h2>
-              <p className="text-[hsl(35_33%_97%)]/70 leading-relaxed">
-                Transform your event with smoke bubbles, aromatic mists, champagne foams, and more. 
-                Our molecular techniques create unforgettable moments, not just drinks.
-              </p>
-              <Link
-                to="/molecular"
-                className="inline-flex items-center gap-2 text-[hsl(46_64%_52%)] hover:underline"
+      {/* Services Strip */}
+      <section className="section-spacing bg-elevated border-y border-white/5">
+        <div className="container-wide">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-16">
+            {[
+              { title: 'Molecular Mixology', desc: 'Smoke bubbles, aromatic mists, champagne foams', link: '/services' },
+              { title: 'Custom Menus', desc: 'Signature cocktails crafted for your event', link: '/menus' },
+              { title: 'Full Service', desc: 'Setup, service, and complete cleanup', link: '/packages' },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
               >
-                Learn More <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-3 gap-4">
-              {['Smoke Bubbles', 'Aromatic Mists', 'Champagne Foam'].map((technique, i) => (
-                <div key={i} className="text-center p-4 rounded-lg bg-[hsl(228_10%_10%)] border border-white/5">
-                  <Sparkles className="h-8 w-8 text-[hsl(46_64%_52%)] mx-auto mb-3" />
-                  <span className="text-sm text-[hsl(35_33%_97%)]">{technique}</span>
-                </div>
-              ))}
-            </div>
+                <Link to={item.link} className="block group">
+                  <h3 className="heading-sm text-[hsl(40_33%_95%)] mb-2 group-hover:text-gold transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="body-sm">{item.desc}</p>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Bar Setups Preview */}
-      <section className="section-y">
-        <div className="container-hqd">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+      <section className="section-spacing">
+        <div className="container-wide">
+          <div className="flex items-end justify-between mb-12">
             <div>
-              <span className="text-sm text-[hsl(46_64%_52%)] tracking-wider uppercase">Our Setups</span>
-              <h2 className="text-h2 text-[hsl(35_33%_97%)] mt-2">Bar Setups for Every Moment</h2>
+              <p className="label-gold mb-3">Our Setups</p>
+              <h2 className="heading-lg text-[hsl(40_33%_95%)]">For every moment</h2>
             </div>
-            <Link
-              to="/bar-setups"
-              className="inline-flex items-center gap-2 text-[hsl(46_64%_52%)] hover:underline"
-            >
-              View All Setups <ArrowRight className="h-4 w-4" />
+            <Link to="/bar-setups" className="btn-ghost text-sm hidden sm:inline-flex">
+              View All <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {setups.map((setup) => (
+          <div className="grid-3">
+            {setups.map((setup, i) => (
               <motion.div
                 key={setup.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="card-dark overflow-hidden card-hover"
+                transition={{ delay: i * 0.1 }}
+                className="card-minimal overflow-hidden hover-lift"
               >
-                {setup.video_url ? (
-                  <AutoPlayVideo
-                    src={setup.video_url}
-                    className="w-full"
-                    aspectRatio="4/3"
-                    testid={`setup-video-${setup.id}`}
-                  />
-                ) : (
+                <div className="aspect-[4/3] bg-[hsl(0_0%_10%)] overflow-hidden">
                   <img 
                     src={setup.image_url} 
                     alt={setup.title}
-                    className="w-full aspect-[4/3] object-cover"
+                    className="w-full h-full object-cover"
                   />
-                )}
-                <div className="p-5">
-                  <h3 className="font-display text-xl text-[hsl(35_33%_97%)] mb-2">{setup.title}</h3>
-                  <p className="text-sm text-[hsl(42_15%_70%)] mb-3">Best for {setup.best_for}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {setup.menu_highlights.slice(0, 2).map((drink, i) => (
-                      <span key={i} className="text-xs px-2 py-1 rounded-full bg-white/5 text-[hsl(35_33%_97%)]">
-                        {drink}
-                      </span>
-                    ))}
+                </div>
+                <div className="p-6">
+                  <h3 className="heading-sm text-[hsl(40_33%_95%)] mb-2">{setup.title}</h3>
+                  <p className="body-sm mb-4">Best for {setup.best_for}</p>
+                  <div className="flex flex-wrap gap-2">
                     {setup.molecular_tag && (
-                      <span className="text-xs px-2 py-1 rounded-full bg-[hsl(46_64%_52%)]/10 text-[hsl(46_64%_52%)]">
+                      <span className="text-xs px-2.5 py-1 rounded-full bg-[hsl(43_74%_49%/0.1)] text-gold">
                         {setup.molecular_tag}
                       </span>
                     )}
                   </div>
-                  <Link
-                    to={`/contact?setup=${setup.slug}`}
-                    className="inline-flex items-center gap-2 text-sm text-[hsl(46_64%_52%)] hover:underline"
-                  >
-                    Get this setup <ArrowRight className="h-3 w-3" />
-                  </Link>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          <Link to="/bar-setups" className="btn-outline mt-8 sm:hidden w-full justify-center">
+            View All Setups <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
-      {/* Packages Preview */}
-      <section className="pearl-section section-y">
-        <div className="container-hqd">
+      {/* Interactive Tools Section */}
+      <section className="section-spacing bg-pearl">
+        <div className="container-wide">
           <div className="text-center mb-12">
-            <span className="text-sm text-[hsl(46_64%_52%)] tracking-wider uppercase">Packages</span>
-            <h2 className="text-h2 text-[hsl(228_13%_4%)] mt-2">Tailored to Your Event</h2>
-            <p className="text-[hsl(228_13%_4%)]/70 mt-3 max-w-2xl mx-auto">
-              Every event is unique. We offer custom quotes based on your specific requirements.
-            </p>
+            <p className="label-gold mb-3">Free Tools</p>
+            <h2 className="heading-lg text-[hsl(0_0%_10%)]">Plan your celebration</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[{
-              name: 'Essential',
-              icon: Wine,
-              desc: 'Intimate gatherings up to 100 guests',
-              features: ['2 Bartenders', '8 Drink Menu', '4-Hour Service']
-            }, {
-              name: 'Signature',
-              icon: Star,
-              desc: 'Medium events 100-250 guests',
-              features: ['3-4 Bartenders', '12 Drink Menu', 'Molecular Elements'],
-              popular: true
-            }, {
-              name: 'Luxe',
-              icon: Sparkles,
-              desc: 'Grand celebrations 250-400 guests',
-              features: ['4-6 Bartenders', '16+ Drinks', 'Full Molecular']
-            }, {
-              name: 'Ultra',
-              icon: Users,
-              desc: 'Bespoke luxury 400+ guests',
-              features: ['Unlimited Staff', 'Custom Everything', 'White Glove']
-            }].map((pkg, i) => (
-              <div key={i} className={`rounded-2xl p-6 ${pkg.popular ? 'bg-[hsl(228_13%_4%)] text-[hsl(35_33%_97%)] ring-2 ring-[hsl(46_64%_52%)]' : 'bg-white border border-[hsl(228_13%_4%)]/10'}`}>
-                {pkg.popular && (
-                  <span className="inline-block text-xs px-3 py-1 rounded-full bg-[hsl(46_64%_52%)] text-[hsl(228_13%_4%)] mb-4">Most Popular</span>
-                )}
-                <pkg.icon className={`h-8 w-8 mb-4 ${pkg.popular ? 'text-[hsl(46_64%_52%)]' : 'text-[hsl(228_13%_4%)]'}`} />
-                <h3 className="font-display text-xl mb-2">{pkg.name}</h3>
-                <p className={`text-sm mb-4 ${pkg.popular ? 'text-[hsl(35_33%_97%)]/70' : 'text-[hsl(228_13%_4%)]/70'}`}>{pkg.desc}</p>
-                <ul className="space-y-2 mb-6">
-                  {pkg.features.map((f, j) => (
-                    <li key={j} className={`text-sm flex items-center gap-2 ${pkg.popular ? 'text-[hsl(35_33%_97%)]/80' : 'text-[hsl(228_13%_4%)]/80'}`}>
-                      <span className="h-1.5 w-1.5 rounded-full bg-[hsl(46_64%_52%)]" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link
-              to="/packages"
-              className="inline-flex items-center gap-2 rounded-[12px] bg-[hsl(228_13%_4%)] text-[hsl(35_33%_97%)] px-6 h-12 font-medium hover:bg-[hsl(228_13%_10%)] transition-colors"
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <Link 
+              to="/tools/hashtag-generator" 
+              className="group p-8 rounded-2xl border border-[hsl(0_0%_85%)] bg-white hover:border-[hsl(43_74%_49%)] transition-all hover-lift"
+              data-testid="home-hashtag-tool"
             >
-              View All Packages <ArrowRight className="h-4 w-4" />
+              <Hash className="h-10 w-10 text-[hsl(43_74%_49%)] mb-4" />
+              <h3 className="heading-sm text-[hsl(0_0%_10%)] mb-2">Wedding Hashtag Generator</h3>
+              <p className="text-sm text-[hsl(0_0%_40%)] mb-4">
+                Create the perfect hashtag for your special day. Enter your names and get creative suggestions.
+              </p>
+              <span className="text-sm font-medium text-[hsl(43_74%_49%)] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                Try it free <ArrowRight className="h-4 w-4" />
+              </span>
             </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* Process Section */}
-      <section className="section-y">
-        <div className="container-hqd">
-          <div className="text-center mb-12">
-            <span className="text-sm text-[hsl(46_64%_52%)] tracking-wider uppercase">How We Work</span>
-            <h2 className="text-h2 text-[hsl(35_33%_97%)] mt-2">Seamless from Start to Finish</h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {[
-              { step: '01', title: 'Inquiry', desc: 'Share your event details' },
-              { step: '02', title: 'Curation', desc: 'We craft your custom menu' },
-              { step: '03', title: 'Setup', desc: 'Premium bar installation' },
-              { step: '04', title: 'Service', desc: 'Expert bartending' },
-              { step: '05', title: 'Cleanup', desc: 'Complete pack-down' },
-            ].map((item, i) => (
-              <div key={i} className="text-center">
-                <span className="font-display text-4xl text-[hsl(46_64%_52%)]">{item.step}</span>
-                <h3 className="font-display text-lg text-[hsl(35_33%_97%)] mt-3 mb-2">{item.title}</h3>
-                <p className="text-sm text-[hsl(42_15%_70%)]">{item.desc}</p>
-              </div>
-            ))}
+            <Link 
+              to="/tools/drink-generator" 
+              className="group p-8 rounded-2xl border border-[hsl(0_0%_85%)] bg-white hover:border-[hsl(43_74%_49%)] transition-all hover-lift"
+              data-testid="home-drink-tool"
+            >
+              <Wine className="h-10 w-10 text-[hsl(43_74%_49%)] mb-4" />
+              <h3 className="heading-sm text-[hsl(0_0%_10%)] mb-2">Signature Drink Generator</h3>
+              <p className="text-sm text-[hsl(0_0%_40%)] mb-4">
+                Discover your perfect signature cocktail or mocktail through our interactive quiz.
+              </p>
+              <span className="text-sm font-medium text-[hsl(43_74%_49%)] inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                Try it free <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="bg-[hsl(226_10%_6%)] section-y border-y border-[hsl(46_64%_52%)]/10">
-        <div className="container-hqd">
+      <section className="section-spacing">
+        <div className="container-wide">
           <div className="text-center mb-12">
-            <span className="text-sm text-[hsl(46_64%_52%)] tracking-wider uppercase">Testimonials</span>
-            <h2 className="text-h2 text-[hsl(35_33%_97%)] mt-2">What Our Clients Say</h2>
+            <p className="label-gold mb-3">Testimonials</p>
+            <h2 className="heading-lg text-[hsl(40_33%_95%)]">What our clients say</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {testimonials.map((t) => (
-              <div key={t.id} className="card-dark p-6 lg:p-8">
+          <div className="grid-3">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={t.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="card-minimal p-8"
+              >
                 <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-[hsl(46_64%_52%)] text-[hsl(46_64%_52%)]" />
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} className="h-4 w-4 fill-[hsl(43_74%_49%)] text-[hsl(43_74%_49%)]" />
                   ))}
                 </div>
-                <p className="text-[hsl(35_33%_97%)]/90 leading-relaxed mb-6">"{t.quote}"</p>
+                <p className="body-md text-[hsl(40_33%_95%)] mb-6">"{t.quote}"</p>
                 <div>
-                  <p className="font-display text-lg text-[hsl(35_33%_97%)]">{t.name}</p>
-                  <p className="text-sm text-[hsl(42_15%_70%)]">{t.event_type} • {t.location}</p>
+                  <p className="font-medium text-[hsl(40_33%_95%)]">{t.name}</p>
+                  <p className="body-sm">{t.event_type} • {t.location}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
 
           <div className="text-center mt-10">
-            <Link
-              to="/reviews"
-              className="inline-flex items-center gap-2 text-[hsl(46_64%_52%)] hover:underline"
-            >
-              Read More Reviews <ArrowRight className="h-4 w-4" />
+            <Link to="/reviews" className="btn-ghost text-sm">
+              Read more reviews <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
       {/* FAQs */}
-      <section className="section-y">
-        <div className="container-hqd max-w-3xl">
+      <section className="section-spacing bg-elevated border-y border-white/5">
+        <div className="container-narrow">
           <div className="text-center mb-12">
-            <span className="text-sm text-[hsl(46_64%_52%)] tracking-wider uppercase">FAQs</span>
-            <h2 className="text-h2 text-[hsl(35_33%_97%)] mt-2">Common Questions</h2>
+            <p className="label-gold mb-3">FAQs</p>
+            <h2 className="heading-lg text-[hsl(40_33%_95%)]">Common questions</h2>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3">
             {faqs.map((faq) => (
               <AccordionItem 
                 key={faq.id} 
                 value={faq.id}
-                className="border border-white/10 rounded-lg px-6 data-[state=open]:border-[hsl(46_64%_52%)]/25"
+                className="border border-white/10 rounded-xl px-6 data-[state=open]:border-[hsl(43_74%_49%/0.3)] transition-colors"
               >
-                <AccordionTrigger 
-                  data-testid="faq-question"
-                  className="text-left text-[hsl(35_33%_97%)] hover:text-[hsl(46_64%_52%)] py-5"
-                >
+                <AccordionTrigger className="text-left text-[hsl(40_33%_95%)] hover:text-gold py-5 text-base">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent 
-                  data-testid="faq-answer"
-                  className="text-[hsl(42_15%_70%)] pb-5"
-                >
+                <AccordionContent className="body-md pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -386,37 +284,50 @@ export default function Home() {
           </Accordion>
 
           <div className="text-center mt-8">
-            <Link
-              to="/faqs"
-              className="inline-flex items-center gap-2 text-[hsl(46_64%_52%)] hover:underline"
-            >
-              View All FAQs <ArrowRight className="h-4 w-4" />
+            <Link to="/faqs" className="btn-ghost text-sm">
+              View all FAQs <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="pearl-section section-y">
-        <div className="container-hqd text-center">
-          <h2 className="text-h2 text-[hsl(228_13%_4%)] mb-4">Ready to Elevate Your Event?</h2>
-          <p className="text-[hsl(228_13%_4%)]/70 mb-8 max-w-xl mx-auto">
-            Let's create an unforgettable bar experience for your guests. Get a custom quote in 24 hours.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-[12px] bg-[hsl(228_13%_4%)] text-[hsl(35_33%_97%)] px-8 h-12 font-medium hover:bg-[hsl(228_13%_10%)] transition-colors"
-            >
-              Get a Quote <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/tools/hashtag-generator"
-              className="inline-flex items-center gap-2 rounded-[12px] border border-[hsl(228_13%_4%)] text-[hsl(228_13%_4%)] px-8 h-12 font-medium hover:bg-[hsl(228_13%_4%)]/5 transition-colors"
-            >
-              Try Hashtag Generator
-            </Link>
+      {/* Video Reels Section - ONLY VIDEOS ON THIS PAGE */}
+      <section className="section-spacing">
+        <div className="container-wide">
+          <div className="text-center mb-12">
+            <p className="label-gold mb-3">Our Work</p>
+            <h2 className="heading-lg text-[hsl(40_33%_95%)]">See us in action</h2>
           </div>
+
+          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+            {VIDEOS.map((video, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="flex-shrink-0 w-[200px] md:w-[240px] snap-start"
+              >
+                <VideoReel src={video} className="rounded-2xl" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="section-spacing bg-pearl">
+        <div className="container-narrow text-center">
+          <h2 className="heading-lg text-[hsl(0_0%_10%)] mb-4">
+            Ready to elevate your event?
+          </h2>
+          <p className="body-lg text-[hsl(0_0%_40%)] mb-8 max-w-xl mx-auto">
+            Let's create an unforgettable bar experience. Get a custom quote within 24 hours.
+          </p>
+          <Link to="/contact" className="btn-primary bg-[hsl(0_0%_10%)] hover:bg-[hsl(0_0%_20%)]">
+            Get a Quote <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
     </div>
