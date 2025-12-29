@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { Menu, X, MessageCircle, ArrowRight } from 'lucide-react';
+import { Menu, X, MessageCircle, ArrowRight, Atom } from 'lucide-react';
 import { BRAND, getWhatsAppLink } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
 const navItems = [
   { label: 'Services', href: '/services' },
   { label: 'Bar Setups', href: '/bar-setups' },
+  { label: 'Molecular Mixology', href: '/molecular', special: true },
   { label: 'Menus', href: '/menus' },
   { label: 'Packages', href: '/packages' },
   { label: 'Gallery', href: '/gallery' },
