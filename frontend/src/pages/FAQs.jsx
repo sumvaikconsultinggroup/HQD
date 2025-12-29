@@ -9,8 +9,7 @@ import { Input } from '@/components/ui/input';
 export default function FAQs() {
   const [faqs, setFaqs] = useState([]);
   const [filteredFaqs, setFilteredFaqs] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState('all');
+  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,7 +19,7 @@ export default function FAQs() {
         setFaqs(data);
         setFilteredFaqs(data);
       } catch (error) {
-        console.error('Error fetching FAQs:', error);
+        console.error('Error:', error);
       } finally {
         setLoading(false);
       }
@@ -29,127 +28,76 @@ export default function FAQs() {
   }, []);
 
   useEffect(() => {
-    let filtered = [...faqs];
-    
-    if (categoryFilter !== 'all') {
-      filtered = filtered.filter(f => f.category === categoryFilter);
+    if (!search) {
+      setFilteredFaqs(faqs);
+    } else {
+      const q = search.toLowerCase();
+      setFilteredFaqs(faqs.filter(f => 
+        f.question.toLowerCase().includes(q) || f.answer.toLowerCase().includes(q)
+      ));
     }
-    
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(f => 
-        f.question.toLowerCase().includes(query) ||
-        f.answer.toLowerCase().includes(query)
-      );
-    }
-    
-    setFilteredFaqs(filtered);
-  }, [categoryFilter, searchQuery, faqs]);
-
-  const categories = [
-    { value: 'all', label: 'All Questions' },
-    { value: 'booking', label: 'Booking' },
-    { value: 'service', label: 'Service' },
-    { value: 'logistics', label: 'Logistics' },
-  ];
+  }, [search, faqs]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section className="hero-noir noir-noise relative">
-        <div className="container-hqd py-16 lg:py-20">
-          <div className="max-w-3xl">
-            <span className="text-sm text-[hsl(46_64%_52%)] tracking-wider uppercase">FAQs</span>
-            <h1 className="text-h1 text-[hsl(35_33%_97%)] mt-4">
-              Frequently Asked
-              <br />
-              <span className="text-[hsl(46_64%_52%)]">Questions</span>
+      <section className="section-spacing pb-12">
+        <div className="container-narrow">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center"
+          >
+            <p className="label-gold mb-4">FAQs</p>
+            <h1 className="heading-xl text-[hsl(40_33%_95%)] mb-6">
+              Frequently asked
+              <br /><span className="text-gold">questions</span>
             </h1>
-            <p className="text-lg text-[hsl(35_33%_97%)]/80 mt-6">
-              Everything you need to know about working with HQ.D.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Search & Filters */}
-      <section className="border-b border-white/10 py-6 sticky top-16 lg:top-20 z-30 bg-[hsl(228_13%_4%)]/95 backdrop-blur">
-        <div className="container-hqd">
-          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-            <div className="relative w-full sm:w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[hsl(42_15%_70%)]" />
+            <div className="relative max-w-md mx-auto mt-8">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-[hsl(40_20%_65%)]" />
               <Input
                 placeholder="Search questions..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 bg-transparent border-white/10 focus-visible:ring-[hsl(46_64%_52%)]"
-                data-testid="faq-search-input"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="pl-11 bg-transparent border-white/10 focus-visible:ring-gold h-12 rounded-full"
               />
             </div>
-            
-            <div className="flex gap-2">
-              {categories.map((cat) => (
-                <button
-                  key={cat.value}
-                  onClick={() => setCategoryFilter(cat.value)}
-                  className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                    categoryFilter === cat.value
-                      ? 'bg-[hsl(46_64%_52%)] text-[hsl(228_13%_4%)]'
-                      : 'border border-[hsl(46_64%_52%)]/40 text-[hsl(35_33%_97%)] hover:bg-white/5'
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* FAQs */}
-      <section className="section-y">
-        <div className="container-hqd max-w-3xl">
+      <section className="section-spacing pt-0">
+        <div className="container-narrow">
           {loading ? (
-            <div className="space-y-4">
+            <div className="space-y-3">
               {[...Array(5)].map((_, i) => (
-                <div key={i} className="border border-white/10 rounded-lg p-6 animate-pulse">
-                  <div className="h-5 bg-white/5 rounded w-3/4" />
+                <div key={i} className="border border-white/10 rounded-xl p-6 animate-pulse">
+                  <div className="h-5 bg-[hsl(0_0%_15%)] rounded w-3/4" />
                 </div>
               ))}
             </div>
           ) : filteredFaqs.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-[hsl(35_33%_97%)]/70">No questions match your search.</p>
-              <button 
-                onClick={() => { setSearchQuery(''); setCategoryFilter('all'); }}
-                className="mt-4 text-[hsl(46_64%_52%)] hover:underline"
-              >
-                Clear filters
-              </button>
+              <p className="body-md">No questions match your search.</p>
             </div>
           ) : (
-            <Accordion type="single" collapsible className="space-y-4">
-              {filteredFaqs.map((faq, index) => (
+            <Accordion type="single" collapsible className="space-y-3">
+              {filteredFaqs.map((faq, i) => (
                 <motion.div
                   key={faq.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  transition={{ delay: i * 0.05 }}
                 >
                   <AccordionItem 
                     value={faq.id}
-                    className="border border-white/10 rounded-lg px-6 data-[state=open]:border-[hsl(46_64%_52%)]/25"
+                    className="border border-white/10 rounded-xl px-6 data-[state=open]:border-gold/30 transition-colors"
                   >
-                    <AccordionTrigger 
-                      data-testid="faq-question"
-                      className="text-left text-[hsl(35_33%_97%)] hover:text-[hsl(46_64%_52%)] py-5"
-                    >
+                    <AccordionTrigger className="text-left text-[hsl(40_33%_95%)] hover:text-gold py-5">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent 
-                      data-testid="faq-answer"
-                      className="text-[hsl(42_15%_70%)] pb-5 leading-relaxed"
-                    >
+                    <AccordionContent className="body-md pb-5">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -160,17 +108,14 @@ export default function FAQs() {
         </div>
       </section>
 
-      {/* Still Have Questions CTA */}
-      <section className="pearl-section section-y">
-        <div className="container-hqd text-center">
-          <h2 className="text-h2 text-[hsl(228_13%_4%)] mb-4">Still Have Questions?</h2>
-          <p className="text-[hsl(228_13%_4%)]/70 mb-8 max-w-xl mx-auto">
-            We're happy to answer any questions you have. Reach out and we'll respond within 24 hours.
+      {/* CTA */}
+      <section className="section-spacing bg-pearl">
+        <div className="container-narrow text-center">
+          <h2 className="heading-md text-[hsl(0_0%_10%)] mb-4">Still have questions?</h2>
+          <p className="body-lg text-[hsl(0_0%_40%)] mb-8">
+            We're happy to help. Reach out and we'll respond within 24 hours.
           </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 rounded-[12px] bg-[hsl(228_13%_4%)] text-[hsl(35_33%_97%)] px-8 h-12 font-medium hover:bg-[hsl(228_13%_10%)] transition-colors"
-          >
+          <Link to="/contact" className="btn-primary bg-[hsl(0_0%_10%)] hover:bg-[hsl(0_0%_20%)]">
             Contact Us <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

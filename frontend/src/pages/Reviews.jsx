@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { getTestimonials } from '@/lib/api';
 
 export default function Reviews() {
@@ -13,7 +13,7 @@ export default function Reviews() {
         const data = await getTestimonials();
         setTestimonials(data);
       } catch (error) {
-        console.error('Error fetching testimonials:', error);
+        console.error('Error:', error);
       } finally {
         setLoading(false);
       }
@@ -22,71 +22,59 @@ export default function Reviews() {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section className="hero-noir noir-noise relative">
-        <div className="container-hqd py-16 lg:py-20">
-          <div className="max-w-3xl">
-            <span className="text-sm text-[hsl(46_64%_52%)] tracking-wider uppercase">Reviews</span>
-            <h1 className="text-h1 text-[hsl(35_33%_97%)] mt-4">
-              What Our Clients
-              <br />
-              <span className="text-[hsl(46_64%_52%)]">Say</span>
+      <section className="section-spacing pb-12">
+        <div className="container-wide">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-3xl"
+          >
+            <p className="label-gold mb-4">Reviews</p>
+            <h1 className="heading-xl text-[hsl(40_33%_95%)] mb-6">
+              What clients
+              <br /><span className="text-gold">say</span>
             </h1>
-            <p className="text-lg text-[hsl(35_33%_97%)]/80 mt-6">
-              Hear from couples, corporate teams, and party hosts who've experienced HQ.D.
-            </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Testimonials Grid */}
-      <section className="section-y">
-        <div className="container-hqd">
+      {/* Testimonials */}
+      <section className="section-spacing pt-0">
+        <div className="container-wide">
           {loading ? (
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid-2">
               {[...Array(4)].map((_, i) => (
-                <div key={i} className="card-dark animate-pulse p-8">
-                  <div className="h-4 bg-white/5 rounded w-1/4 mb-4" />
-                  <div className="space-y-2 mb-6">
-                    <div className="h-4 bg-white/5 rounded" />
-                    <div className="h-4 bg-white/5 rounded" />
-                    <div className="h-4 bg-white/5 rounded w-3/4" />
+                <div key={i} className="card-minimal p-8 animate-pulse">
+                  <div className="h-4 bg-[hsl(0_0%_15%)] rounded w-1/4 mb-4" />
+                  <div className="space-y-2">
+                    {[...Array(3)].map((_, j) => (
+                      <div key={j} className="h-4 bg-[hsl(0_0%_15%)] rounded" />
+                    ))}
                   </div>
-                  <div className="h-5 bg-white/5 rounded w-1/3" />
                 </div>
               ))}
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 gap-6">
-              {testimonials.map((testimonial, index) => (
+            <div className="grid-2">
+              {testimonials.map((t, i) => (
                 <motion.div
-                  key={testimonial.id}
+                  key={t.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="card-dark p-8 relative"
-                  data-testid={`testimonial-card-${testimonial.id}`}
+                  transition={{ delay: i * 0.1 }}
+                  className="card-minimal p-8"
                 >
-                  <Quote className="absolute top-6 right-6 h-8 w-8 text-[hsl(46_64%_52%)]/20" />
-                  
                   <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-[hsl(46_64%_52%)] text-[hsl(46_64%_52%)]" />
+                    {[...Array(5)].map((_, j) => (
+                      <Star key={j} className="h-4 w-4 fill-gold text-gold" />
                     ))}
                   </div>
-                  
-                  <blockquote className="text-[hsl(35_33%_97%)]/90 leading-relaxed mb-6 text-lg">
-                    "{testimonial.quote}"
-                  </blockquote>
-                  
+                  <p className="body-lg text-[hsl(40_33%_95%)] mb-6">"{t.quote}"</p>
                   <div>
-                    <p className="font-display text-lg text-[hsl(35_33%_97%)]">{testimonial.name}</p>
-                    <p className="text-sm text-[hsl(42_15%_70%)]">
-                      {testimonial.event_type}
-                      {testimonial.event_date && ` • ${testimonial.event_date}`}
-                      {testimonial.location && ` • ${testimonial.location}`}
-                    </p>
+                    <p className="font-medium text-[hsl(40_33%_95%)]">{t.name}</p>
+                    <p className="body-sm">{t.event_type} • {t.location}</p>
                   </div>
                 </motion.div>
               ))}
@@ -96,8 +84,8 @@ export default function Reviews() {
       </section>
 
       {/* Stats */}
-      <section className="pearl-section section-y">
-        <div className="container-hqd">
+      <section className="section-spacing bg-pearl">
+        <div className="container-wide">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {[
               { value: '500+', label: 'Events Served' },
@@ -105,10 +93,16 @@ export default function Reviews() {
               { value: '50+', label: 'Corporate Clients' },
               { value: '100%', label: 'Would Recommend' },
             ].map((stat, i) => (
-              <div key={i}>
-                <p className="font-display text-4xl lg:text-5xl text-[hsl(228_13%_4%)]">{stat.value}</p>
-                <p className="text-sm text-[hsl(228_13%_4%)]/70 mt-2">{stat.label}</p>
-              </div>
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <p className="heading-xl text-[hsl(0_0%_10%)]">{stat.value}</p>
+                <p className="body-sm text-[hsl(0_0%_40%)]">{stat.label}</p>
+              </motion.div>
             ))}
           </div>
         </div>

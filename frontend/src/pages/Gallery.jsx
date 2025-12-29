@@ -1,21 +1,16 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { getGallery } from '@/lib/api';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-const categories = [
-  { value: 'all', label: 'All' },
-  { value: 'wedding', label: 'Weddings' },
-  { value: 'corporate', label: 'Corporate' },
-  { value: 'private', label: 'Private' },
-];
+const categories = ['all', 'wedding', 'corporate', 'private'];
 
 export default function Gallery() {
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const [categoryFilter, setCategoryFilter] = useState('all');
+  const [filter, setFilter] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +21,7 @@ export default function Gallery() {
         setItems(data);
         setFilteredItems(data);
       } catch (error) {
-        console.error('Error fetching gallery:', error);
+        console.error('Error:', error);
       } finally {
         setLoading(false);
       }
@@ -35,103 +30,82 @@ export default function Gallery() {
   }, []);
 
   useEffect(() => {
-    if (categoryFilter === 'all') {
+    if (filter === 'all') {
       setFilteredItems(items);
     } else {
-      setFilteredItems(items.filter(item => item.category === categoryFilter));
+      setFilteredItems(items.filter(item => item.category === filter));
     }
-  }, [categoryFilter, items]);
-
-  const handlePrev = () => {
-    setSelectedIndex(prev => 
-      prev === 0 ? filteredItems.length - 1 : prev - 1
-    );
-  };
-
-  const handleNext = () => {
-    setSelectedIndex(prev => 
-      prev === filteredItems.length - 1 ? 0 : prev + 1
-    );
-  };
+  }, [filter, items]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20">
       {/* Hero */}
-      <section className="hero-noir noir-noise relative">
-        <div className="container-hqd py-16 lg:py-20">
-          <div className="max-w-3xl">
-            <span className="text-sm text-[hsl(46_64%_52%)] tracking-wider uppercase">Gallery</span>
-            <h1 className="text-h1 text-[hsl(35_33%_97%)] mt-4">
-              Our Work in
-              <br />
-              <span className="text-[hsl(46_64%_52%)]">Action</span>
+      <section className="section-spacing pb-12">
+        <div className="container-wide">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }}
+            className="max-w-3xl"
+          >
+            <p className="label-gold mb-4">Gallery</p>
+            <h1 className="heading-xl text-[hsl(40_33%_95%)] mb-6">
+              Our work in
+              <br /><span className="text-gold">action</span>
             </h1>
-            <p className="text-lg text-[hsl(35_33%_97%)]/80 mt-6">
-              Browse through our portfolio of weddings, corporate events, and private parties.
-            </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="border-b border-white/10 py-6 sticky top-16 lg:top-20 z-30 bg-[hsl(228_13%_4%)]/95 backdrop-blur">
-        <div className="container-hqd">
-          <ToggleGroup 
-            type="single" 
-            value={categoryFilter} 
-            onValueChange={(v) => v && setCategoryFilter(v)}
-            className="flex gap-2"
-          >
+      <section className="sticky top-16 lg:top-20 z-30 py-4 bg-[hsl(0_0%_2%)]/95 backdrop-blur-xl border-b border-white/5">
+        <div className="container-wide">
+          <div className="flex gap-2">
             {categories.map((cat) => (
-              <ToggleGroupItem
-                key={cat.value}
-                value={cat.value}
-                data-testid={`gallery-filter-${cat.value}`}
-                className="data-[state=on]:bg-[hsl(46_64%_52%)] data-[state=on]:text-[hsl(228_13%_4%)] rounded-full border border-[hsl(46_64%_52%)]/40 px-4 py-2 text-sm text-[hsl(35_33%_97%)] hover:bg-white/5"
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={cn(
+                  'px-4 py-2 rounded-full text-sm font-medium transition-all capitalize',
+                  filter === cat
+                    ? 'bg-gold text-[hsl(0_0%_2%)]'
+                    : 'border border-white/10 text-[hsl(40_33%_95%)] hover:border-gold/50'
+                )}
               >
-                {cat.label}
-              </ToggleGroupItem>
+                {cat === 'all' ? 'All' : cat}
+              </button>
             ))}
-          </ToggleGroup>
+          </div>
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="section-y">
-        <div className="container-hqd">
+      {/* Grid */}
+      <section className="section-spacing pt-12">
+        <div className="container-wide">
           {loading ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {[...Array(8)].map((_, i) => (
-                <div key={i} className="aspect-square bg-white/5 rounded-lg animate-pulse" />
+                <div key={i} className="aspect-square bg-[hsl(0_0%_10%)] rounded-xl animate-pulse" />
               ))}
             </div>
-          ) : filteredItems.length === 0 ? (
-            <div className="text-center py-16">
-              <p className="text-[hsl(35_33%_97%)]/70">No items in this category yet.</p>
-            </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {filteredItems.map((item, index) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+              {filteredItems.map((item, i) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: index * 0.03 }}
-                  className="relative aspect-square rounded-lg overflow-hidden cursor-pointer group"
-                  onClick={() => setSelectedIndex(index)}
-                  data-testid={`gallery-item-${item.id}`}
+                  transition={{ delay: i * 0.03 }}
+                  className="aspect-square rounded-xl overflow-hidden cursor-pointer group relative"
+                  onClick={() => setSelectedIndex(i)}
                 >
                   <img 
                     src={item.image_url} 
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <h3 className="font-display text-lg text-[hsl(35_33%_97%)]">{item.title}</h3>
-                      {item.location && (
-                        <p className="text-sm text-[hsl(35_33%_97%)]/70">{item.location}</p>
-                      )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="font-medium text-[hsl(40_33%_95%)] text-sm">{item.title}</p>
                     </div>
                   </div>
                 </motion.div>
@@ -151,43 +125,24 @@ export default function Gallery() {
                 alt={filteredItems[selectedIndex].title}
                 className="w-full max-h-[80vh] object-contain"
               />
-              
               <button
                 onClick={() => setSelectedIndex(null)}
-                className="absolute top-4 right-4 h-10 w-10 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition-colors"
+                className="absolute top-4 right-4 h-10 w-10 rounded-full bg-black/50 flex items-center justify-center"
               >
-                <X className="h-5 w-5 text-white" />
+                <X className="h-5 w-5" />
               </button>
-              
               <button
-                onClick={handlePrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition-colors"
+                onClick={() => setSelectedIndex(prev => prev === 0 ? filteredItems.length - 1 : prev - 1)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/50 flex items-center justify-center"
               >
-                <ChevronLeft className="h-6 w-6 text-white" />
+                <ChevronLeft className="h-5 w-5" />
               </button>
-              
               <button
-                onClick={handleNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 h-12 w-12 rounded-full bg-black/50 flex items-center justify-center hover:bg-black/70 transition-colors"
+                onClick={() => setSelectedIndex(prev => prev === filteredItems.length - 1 ? 0 : prev + 1)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-black/50 flex items-center justify-center"
               >
-                <ChevronRight className="h-6 w-6 text-white" />
+                <ChevronRight className="h-5 w-5" />
               </button>
-              
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent">
-                <h3 className="font-display text-xl text-[hsl(35_33%_97%)]">
-                  {filteredItems[selectedIndex].title}
-                </h3>
-                {filteredItems[selectedIndex].event_name && (
-                  <p className="text-sm text-[hsl(35_33%_97%)]/70 mt-1">
-                    {filteredItems[selectedIndex].event_name}
-                  </p>
-                )}
-                {filteredItems[selectedIndex].location && (
-                  <p className="text-sm text-[hsl(46_64%_52%)]">
-                    {filteredItems[selectedIndex].location}
-                  </p>
-                )}
-              </div>
             </div>
           )}
         </DialogContent>
