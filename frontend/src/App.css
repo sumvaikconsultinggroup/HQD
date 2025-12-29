@@ -1,34 +1,166 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* HQ.D Global Styles */
+
+/* Container */
+.container-hqd {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+@media (min-width: 640px) {
+  .container-hqd {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+@media (min-width: 1024px) {
+  .container-hqd {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
-.App-link {
-    color: #61dafb;
+@media (min-width: 1280px) {
+  .container-hqd {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Section Spacing */
+.section-y {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .section-y {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-y {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Typography Scale */
+.text-h1 {
+  font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+  .text-h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-h1 {
+    font-size: 3.75rem;
+  }
+}
+
+.text-h2 {
+  font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+@media (min-width: 640px) {
+  .text-h2 {
+    font-size: 2.25rem;
+  }
+}
+
+.text-h3 {
+  font-family: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .text-h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Gold Accent */
+.gold-accent {
+  color: hsl(46 64% 52%);
+}
+
+.gold-border {
+  border-color: hsl(46 64% 52% / 0.25);
+}
+
+/* Card Styles */
+.card-dark {
+  background: hsl(226 10% 8%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.card-dark:hover {
+  border-color: hsl(46 64% 52% / 0.25);
+}
+
+/* Link Underline Animation */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: hsl(46 64% 52%);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Active Route Indicator */
+.nav-active {
+  border-bottom: 2px solid hsl(46 64% 52%);
+}
+
+/* Form Styles */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: hsl(46 64% 52%);
+}
+
+/* Video Reel Grid */
+.reel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 1024px) {
+  .reel-grid {
+    gap: 1rem;
+  }
 }
