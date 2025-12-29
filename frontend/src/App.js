@@ -71,6 +71,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/bar-setups" element={<BarSetups />} />
+          <Route path="/bar-setups/:slug" element={<BarSetupDetail />} />
           <Route path="/molecular" element={<MolecularMixology />} />
           <Route path="/menus" element={<Menus />} />
           <Route path="/packages" element={<Packages />} />
