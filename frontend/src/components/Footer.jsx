@@ -1,132 +1,117 @@
 import { Link } from 'react-router-dom';
-import { MessageCircle, Mail, Phone, Instagram, Facebook } from 'lucide-react';
-import { BRAND, NAV_ITEMS, getWhatsAppLink } from '@/lib/constants';
+import { MessageCircle, Mail, ArrowUpRight } from 'lucide-react';
+import { BRAND, getWhatsAppLink } from '@/lib/constants';
 
 export function Footer() {
-  const quickLinks = [
-    { label: 'Wedding Hashtag Generator', href: '/tools/hashtag-generator' },
-    { label: 'Signature Drink Generator', href: '/tools/drink-generator' },
-    { label: 'FAQs', href: '/faqs' },
-    { label: 'Contact', href: '/contact' },
-  ];
+  const links = {
+    explore: [
+      { label: 'Services', href: '/services' },
+      { label: 'Bar Setups', href: '/bar-setups' },
+      { label: 'Menus', href: '/menus' },
+      { label: 'Gallery', href: '/gallery' },
+      { label: 'Packages', href: '/packages' },
+    ],
+    company: [
+      { label: 'About', href: '/about' },
+      { label: 'Reviews', href: '/reviews' },
+      { label: 'FAQs', href: '/faqs' },
+      { label: 'Contact', href: '/contact' },
+    ],
+    tools: [
+      { label: 'Hashtag Generator', href: '/tools/hashtag-generator' },
+      { label: 'Drink Generator', href: '/tools/drink-generator' },
+    ],
+  };
 
   return (
-    <footer className="bg-[hsl(226_10%_6%)] border-t border-[hsl(46_64%_52%)]/25">
-      <div className="container-hqd section-y">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-[hsl(0_0%_3%)] border-t border-white/5">
+      <div className="container-wide section-spacing">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 lg:gap-16">
           {/* Brand */}
-          <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-3">
-              <img src={BRAND.logo} alt="HQ.D logo" className="h-12 w-12" />
+          <div className="col-span-2 lg:col-span-2">
+            <Link to="/" className="flex items-center gap-3 mb-6">
+              <img src={BRAND.logo} alt="HQ.D" className="h-12 w-12" />
               <div>
-                <span className="font-display text-xl text-[hsl(35_33%_97%)] block">
-                  {BRAND.name}
-                </span>
-                <span className="text-xs text-[hsl(42_15%_70%)]">
-                  {BRAND.tagline}
-                </span>
+                <span className="font-display text-xl text-[hsl(40_33%_95%)] block">HQ.D</span>
+                <span className="text-xs text-[hsl(40_20%_65%)]">{BRAND.tagline}</span>
               </div>
             </Link>
-            <p className="text-sm text-[hsl(42_15%_70%)] leading-relaxed">
-              Premium cocktail & mocktail bar setups for weddings, corporate events, and private parties. 
-              Molecular mixology specialists.
+            <p className="body-sm max-w-xs mb-6">
+              Premium cocktail & mocktail bar setups for weddings, corporate events, and private celebrations.
             </p>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h4 className="font-display text-lg text-[hsl(35_33%_97%)] mb-4">Explore</h4>
-            <ul className="space-y-2">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    to={item.href}
-                    className="text-sm text-[hsl(42_15%_70%)] hover:text-[hsl(46_64%_52%)] transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-display text-lg text-[hsl(35_33%_97%)] mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    to={item.href}
-                    className="text-sm text-[hsl(42_15%_70%)] hover:text-[hsl(46_64%_52%)] transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-display text-lg text-[hsl(35_33%_97%)] mb-4">Get in Touch</h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href={getWhatsAppLink()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sm text-[hsl(42_15%_70%)] hover:text-[hsl(46_64%_52%)] transition-colors"
-                >
-                  <MessageCircle className="h-4 w-4 text-[hsl(46_64%_52%)]" />
-                  WhatsApp
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${BRAND.email}`}
-                  className="flex items-center gap-3 text-sm text-[hsl(42_15%_70%)] hover:text-[hsl(46_64%_52%)] transition-colors"
-                >
-                  <Mail className="h-4 w-4 text-[hsl(46_64%_52%)]" />
-                  {BRAND.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:+${BRAND.whatsapp}`}
-                  className="flex items-center gap-3 text-sm text-[hsl(42_15%_70%)] hover:text-[hsl(46_64%_52%)] transition-colors"
-                >
-                  <Phone className="h-4 w-4 text-[hsl(46_64%_52%)]" />
-                  +91 {BRAND.whatsapp.slice(2)}
-                </a>
-              </li>
-            </ul>
-            <div className="flex items-center gap-3 mt-4">
+            <div className="flex items-center gap-3">
               <a
-                href="#"
-                className="h-10 w-10 rounded-full border border-[hsl(46_64%_52%)]/40 flex items-center justify-center hover:bg-white/5 transition-colors"
-                aria-label="Instagram"
+                href={getWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(43_74%_49%/0.5)] transition-colors"
               >
-                <Instagram className="h-4 w-4 text-[hsl(46_64%_52%)]" />
+                <MessageCircle className="h-4 w-4 text-[hsl(43_74%_49%)]" />
               </a>
               <a
-                href="#"
-                className="h-10 w-10 rounded-full border border-[hsl(46_64%_52%)]/40 flex items-center justify-center hover:bg-white/5 transition-colors"
-                aria-label="Facebook"
+                href={`mailto:${BRAND.email}`}
+                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(43_74%_49%/0.5)] transition-colors"
               >
-                <Facebook className="h-4 w-4 text-[hsl(46_64%_52%)]" />
+                <Mail className="h-4 w-4 text-[hsl(43_74%_49%)]" />
               </a>
             </div>
+          </div>
+
+          {/* Explore */}
+          <div>
+            <h4 className="text-sm font-medium text-[hsl(40_33%_95%)] mb-4">Explore</h4>
+            <ul className="space-y-3">
+              {links.explore.map((link) => (
+                <li key={link.href}>
+                  <Link to={link.href} className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="text-sm font-medium text-[hsl(40_33%_95%)] mb-4">Company</h4>
+            <ul className="space-y-3">
+              {links.company.map((link) => (
+                <li key={link.href}>
+                  <Link to={link.href} className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Tools */}
+          <div>
+            <h4 className="text-sm font-medium text-[hsl(40_33%_95%)] mb-4">Free Tools</h4>
+            <ul className="space-y-3">
+              {links.tools.map((link) => (
+                <li key={link.href}>
+                  <Link 
+                    to={link.href} 
+                    className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors inline-flex items-center gap-1"
+                  >
+                    {link.label}
+                    <ArrowUpRight className="h-3 w-3" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-[hsl(46_64%_52%)]/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[hsl(42_15%_70%)]">
+        <div className="gold-line mt-16 mb-8" />
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-[hsl(40_20%_50%)]">
             © {new Date().getFullYear()} {BRAND.fullName}. All rights reserved.
           </p>
-          <p className="text-xs text-[hsl(46_64%_52%)]">
-            Bars only. We do not provide food or catering.
+          <p className="text-xs text-[hsl(43_74%_49%)]">
+            Bars only — We do not provide food or catering.
           </p>
         </div>
       </div>

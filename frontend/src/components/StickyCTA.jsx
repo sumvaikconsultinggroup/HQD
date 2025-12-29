@@ -1,30 +1,29 @@
 import { Link } from 'react-router-dom';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, CalendarCheck } from 'lucide-react';
 import { getWhatsAppLink } from '@/lib/constants';
 
 export function StickyCTA() {
   return (
-    <div 
-      className="fixed md:hidden bottom-0 inset-x-0 z-40 bg-[hsl(228_13%_4%)]/85 backdrop-blur border-t border-[hsl(46_64%_52%)]/25 px-4 py-3 flex items-center gap-3"
-      data-testid="sticky-cta-bar"
-    >
-      <Link
-        to="/contact"
-        data-testid="sticky-check-availability-button"
-        className="flex-1 inline-flex items-center justify-center rounded-[12px] bg-[hsl(46_64%_52%)] text-[hsl(228_13%_4%)] h-11 font-medium"
-      >
-        Check Availability
-      </Link>
-      <a
-        href={getWhatsAppLink()}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-testid="sticky-whatsapp-button"
-        className="inline-flex items-center justify-center h-11 w-11 rounded-full border border-[hsl(46_64%_52%)]/40 hover:bg-white/5 transition-colors"
-        aria-label="WhatsApp"
-      >
-        <MessageCircle className="h-5 w-5 text-[hsl(46_64%_52%)]" />
-      </a>
+    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[hsl(0_0%_2%)]/90 backdrop-blur-xl border-t border-white/5 px-4 py-3">
+      <div className="flex items-center gap-3">
+        <Link
+          to="/contact"
+          className="flex-1 btn-primary text-sm h-11 justify-center"
+          data-testid="sticky-cta-quote"
+        >
+          <CalendarCheck className="h-4 w-4" />
+          Check Availability
+        </Link>
+        <a
+          href={getWhatsAppLink()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="h-11 w-11 rounded-full border border-[hsl(43_74%_49%/0.4)] flex items-center justify-center"
+          data-testid="sticky-cta-whatsapp"
+        >
+          <MessageCircle className="h-5 w-5 text-[hsl(43_74%_49%)]" />
+        </a>
+      </div>
     </div>
   );
 }
