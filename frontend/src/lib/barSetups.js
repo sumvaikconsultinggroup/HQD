@@ -47,9 +47,9 @@ export const BAR_SETUPS_LIBRARY = [
     title: 'Garden Bliss Bar',
     subtitle: 'Floral elegance meets refreshing mocktails',
     description: 'A stunning garden-themed bar setup with cascading florals, pastel drapes, and botanical accents. Perfect for daytime mehendi ceremonies with refreshing fruit-infused mocktails and aromatic mist presentations.',
-    image_url: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80',
+    image_url: 'https://customer-assets.emergentagent.com/job_e0f71186-1d36-4c69-8757-9da78c56fc4e/artifacts/v91pz5yr_freepik__a-candid-highresolution-dslr-photograph-of-a-stunn__34257.jpeg',
     gallery: [
-      'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80',
+      'https://customer-assets.emergentagent.com/job_e0f71186-1d36-4c69-8757-9da78c56fc4e/artifacts/v91pz5yr_freepik__a-candid-highresolution-dslr-photograph-of-a-stunn__34257.jpeg',
       'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&q=80',
       'https://images.unsplash.com/photo-1582106245687-cbb466a9f07f?w=800&q=80',
     ],
