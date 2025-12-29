@@ -6,3 +6,4 @@ export * from './ScrollProgress';
 export * from './CountUp';
 export * from './GrainOverlay';
 export * from './CustomCursor';
+export * from './AdvancedEffects';
