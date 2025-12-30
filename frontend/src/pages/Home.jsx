@@ -265,7 +265,7 @@ export default function Home() {
                 className="relative"
               >
                 <div className="grid grid-cols-2 gap-3 lg:gap-4">
-                  {VIDEOS.slice(0, 4).map((video, i) => (
+                  {HERO_VIDEOS.slice(0, 4).map((video, i) => (
                     <motion.div
                       key={i}
                       className={`relative ${i === 0 ? 'col-span-1 row-span-2' : ''}`}
@@ -279,11 +279,16 @@ export default function Home() {
                       whileHover={{ scale: 1.02, zIndex: 10 }}
                     >
                       <div className={`overflow-hidden rounded-2xl ${i === 0 ? 'aspect-[9/16]' : 'aspect-square'}`}>
-                        <VideoReel 
-                          src={video} 
+                        {/* Ultra-fast inline video for hero */}
+                        <video
+                          src={video}
+                          muted
+                          playsInline
+                          loop
+                          autoPlay
+                          preload="auto"
                           className="w-full h-full object-cover"
-                          testid={`hero-video-${i}`}
-                          priority={true}
+                          data-testid={`hero-video-${i}`}
                         />
                       </div>
                       {/* Hover overlay */}
