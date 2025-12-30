@@ -400,14 +400,14 @@ export default function Home() {
                 title: 'Molecular Mixology', 
                 desc: 'Smoke bubbles, aromatic mists, champagne foams — science meets art in every glass.',
                 link: '/molecular',
-                image: 'https://images.unsplash.com/photo-1654722658278-c1841652dd2b?w=400&q=80'
+                image: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/cax4yoeh_WhatsApp%20Image%202023-12-04%20at%2012.36.10%20PM%20%282%29.jpeg'
               },
               { 
                 icon: Crown,
                 title: 'Custom Bar Setups', 
                 desc: 'From rustic wooden bars to mirror-finish luxury — designs that complement your vision.',
                 link: '/bar-setups',
-                image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&q=80'
+                image: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/o07u7rja_freepik__custom-bar-setups-indian-wedding__85290.png'
               },
               { 
                 icon: Users,
