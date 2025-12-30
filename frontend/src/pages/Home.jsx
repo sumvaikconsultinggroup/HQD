@@ -283,6 +283,7 @@ export default function Home() {
                           src={video} 
                           className="w-full h-full object-cover"
                           testid={`hero-video-${i}`}
+                          priority={true}
                         />
                       </div>
                       {/* Hover overlay */}
