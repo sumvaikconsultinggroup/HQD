@@ -461,7 +461,7 @@ export const BAR_SETUPS_LIBRARY = [
     title: 'Garden Glam',
     subtitle: 'Nature meets luxury',
     description: 'Perfect for outdoor receptions with cascading greenery, fairy lights, natural wood elements, and botanical cocktails with edible flower garnishes.',
-    image_url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80',
+    image_url: 'https://customer-assets.emergentagent.com/job_e0f71186-1d36-4c69-8757-9da78c56fc4e/artifacts/3vuvscmf_Garden%20Glam.png',
     gallery: [],
     events: ['reception', 'engagement', 'mehendi'],
     style: 'garden',
