@@ -79,9 +79,9 @@ export const BAR_SETUPS_LIBRARY = [
     title: 'Moroccan Nights',
     subtitle: 'Exotic vibes with intricate patterns',
     description: 'Transport your guests to Marrakech with this exotic setup featuring brass lanterns, colorful tiles, vibrant textiles, and aromatic mint-based concoctions with smoke bubble presentations.',
-    image_url: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80',
+    image_url: 'https://customer-assets.emergentagent.com/job_e0f71186-1d36-4c69-8757-9da78c56fc4e/artifacts/fgci2d3q_Morracan%20Nights.png',
     gallery: [
-      'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80',
+      'https://customer-assets.emergentagent.com/job_e0f71186-1d36-4c69-8757-9da78c56fc4e/artifacts/fgci2d3q_Morracan%20Nights.png',
     ],
     events: ['mehendi', 'sangeet'],
     style: 'bohemian',
