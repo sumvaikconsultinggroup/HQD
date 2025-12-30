@@ -109,7 +109,7 @@ export const BAR_SETUPS_LIBRARY = [
     title: 'Pastel Paradise',
     subtitle: 'Soft hues for dreamy celebrations',
     description: 'A delicate setup with soft pinks, lavenders, and mint greens. Features macramé accents, dried flower arrangements, and light, refreshing beverages perfect for afternoon mehendi.',
-    image_url: 'https://images.unsplash.com/photo-1560963689-b5682b6440f8?w=800&q=80',
+    image_url: 'https://customer-assets.emergentagent.com/job_e0f71186-1d36-4c69-8757-9da78c56fc4e/artifacts/giaxp0in_Pastel%20Paradise.png',
     gallery: [],
     events: ['mehendi', 'engagement'],
     style: 'minimal-luxe',
