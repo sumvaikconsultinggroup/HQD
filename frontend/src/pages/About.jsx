@@ -46,6 +46,16 @@ const TEAM_IMAGES = [
     caption: 'The crew',
     size: 'medium'
   },
+  {
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/9bui195g_DSC00422.JPG',
+    caption: 'Celebration mode',
+    size: 'medium'
+  },
+  {
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/tvtygtun_DSC00429.JPG',
+    caption: 'Making memories',
+    size: 'large'
+  },
 ];
 
 // Mosaic Image Card Component
