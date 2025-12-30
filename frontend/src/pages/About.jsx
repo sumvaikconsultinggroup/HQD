@@ -17,18 +17,33 @@ const TEAM_IMAGES = [
     size: 'medium'
   },
   {
-    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/y1wxczbl_DSC03229.JPG',
-    caption: 'Team spirit',
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/5ujmcues_DSC03226.JPG',
+    caption: 'Event magic',
     size: 'medium'
   },
   {
-    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/5ujmcues_DSC03226.JPG',
-    caption: 'Event magic',
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/hs163ftw_DSC03229.JPG',
+    caption: 'Team spirit',
     size: 'large'
   },
   {
-    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/tsohrz4u_DSC03165.JPG',
-    caption: 'Party ready',
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/xvrr7lij_DSC03245.JPG',
+    caption: 'Party vibes',
+    size: 'medium'
+  },
+  {
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/kc6y7nwx_DSC03289.JPG',
+    caption: 'Mixing it up',
+    size: 'medium'
+  },
+  {
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/jfqzaqtz_DSC03296.JPG',
+    caption: 'Good times',
+    size: 'large'
+  },
+  {
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/h6zibc7d_DSC09794.JPG',
+    caption: 'The crew',
     size: 'medium'
   },
 ];
