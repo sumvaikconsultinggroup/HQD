@@ -8,7 +8,16 @@ export const BRAND = {
   email: 'Rupesh@Headquartersofdrinks.co.in',
 };
 
-// Video URLs
+// Video URLs - Hero Banner (Ultra-fast loading)
+export const HERO_VIDEOS = [
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/2bieuksm_55700863-23bf-410e-b420-86f38b8c1c3d.mp4',
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/2gz5sgzp_beac6cd2-e72a-4215-bd1c-25592ed861f3.mp4',
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/ovbeckox_edcb0758-bac4-4b61-a437-d925724fdc51.mp4',
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/icaluy8i_967fe019-8cd2-482c-92b6-aeb46b15835e.mp4',
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/ervptn4j_21624d8f-43ca-4a21-9bad-d689d61bf4a8.mp4',
+];
+
+// Video URLs - See Us In Action Section
 export const VIDEOS = [
   'https://customer-assets.emergentagent.com/job_ac6c9480-7211-41d1-abd8-0c6fb67adb33/artifacts/5if3jo8e_6ed5da08-8e47-4c62-95e1-594fc854688c.mp4',
   'https://customer-assets.emergentagent.com/job_ac6c9480-7211-41d1-abd8-0c6fb67adb33/artifacts/91amfrgt_c839badf-d007-42a6-ad69-487b21abdaa8.mp4',
