@@ -22,8 +22,8 @@ export const VideoReel = memo(function VideoReel({
   const videoRef = useRef(null);
   const containerRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
-  const [shouldPlay, setShouldPlay] = useState(false);
 
   // Check for reduced motion preference
   const prefersReducedMotion = typeof window !== 'undefined' 
@@ -56,30 +56,41 @@ export const VideoReel = memo(function VideoReel({
 
   // Play/pause based on visibility
   useEffect(() => {
-    if (!videoRef.current || prefersReducedMotion) return;
+    if (!videoRef.current || prefersReducedMotion || hasError) return;
 
+    const video = videoRef.current;
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setShouldPlay(entry.isIntersecting && entry.intersectionRatio > 0.3);
+        if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
       },
       { threshold: [0, 0.3, 0.6, 1] }
     );
 
-    observer.observe(videoRef.current);
+    observer.observe(video);
     return () => observer.disconnect();
-  }, [prefersReducedMotion]);
+  }, [prefersReducedMotion, hasError, isLoaded]);
 
-  // Control playback
-  useEffect(() => {
+  const handleLoadedData = () => {
+    setIsLoaded(true);
+    setHasError(false);
+  };
+
+  const handleError = () => {
+    setHasError(true);
+    setIsLoaded(true);
+  };
+
+  const handleCanPlay = () => {
     const video = videoRef.current;
-    if (!video) return;
-
-    if (shouldPlay && !prefersReducedMotion) {
+    if (video && !prefersReducedMotion) {
       video.play().catch(() => {});
-    } else {
-      video.pause();
     }
-  }, [shouldPlay, prefersReducedMotion]);
+  };
 
   return (
     <div 
@@ -95,8 +106,23 @@ export const VideoReel = memo(function VideoReel({
         </div>
       )}
 
+      {/* Error state - show placeholder */}
+      {hasError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(0_0%_12%)] to-[hsl(0_0%_8%)]">
+          <div className="text-center p-4">
+            <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-[hsl(43_74%_49%/0.1)] flex items-center justify-center">
+              <svg className="w-8 h-8 text-[hsl(43_74%_49%)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <span className="text-xs text-[hsl(40_20%_65%)]">Video Reel</span>
+          </div>
+        </div>
+      )}
+
       {/* Video element - only render when in view */}
-      {isInView && (
+      {isInView && !hasError && (
         <video
           ref={videoRef}
           src={src}
@@ -104,12 +130,16 @@ export const VideoReel = memo(function VideoReel({
           muted
           playsInline
           loop
-          preload="metadata"
+          autoPlay
+          preload="auto"
+          crossOrigin="anonymous"
           className={cn(
             "w-full h-full object-cover transition-opacity duration-500",
             isLoaded ? 'opacity-100' : 'opacity-0'
           )}
-          onLoadedData={() => setIsLoaded(true)}
+          onLoadedData={handleLoadedData}
+          onCanPlay={handleCanPlay}
+          onError={handleError}
           {...props}
         />
       )}
