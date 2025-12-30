@@ -169,7 +169,7 @@ export const BAR_SETUPS_LIBRARY = [
     title: 'Marigold Magic',
     subtitle: 'Traditional charm with modern flair',
     description: 'A grand setup featuring thousands of marigolds, traditional brass elements, and ceremonial styling. Perfect for families who want an authentic yet luxurious haldi experience.',
-    image_url: 'https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80',
+    image_url: 'https://customer-assets.emergentagent.com/job_e0f71186-1d36-4c69-8757-9da78c56fc4e/artifacts/fc3meh85_Marigold%20magic.png',
     gallery: [],
     events: ['haldi', 'mehendi'],
     style: 'royal',
