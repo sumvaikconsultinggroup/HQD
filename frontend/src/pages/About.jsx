@@ -56,6 +56,26 @@ const TEAM_IMAGES = [
     caption: 'Making memories',
     size: 'large'
   },
+  {
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/c95r5xlo_IMG-20230402-WA0039.jpg',
+    caption: 'Champagne service',
+    size: 'medium'
+  },
+  {
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/a08coxyi_IMG-20230417-WA0020%20%281%29.jpg',
+    caption: 'Traditional flair',
+    size: 'large'
+  },
+  {
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/ivossdsg_WhatsApp%20Image%202023-12-04%20at%2012.34.04%20PM.jpeg',
+    caption: 'The HQ.D touch',
+    size: 'medium'
+  },
+  {
+    src: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/bhlepmyc_IMG-20230402-WA0015.jpg',
+    caption: 'Cheers to service',
+    size: 'medium'
+  },
 ];
 
 // Mosaic Image Card Component
