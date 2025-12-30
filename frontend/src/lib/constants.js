@@ -15,6 +15,11 @@ export const VIDEOS = [
   'https://customer-assets.emergentagent.com/job_ac6c9480-7211-41d1-abd8-0c6fb67adb33/artifacts/9lwf5b60_652a3209-9aa4-4751-8442-eaa11e571476.mp4',
   'https://customer-assets.emergentagent.com/job_ac6c9480-7211-41d1-abd8-0c6fb67adb33/artifacts/jbuu83v8_97efb419-8fda-4ece-b870-1fbb600cb81c.mp4',
   'https://customer-assets.emergentagent.com/job_ac6c9480-7211-41d1-abd8-0c6fb67adb33/artifacts/ju2ki38n_6abda637-ea97-4d01-8861-eb67f7787ef2.mp4',
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/sxjx1bn5_4ade1c00-35cc-48ec-b2ed-e163a81f64b2.mp4',
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/y6jsolbp_4fdc671c-f0f3-4fc6-a299-1e0f4d7f2214.mp4',
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/lc23goik_09cf3eba-bd3e-464e-b2cc-c9a42bc52beb.mp4',
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/x5ka5w30_6036e393-ae82-4f5e-b035-6f9d0fd2320c.mp4',
+  'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/mjqm8fkw_31058b77-48f6-4d3f-b9fe-38a0654fc046.mp4',
 ];
 
 // Navigation Items
