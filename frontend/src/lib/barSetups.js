@@ -141,7 +141,7 @@ export const BAR_SETUPS_LIBRARY = [
     title: 'Sunshine Station',
     subtitle: 'Vibrant yellows and refreshing coolers',
     description: 'Embrace the golden hues of haldi with this sunshine-themed bar. Marigold garlands, yellow drapes, and turmeric-infused wellness drinks create the perfect festive atmosphere.',
-    image_url: 'https://images.unsplash.com/photo-1609951651556-5334e2706168?w=800&q=80',
+    image_url: 'https://customer-assets.emergentagent.com/job_e0f71186-1d36-4c69-8757-9da78c56fc4e/artifacts/qg6xo5h0_Sunshine%20Station.png',
     gallery: [],
     events: ['haldi'],
     style: 'royal',
