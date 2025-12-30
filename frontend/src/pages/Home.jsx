@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Star, Play, Pause, ChevronDown, Hash, Wine, Sparkles, Crown, Users, Calendar, Award } from 'lucide-react';
 import { VideoReel } from '@/components/VideoReel';
-import { VIDEOS, BRAND } from '@/lib/constants';
+import { VIDEOS, HERO_VIDEOS, BRAND } from '@/lib/constants';
 import { getSetups, getTestimonials, getFAQs } from '@/lib/api';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { 
