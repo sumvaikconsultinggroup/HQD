@@ -132,7 +132,6 @@ export const VideoReel = memo(function VideoReel({
           loop
           autoPlay
           preload="auto"
-          crossOrigin="anonymous"
           className={cn(
             "w-full h-full object-cover transition-opacity duration-500",
             isLoaded ? 'opacity-100' : 'opacity-0'
