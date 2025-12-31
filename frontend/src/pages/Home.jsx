@@ -664,33 +664,35 @@ export default function Home() {
             </div>
           </FadeUp>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 items-stretch">
             {testimonials.map((t, i) => (
-              <FadeUp key={t.id} delay={i * 0.1}>
+              <FadeUp key={t.id} delay={i * 0.1} className="h-full">
                 <motion.div
-                  className="group p-8 rounded-3xl bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)] border border-white/5 hover:border-[hsl(43_74%_49%/0.2)] transition-all duration-300"
+                  className="group h-full p-8 rounded-3xl bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)] border border-white/5 hover:border-[hsl(43_74%_49%/0.2)] transition-all duration-300 flex flex-col"
                   whileHover={{ y: -4 }}
                 >
                   {/* Quote mark */}
                   <div className="text-6xl font-display text-[hsl(43_74%_49%/0.2)] leading-none mb-4">"</div>
                   
-                  <p className="text-lg text-[hsl(40_33%_95%)] mb-6 leading-relaxed">
+                  <p className="text-lg text-[hsl(40_33%_95%)] mb-6 leading-relaxed flex-grow">
                     {t.quote}
                   </p>
                   
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(43_74%_49%)] to-[hsl(43_74%_35%)]" />
-                    <div>
-                      <p className="font-medium text-[hsl(40_33%_95%)]">{t.name}</p>
-                      <p className="text-sm text-[hsl(40_20%_65%)]">{t.event_type} • {t.location}</p>
+                  <div className="mt-auto">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(43_74%_49%)] to-[hsl(43_74%_35%)]" />
+                      <div>
+                        <p className="font-medium text-[hsl(40_33%_95%)]">{t.name}</p>
+                        <p className="text-sm text-[hsl(40_20%_65%)]">{t.event_type} • {t.location}</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* Stars */}
-                  <div className="flex items-center gap-1 mt-4 pt-4 border-t border-white/5">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="h-4 w-4 fill-[hsl(43_74%_49%)] text-[hsl(43_74%_49%)]" />
-                    ))}
+                    
+                    {/* Stars */}
+                    <div className="flex items-center gap-1 mt-4 pt-4 border-t border-white/5">
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} className="h-4 w-4 fill-[hsl(43_74%_49%)] text-[hsl(43_74%_49%)]" />
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               </FadeUp>
