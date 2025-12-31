@@ -462,10 +462,14 @@ function SetupCardList({ setup, isHovered }) {
         animate={{ x: isHovered ? 4 : 0 }}
       >
         {/* Image */}
-        <div className="relative w-40 h-32 rounded-xl overflow-hidden shrink-0">
+        <div className="relative w-40 h-32 rounded-xl overflow-hidden shrink-0 bg-[hsl(0_0%_8%)]">
           <img 
             src={setup.image_url} 
             alt={setup.title}
+            loading="lazy"
+            decoding="async"
+            width="160"
+            height="128"
             className="w-full h-full object-cover"
           />
           {setup.molecular_tag && (
