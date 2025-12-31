@@ -114,6 +114,21 @@ export function Footer() {
             Bars only — We do not provide food or catering.
           </p>
         </div>
+        
+        {/* Site Credit */}
+        <div className="mt-8 pt-6 border-t border-white/5 text-center">
+          <p className="text-xs text-[hsl(40_20%_50%)]">
+            Site made by:{' '}
+            <a 
+              href="https://www.Sumvaik.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[hsl(43_74%_49%)] hover:text-[hsl(43_74%_60%)] transition-colors font-medium"
+            >
+              Sumvaik Consulting Group
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
