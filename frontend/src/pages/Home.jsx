@@ -496,37 +496,64 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {setups.map((setup, i) => (
+            {[
+              {
+                id: 'mehendi-soiree',
+                slug: 'mehendi-garden-bliss',
+                title: 'Mehendi Soirée',
+                image_url: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/bpx2turb_Mehandi%20Soree.jpeg',
+                best_for: '150-250 guests',
+                molecular_tag: 'Aromatic Mists'
+              },
+              {
+                id: 'sangeet-spectacular',
+                slug: 'sangeet-bollywood-nights',
+                title: 'Sangeet Spectacular',
+                image_url: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/avbbt4hh_Sangeet.jpeg',
+                best_for: '200-400 guests',
+                molecular_tag: 'Smoke Bubbles'
+              },
+              {
+                id: 'reception-royale',
+                slug: 'reception-royal-heritage',
+                title: 'Reception Royale',
+                image_url: 'https://customer-assets.emergentagent.com/job_ff2df9ce-7c56-472c-a16a-bca56f6db073/artifacts/ryfppupv_Reception%20Royale.jpeg',
+                best_for: '300-500 guests',
+                molecular_tag: 'Champagne Foam'
+              }
+            ].map((setup, i) => (
               <FadeUp key={setup.id} delay={i * 0.1}>
-                <motion.div
-                  className="group relative rounded-3xl overflow-hidden bg-[hsl(0_0%_7%)] border border-white/5"
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <motion.img 
-                      src={setup.image_url} 
-                      alt={setup.title}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.08 }}
-                      transition={{ duration: 0.6 }}
-                    />
-                  </div>
-                  
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                  
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="font-display text-2xl text-white mb-2">{setup.title}</h3>
-                    <p className="text-sm text-white/70 mb-3">Best for {setup.best_for}</p>
-                    {setup.molecular_tag && (
-                      <span className="inline-block text-xs px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] text-[hsl(43_74%_49%)] border border-[hsl(43_74%_49%/0.3)]">
-                        {setup.molecular_tag}
-                      </span>
-                    )}
-                  </div>
-                </motion.div>
+                <Link to={`/bar-setups/${setup.slug}`} className="block">
+                  <motion.div
+                    className="group relative rounded-3xl overflow-hidden bg-[hsl(0_0%_7%)] border border-white/5 cursor-pointer"
+                    whileHover={{ y: -8 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <motion.img 
+                        src={setup.image_url} 
+                        alt={setup.title}
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.08 }}
+                        transition={{ duration: 0.6 }}
+                      />
+                    </div>
+                    
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                    
+                    {/* Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="font-display text-2xl text-white mb-2">{setup.title}</h3>
+                      <p className="text-sm text-white/70 mb-3">Best for {setup.best_for}</p>
+                      {setup.molecular_tag && (
+                        <span className="inline-block text-xs px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] text-[hsl(43_74%_49%)] border border-[hsl(43_74%_49%/0.3)]">
+                          {setup.molecular_tag}
+                        </span>
+                      )}
+                    </div>
+                  </motion.div>
+                </Link>
               </FadeUp>
             ))}
           </div>
