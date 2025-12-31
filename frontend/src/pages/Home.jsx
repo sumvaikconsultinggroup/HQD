@@ -435,11 +435,6 @@ export default function Home() {
                         height="192"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-[hsl(0_0%_5%)] via-transparent to-transparent" />
                       <motion.div 
                         className="absolute top-4 right-4 w-12 h-12 rounded-2xl bg-[hsl(43_74%_49%/0.1)] backdrop-blur-sm flex items-center justify-center border border-[hsl(43_74%_49%/0.2)]"
