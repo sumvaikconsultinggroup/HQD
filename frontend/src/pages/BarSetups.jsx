@@ -359,13 +359,15 @@ function SetupCardGrid({ setup, isHovered }) {
       <TiltCard maxTilt={6} className="h-full">
         <div className="group relative rounded-3xl overflow-hidden bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)] border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-all duration-500 h-full">
           {/* Image */}
-          <div className="relative aspect-[4/3] overflow-hidden">
-            <motion.img 
+          <div className="relative aspect-[4/3] overflow-hidden bg-[hsl(0_0%_8%)]">
+            <img 
               src={setup.image_url} 
               alt={setup.title}
-              className="w-full h-full object-cover"
-              animate={{ scale: isHovered ? 1.08 : 1 }}
-              transition={{ duration: 0.6 }}
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="300"
+              className={`w-full h-full object-cover transition-transform duration-600 ${isHovered ? 'scale-108' : 'scale-100'}`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[hsl(0_0%_5%)] via-black/30 to-transparent" />
             
