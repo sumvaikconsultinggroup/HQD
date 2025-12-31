@@ -584,7 +584,7 @@ export default function Home() {
             </div>
           </FadeUp>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
             {[
               {
                 icon: Hash,
@@ -601,14 +601,14 @@ export default function Home() {
                 gradient: 'from-[hsl(280_60%_50%/0.08)] to-[hsl(280_60%_50%/0.02)]'
               }
             ].map((tool, i) => (
-              <FadeUp key={i} delay={i * 0.15}>
+              <FadeUp key={i} delay={i * 0.15} className="h-full">
                 <Link 
                   to={tool.link}
-                  className="group block"
+                  className="group block h-full"
                   data-testid={`tool-card-${i}`}
                 >
-                  <TiltCard maxTilt={6}>
-                    <div className={`relative p-8 lg:p-10 rounded-3xl bg-gradient-to-br ${tool.gradient} border border-[hsl(0_0%_85%)] hover:border-[hsl(43_74%_49%)] transition-all duration-300 hover:shadow-xl`}>
+                  <TiltCard maxTilt={6} className="h-full">
+                    <div className={`relative h-full p-8 lg:p-10 rounded-3xl bg-gradient-to-br ${tool.gradient} border border-[hsl(0_0%_85%)] hover:border-[hsl(43_74%_49%)] transition-all duration-300 hover:shadow-xl flex flex-col`}>
                       {/* Icon */}
                       <motion.div 
                         className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center mb-6"
@@ -621,11 +621,11 @@ export default function Home() {
                       <h3 className="font-display text-2xl text-[hsl(0_0%_10%)] mb-3">
                         {tool.title}
                       </h3>
-                      <p className="text-[hsl(0_0%_40%)] mb-6 leading-relaxed">
+                      <p className="text-[hsl(0_0%_40%)] mb-6 leading-relaxed flex-grow">
                         {tool.desc}
                       </p>
                       
-                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[hsl(43_74%_49%)]">
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[hsl(43_74%_49%)] mt-auto">
                         Try it free
                         <motion.span
                           className="inline-block"
