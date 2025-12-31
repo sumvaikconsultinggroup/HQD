@@ -2,8 +2,18 @@
 User-agent: *
 Allow: /
 
+# Allow all crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 # Sitemap
 Sitemap: https://headquartersofdrinks.com/sitemap.xml
 
-# Disallow admin/private areas (if any)
+# Disallow admin/private areas
 Disallow: /api/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
