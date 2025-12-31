@@ -714,58 +714,6 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
-          FAQ SECTION
-      ═══════════════════════════════════════════════════════════════════ */}
-      <section className="section-spacing bg-[hsl(0_0%_3%)] relative">
-        <div className="container-narrow relative z-10">
-          <FadeUp>
-            <div className="text-center mb-12">
-              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
-                FAQs
-              </span>
-              <h2 className="font-display text-4xl sm:text-5xl text-[hsl(40_33%_95%)]">
-                Common questions
-              </h2>
-            </div>
-          </FadeUp>
-
-          <FadeUp delay={0.2}>
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, i) => (
-                <AccordionItem 
-                  key={faq.id} 
-                  value={faq.id}
-                  className="border border-white/10 rounded-2xl px-6 data-[state=open]:border-[hsl(43_74%_49%/0.3)] transition-colors overflow-hidden bg-[hsl(0_0%_5%)]"
-                >
-                  <AccordionTrigger 
-                    className="text-left text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] py-5 text-lg font-display"
-                    data-testid={`faq-trigger-${i}`}
-                  >
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-[hsl(40_20%_75%)] pb-5 leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </FadeUp>
-
-          <FadeUp delay={0.3}>
-            <div className="text-center mt-8">
-              <Link 
-                to="/faqs" 
-                className="inline-flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] transition-colors"
-              >
-                View all FAQs
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════════════
           VIDEO REELS SECTION
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="section-spacing">
@@ -849,6 +797,58 @@ export default function Home() {
               </motion.div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          FAQ SECTION
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="section-spacing bg-[hsl(0_0%_3%)] relative">
+        <div className="container-narrow relative z-10">
+          <FadeUp>
+            <div className="text-center mb-12">
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+                FAQs
+              </span>
+              <h2 className="font-display text-4xl sm:text-5xl text-[hsl(40_33%_95%)]">
+                Common questions
+              </h2>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.2}>
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, i) => (
+                <AccordionItem 
+                  key={faq.id} 
+                  value={faq.id}
+                  className="border border-white/10 rounded-2xl px-6 data-[state=open]:border-[hsl(43_74%_49%/0.3)] transition-colors overflow-hidden bg-[hsl(0_0%_5%)]"
+                >
+                  <AccordionTrigger 
+                    className="text-left text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] py-5 text-lg font-display"
+                    data-testid={`faq-trigger-${i}`}
+                  >
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[hsl(40_20%_75%)] pb-5 leading-relaxed">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </FadeUp>
+
+          <FadeUp delay={0.3}>
+            <div className="text-center mt-8">
+              <Link 
+                to="/faqs" 
+                className="inline-flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] transition-colors"
+              >
+                View all FAQs
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
