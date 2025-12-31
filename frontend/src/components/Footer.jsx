@@ -110,23 +110,19 @@ export function Footer() {
           <p className="text-xs text-[hsl(40_20%_50%)]">
             © {new Date().getFullYear()} {BRAND.fullName}. All rights reserved.
           </p>
-          <p className="text-xs text-[hsl(43_74%_49%)]">
-            Bars only — We do not provide food or catering.
-          </p>
-        </div>
-        
-        {/* Site Credit */}
-        <div className="mt-8 pt-6 border-t border-white/5 text-center">
           <p className="text-xs text-[hsl(40_20%_50%)]">
             Site made by:{' '}
             <a 
               href="https://www.Sumvaik.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-[hsl(43_74%_49%)] hover:text-[hsl(43_74%_60%)] transition-colors font-medium"
+              className="text-[hsl(43_74%_49%)] hover:text-[hsl(43_74%_60%)] transition-colors"
             >
               Sumvaik Consulting Group
             </a>
+          </p>
+          <p className="text-xs text-[hsl(43_74%_49%)]">
+            Bars only — We do not provide food or catering.
           </p>
         </div>
       </div>
