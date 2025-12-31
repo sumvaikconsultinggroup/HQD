@@ -109,13 +109,12 @@ const MosaicCard = ({ image, index, isHovered, onHover, onLeave }) => {
       }}
     >
       {/* Image */}
-      <motion.img
+      <img
         src={image.src}
         alt={image.caption}
-        className="w-full h-full object-cover"
-        initial={{ scale: 1.1 }}
-        whileHover={{ scale: 1.15 }}
-        transition={{ duration: 0.6 }}
+        loading="lazy"
+        decoding="async"
+        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-600"
       />
       
       {/* Gradient Overlay */}
