@@ -781,20 +781,73 @@ export default function Home() {
             </div>
           </FadeUp>
 
-          <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
-            {VIDEOS.map((video, i) => (
-              <FadeUp key={i} delay={i * 0.1}>
-                <motion.div
-                  className="flex-shrink-0 w-[180px] md:w-[220px] snap-start"
-                  whileHover={{ scale: 1.03, y: -8 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="aspect-[9/16] rounded-2xl overflow-hidden border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-colors">
-                    <VideoReel src={video} className="w-full h-full object-cover" testid={`reel-${i}`} />
-                  </div>
-                </motion.div>
-              </FadeUp>
-            ))}
+          {/* Scrollable container with arrows */}
+          <div className="relative group">
+            {/* Left Arrow */}
+            <motion.button
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(43_74%_49%/0.3)] flex items-center justify-center text-[hsl(43_74%_49%)] hover:bg-[hsl(43_74%_49%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 -translate-x-2 md:-translate-x-6 opacity-0 group-hover:opacity-100 disabled:opacity-30"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const container = document.getElementById('video-reel-scroll');
+                if (container) container.scrollBy({ left: -300, behavior: 'smooth' });
+              }}
+              data-testid="scroll-left-btn"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </motion.button>
+
+            {/* Right Arrow */}
+            <motion.button
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(43_74%_49%/0.3)] flex items-center justify-center text-[hsl(43_74%_49%)] hover:bg-[hsl(43_74%_49%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 translate-x-2 md:translate-x-6 opacity-0 group-hover:opacity-100"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const container = document.getElementById('video-reel-scroll');
+                if (container) container.scrollBy({ left: 300, behavior: 'smooth' });
+              }}
+              data-testid="scroll-right-btn"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </motion.button>
+
+            {/* Gradient fade indicators */}
+            <div className="absolute left-0 top-0 bottom-4 w-16 bg-gradient-to-r from-[hsl(0_0%_2%)] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-[hsl(0_0%_2%)] to-transparent z-10 pointer-events-none" />
+
+            {/* Scrollable content */}
+            <div 
+              id="video-reel-scroll"
+              className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory scroll-smooth px-4"
+            >
+              {VIDEOS.map((video, i) => (
+                <FadeUp key={i} delay={i * 0.1}>
+                  <motion.div
+                    className="flex-shrink-0 w-[180px] md:w-[220px] snap-start"
+                    whileHover={{ scale: 1.03, y: -8 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="aspect-[9/16] rounded-2xl overflow-hidden border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-colors">
+                      <VideoReel src={video} className="w-full h-full object-cover" testid={`reel-${i}`} />
+                    </div>
+                  </motion.div>
+                </FadeUp>
+              ))}
+            </div>
+
+            {/* Scroll indicator hint */}
+            <div className="flex justify-center mt-4 gap-2">
+              <motion.div
+                className="flex items-center gap-2 text-sm text-[hsl(40_20%_65%)]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+              >
+                <ChevronLeft className="h-4 w-4" />
+                <span>Swipe to explore</span>
+                <ChevronRight className="h-4 w-4" />
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
