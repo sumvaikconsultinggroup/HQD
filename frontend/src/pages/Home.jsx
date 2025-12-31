@@ -414,7 +414,7 @@ export default function Home() {
                 title: 'Full Service', 
                 desc: 'Professional bartenders, complete setup, premium service, and seamless cleanup.',
                 link: '/packages',
-                image: 'https://images.unsplash.com/photo-1574096079513-d8259312b785?w=400&q=80'
+                image: 'https://images.unsplash.com/photo-1574096079513-d8259312b785?w=400&q=60'
               },
             ].map((item, i) => (
               <FadeUp key={i} delay={i * 0.15}>
@@ -425,9 +425,16 @@ export default function Home() {
                     data-testid={`feature-card-${i}`}
                   >
                     {/* Image with parallax */}
-                    <div className="relative h-48 overflow-hidden">
-                      <motion.img 
+                    <div className="relative h-48 overflow-hidden bg-[hsl(0_0%_8%)]">
+                      <img 
                         src={item.image}
+                        alt={item.title}
+                        loading="lazy"
+                        decoding="async"
+                        width="400"
+                        height="192"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      />
                         alt={item.title}
                         className="w-full h-full object-cover"
                         whileHover={{ scale: 1.1 }}
