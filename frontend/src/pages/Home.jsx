@@ -531,13 +531,15 @@ export default function Home() {
                     whileHover={{ y: -8 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <motion.img 
+                    <div className="aspect-[4/3] overflow-hidden bg-[hsl(0_0%_8%)]">
+                      <img 
                         src={setup.image_url} 
                         alt={setup.title}
-                        className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.08 }}
-                        transition={{ duration: 0.6 }}
+                        loading="lazy"
+                        decoding="async"
+                        width="400"
+                        height="300"
+                        className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-600"
                       />
                     </div>
                     
