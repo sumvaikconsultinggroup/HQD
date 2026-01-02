@@ -1,33 +1,29 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { getGallery } from '@/lib/api';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const categories = ['all', 'wedding', 'corporate', 'private'];
 
+const galleryImages = [
+    { id: 1, image_url: '/gallary-images/img-1.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+    { id: 2, image_url: '/gallary-images/img-2.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+    { id: 3, image_url: '/gallary-images/img-3.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+    { id: 4, image_url: '/gallary-images/img-4.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+    { id: 5, image_url: '/gallary-images/img-5.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+    { id: 6, image_url: '/gallary-images/img-6.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+    { id: 7, image_url: '/gallary-images/img-7.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+    { id: 8, image_url: '/gallary-images/img-8.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+    { id: 9, image_url: '/gallary-images/img-9.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+    { id: 10, image_url: '/gallary-images/img-10.webp', title: 'Wedding Party Drinks', category: 'wedding' },
+];
+
 export default function Gallery() {
-  const [items, setItems] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]);
+  const [items, setItems] = useState(galleryImages);
+  const [filteredItems, setFilteredItems] = useState(galleryImages);
   const [filter, setFilter] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchGallery = async () => {
-      try {
-        const data = await getGallery();
-        setItems(data);
-        setFilteredItems(data);
-      } catch (error) {
-        console.error('Error:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchGallery();
-  }, []);
 
   useEffect(() => {
     if (filter === 'all') {
@@ -67,7 +63,7 @@ export default function Gallery() {
                 className={cn(
                   'px-4 py-2 rounded-full text-sm font-medium transition-all capitalize',
                   filter === cat
-                    ? 'bg-gold text-[hsl(0_0%_2%)]'
+                    ? 'bg-yellow-500 text-[hsl(0_0%_2%)]'
                     : 'border border-white/10 text-[hsl(40_33%_95%)] hover:border-gold/50'
                 )}
               >
@@ -81,37 +77,36 @@ export default function Gallery() {
       {/* Grid */}
       <section className="section-spacing pt-12">
         <div className="container-wide">
-          {loading ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {[...Array(8)].map((_, i) => (
-                <div key={i} className="aspect-square bg-[hsl(0_0%_10%)] rounded-xl animate-pulse" />
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {filteredItems.map((item, i) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: i * 0.03 }}
-                  className="aspect-square rounded-xl overflow-hidden cursor-pointer group relative"
-                  onClick={() => setSelectedIndex(i)}
-                >
-                  <img 
-                    src={item.image_url} 
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <p className="font-medium text-[hsl(40_33%_95%)] text-sm">{item.title}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          )}
+            {filteredItems.length > 0 ? (
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                    {filteredItems.map((item, i) => (
+                    <motion.div
+                        key={item.id}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: i * 0.03 }}
+                        className="aspect-square rounded-xl overflow-hidden cursor-pointer group relative"
+                        onClick={() => setSelectedIndex(i)}
+                    >
+                        <img 
+                        src={item.image_url} 
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="absolute bottom-4 left-4 right-4">
+                            <p className="font-medium text-[hsl(40_33%_95%)] text-sm">{item.title}</p>
+                        </div>
+                        </div>
+                    </motion.div>
+                    ))}
+                </div>
+            ) : (
+                <div className="text-center py-12">
+                    <p className="text-lg text-[hsl(40_33%_95%)]">More images coming soon!</p>
+                    <p className="text-sm text-white/50">We are currently curating our gallery for this category.</p>
+                </div>
+            )}
         </div>
       </section>
 
