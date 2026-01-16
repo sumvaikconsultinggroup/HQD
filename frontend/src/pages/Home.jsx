@@ -118,7 +118,7 @@ export default function Home() {
           <motion.div 
             className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full"
             style={{
-              background: 'radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(183,110,121,0.08) 0%, transparent 70%)',
               filter: 'blur(60px)'
             }}
             animate={{ 
