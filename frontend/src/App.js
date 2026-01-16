@@ -41,7 +41,7 @@ const PageLoader = memo(function PageLoader() {
     <div className="min-h-screen flex items-center justify-center bg-[hsl(0_0%_2%)]">
       <div className="text-center">
         <motion.div
-          className="w-12 h-12 border-3 border-[hsl(43_74%_49%)] border-t-transparent rounded-full mx-auto mb-4"
+          className="w-12 h-12 border-3 border-[hsl(352_33%_59%)] border-t-transparent rounded-full mx-auto mb-4"
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
         />

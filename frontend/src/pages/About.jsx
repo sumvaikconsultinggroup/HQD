@@ -125,14 +125,14 @@ const MosaicCard = ({ image, index, isHovered, onHover, onLeave }) => {
         className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
       >
         <p className="text-white font-medium text-sm flex items-center gap-2">
-          <Sparkles className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+          <Sparkles className="h-4 w-4 text-[hsl(352_33%_59%)]" />
           {image.caption}
         </p>
       </motion.div>
       
       {/* Corner Accent */}
-      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[hsl(43_74%_49%)/0.2] backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <Wine className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+      <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[hsl(352_33%_59%)/0.2] backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <Wine className="h-4 w-4 text-[hsl(352_33%_59%)]" />
       </div>
     </motion.div>
   );
@@ -226,20 +226,20 @@ export default function About() {
           className="absolute inset-0 pointer-events-none"
           style={{ y: bgY }}
         >
-          <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full bg-[hsl(43_74%_49%/0.03)] blur-[100px]" />
+          <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full bg-[hsl(352_33%_59%/0.03)] blur-[100px]" />
           <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full bg-[hsl(280_60%_50%/0.02)] blur-[80px]" />
         </motion.div>
         
         {/* Floating Decorations */}
         <motion.div
-          className="absolute top-20 right-10 text-[hsl(43_74%_49%/0.15)]"
+          className="absolute top-20 right-10 text-[hsl(352_33%_59%/0.15)]"
           animate={{ y: [-10, 10, -10], rotate: [0, 10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
           <PartyPopper className="h-24 w-24" />
         </motion.div>
         <motion.div
-          className="absolute bottom-32 left-10 text-[hsl(43_74%_49%/0.1)]"
+          className="absolute bottom-32 left-10 text-[hsl(352_33%_59%/0.1)]"
           animate={{ y: [10, -10, 10], rotate: [0, -10, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -259,16 +259,16 @@ export default function About() {
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(43_74%_49%/0.1)] border border-[hsl(43_74%_49%/0.2)] mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(352_33%_59%/0.1)] border border-[hsl(352_33%_59%/0.2)] mb-6"
             >
-              <Sparkles className="h-4 w-4 text-[hsl(43_74%_49%)]" />
-              <span className="text-sm font-medium text-[hsl(43_74%_49%)]">The People Behind The Magic</span>
+              <Sparkles className="h-4 w-4 text-[hsl(352_33%_59%)]" />
+              <span className="text-sm font-medium text-[hsl(352_33%_59%)]">The People Behind The Magic</span>
             </motion.div>
             
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[hsl(40_33%_95%)] mb-6">
               Meet Our{' '}
               <span className="relative inline-block">
-                <span className="text-[hsl(43_74%_49%)]">Fun-Loving</span>
+                <span className="text-[hsl(352_33%_59%)]">Fun-Loving</span>
                 <motion.svg
                   className="absolute -bottom-2 left-0 w-full"
                   viewBox="0 0 200 12"
@@ -279,7 +279,7 @@ export default function About() {
                 >
                   <motion.path
                     d="M2 8 Q 50 2, 100 8 T 198 8"
-                    stroke="hsl(43 74% 49%)"
+                    stroke="hsl(352 33% 59%)"
                     strokeWidth="3"
                     fill="none"
                     strokeLinecap="round"
@@ -325,7 +325,7 @@ export default function About() {
             ].map((stat, i) => (
               <motion.div
                 key={i}
-                className="text-center p-6 rounded-2xl bg-[hsl(0_0%_8%)] border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-colors"
+                className="text-center p-6 rounded-2xl bg-[hsl(0_0%_8%)] border border-white/5 hover:border-[hsl(352_33%_59%/0.3)] transition-colors"
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 400 }}
               >
@@ -336,7 +336,7 @@ export default function About() {
                 >
                   {stat.emoji}
                 </motion.span>
-                <div className="text-3xl font-display text-[hsl(43_74%_49%)] mb-1">{stat.number}</div>
+                <div className="text-3xl font-display text-[hsl(352_33%_59%)] mb-1">{stat.number}</div>
                 <div className="text-sm text-[hsl(40_20%_65%)]">{stat.label}</div>
               </motion.div>
             ))}
@@ -355,7 +355,7 @@ export default function About() {
             </p>
             <motion.a
               href={`mailto:${BRAND.email}?subject=I want to join HQ.D!`}
-              className="inline-flex items-center gap-2 text-[hsl(43_74%_49%)] font-medium hover:underline"
+              className="inline-flex items-center gap-2 text-[hsl(352_33%_59%)] font-medium hover:underline"
               whileHover={{ x: 5 }}
             >
               Drop us a line <ArrowRight className="h-4 w-4" />

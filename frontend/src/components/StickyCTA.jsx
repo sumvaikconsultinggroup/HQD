@@ -18,10 +18,10 @@ export function StickyCTA() {
           href={getWhatsAppLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="h-11 w-11 rounded-full border border-[hsl(43_74%_49%/0.4)] flex items-center justify-center"
+          className="h-11 w-11 rounded-full border border-[hsl(352_33%_59%/0.4)] flex items-center justify-center"
           data-testid="sticky-cta-whatsapp"
         >
-          <MessageCircle className="h-5 w-5 text-[hsl(43_74%_49%)]" />
+          <MessageCircle className="h-5 w-5 text-[hsl(352_33%_59%)]" />
         </a>
       </div>
     </div>

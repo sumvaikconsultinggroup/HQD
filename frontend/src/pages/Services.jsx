@@ -126,12 +126,12 @@ export default function Services() {
         <div className="absolute inset-0 overflow-hidden">
           <MorphingBlob 
             className="-top-40 -right-40 opacity-30" 
-            color="hsl(43, 74%, 49%, 0.08)" 
+            color="hsl(352, 33%, 59%, 0.08)" 
             size={600} 
           />
           <MorphingBlob 
             className="bottom-0 -left-40 opacity-20" 
-            color="hsl(43, 74%, 49%, 0.05)" 
+            color="hsl(352, 33%, 59%, 0.05)" 
             size={500} 
           />
           <SparkleEffect count={15} />
@@ -145,7 +145,7 @@ export default function Services() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <FadeUp>
-                <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+                <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-4 block">
                   Our Services
                 </span>
               </FadeUp>
@@ -153,13 +153,13 @@ export default function Services() {
                 <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-[hsl(40_33%_95%)] mb-6 leading-[1.1]">
                   Premium bar
                   <br />
-                  <span className="text-[hsl(43_74%_49%)]">experiences</span>
+                  <span className="text-[hsl(352_33%_59%)]">experiences</span>
                 </h1>
               </FadeUp>
               <FadeUp delay={0.2}>
                 <p className="text-xl text-[hsl(40_20%_75%)] mb-8 max-w-xl">
                   We specialize exclusively in bar services — cocktails and mocktails. 
-                  No food, no catering, just <span className="text-[hsl(43_74%_49%)]">exceptional drinks</span> crafted for your celebration.
+                  No food, no catering, just <span className="text-[hsl(352_33%_59%)]">exceptional drinks</span> crafted for your celebration.
                 </p>
               </FadeUp>
               <FadeUp delay={0.3}>
@@ -192,9 +192,9 @@ export default function Services() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 + i * 0.1 }}
-                    whileHover={{ y: -4, borderColor: 'hsl(43, 74%, 49%, 0.3)' }}
+                    whileHover={{ y: -4, borderColor: 'hsl(352, 33%, 59%, 0.3)' }}
                   >
-                    <div className="font-display text-4xl text-[hsl(43_74%_49%)] mb-1">
+                    <div className="font-display text-4xl text-[hsl(352_33%_59%)] mb-1">
                       {stat.decimal ? stat.value : <CountUp target={stat.value} suffix={stat.suffix} />}
                       {stat.decimal && stat.suffix}
                     </div>
@@ -214,11 +214,11 @@ export default function Services() {
         <div className="container-wide">
           <FadeUp>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-4 block">
                 What We Offer
               </span>
               <h2 className="font-display text-4xl sm:text-5xl text-[hsl(40_33%_95%)]">
-                Tailored to your <span className="text-[hsl(43_74%_49%)]">celebration</span>
+                Tailored to your <span className="text-[hsl(352_33%_59%)]">celebration</span>
               </h2>
             </div>
           </FadeUp>
@@ -230,11 +230,11 @@ export default function Services() {
                   {/* Content */}
                   <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 rounded-2xl bg-[hsl(43_74%_49%/0.1)] flex items-center justify-center">
-                        <service.icon className="h-6 w-6 text-[hsl(43_74%_49%)]" />
+                      <div className="w-12 h-12 rounded-2xl bg-[hsl(352_33%_59%/0.1)] flex items-center justify-center">
+                        <service.icon className="h-6 w-6 text-[hsl(352_33%_59%)]" />
                       </div>
                       {service.popular && (
-                        <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-[hsl(43_74%_49%)] text-[hsl(0_0%_2%)] text-xs font-medium">
+                        <span className="flex items-center gap-1 px-3 py-1 rounded-full bg-[hsl(352_33%_59%)] text-[hsl(0_0%_2%)] text-xs font-medium">
                           <Star className="h-3 w-3 fill-current" />
                           Most Popular
                         </span>
@@ -244,7 +244,7 @@ export default function Services() {
                     <h2 className="font-display text-4xl text-[hsl(40_33%_95%)] mb-2">
                       {service.title}
                     </h2>
-                    <p className="text-lg text-[hsl(43_74%_49%)] mb-4">
+                    <p className="text-lg text-[hsl(352_33%_59%)] mb-4">
                       {service.subtitle}
                     </p>
                     <p className="text-lg text-[hsl(40_20%_75%)] mb-8">
@@ -262,7 +262,7 @@ export default function Services() {
                           viewport={{ once: true }}
                           transition={{ delay: j * 0.05 }}
                         >
-                          <Check className="h-4 w-4 text-[hsl(43_74%_49%)] shrink-0" />
+                          <Check className="h-4 w-4 text-[hsl(352_33%_59%)] shrink-0" />
                           <span className="text-sm text-[hsl(40_33%_95%)]">{feature}</span>
                         </motion.div>
                       ))}
@@ -272,12 +272,12 @@ export default function Services() {
                     <div className="flex items-center gap-6">
                       <div className="flex items-center gap-4">
                         <div className="text-center">
-                          <div className="font-display text-2xl text-[hsl(43_74%_49%)]">{service.stats.events}</div>
+                          <div className="font-display text-2xl text-[hsl(352_33%_59%)]">{service.stats.events}</div>
                           <div className="text-xs text-[hsl(40_20%_65%)]">Events</div>
                         </div>
                         <div className="h-8 w-px bg-white/10" />
                         <div className="text-center">
-                          <div className="font-display text-2xl text-[hsl(43_74%_49%)]">{service.stats.rating}</div>
+                          <div className="font-display text-2xl text-[hsl(352_33%_59%)]">{service.stats.rating}</div>
                           <div className="text-xs text-[hsl(40_20%_65%)]">Rating</div>
                         </div>
                       </div>
@@ -314,7 +314,7 @@ export default function Services() {
                           transition={{ delay: 0.5 }}
                         >
                           <div className="flex items-center gap-2">
-                            <Sparkles className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+                            <Sparkles className="h-4 w-4 text-[hsl(352_33%_59%)]" />
                             <span className="text-sm text-[hsl(40_33%_95%)]">Molecular included</span>
                           </div>
                         </motion.div>
@@ -336,7 +336,7 @@ export default function Services() {
         <div className="container-wide relative z-10">
           <FadeUp>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-4 block">
                 How It Works
               </span>
               <h2 className="font-display text-4xl sm:text-5xl text-[hsl(40_33%_95%)]">
@@ -351,10 +351,10 @@ export default function Services() {
                 <GradientBorder>
                   <div className="p-8 text-center h-full">
                     <motion.div
-                      className="w-16 h-16 rounded-full bg-[hsl(43_74%_49%/0.1)] flex items-center justify-center mx-auto mb-6"
+                      className="w-16 h-16 rounded-full bg-[hsl(352_33%_59%/0.1)] flex items-center justify-center mx-auto mb-6"
                       whileHover={{ scale: 1.1, rotate: 10 }}
                     >
-                      <span className="font-display text-2xl text-[hsl(43_74%_49%)]">{step.step}</span>
+                      <span className="font-display text-2xl text-[hsl(352_33%_59%)]">{step.step}</span>
                     </motion.div>
                     <h3 className="font-display text-xl text-[hsl(40_33%_95%)] mb-3">{step.title}</h3>
                     <p className="text-[hsl(40_20%_65%)]">{step.desc}</p>
@@ -370,7 +370,7 @@ export default function Services() {
           MOLECULAR STRIP
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(43_74%_49%/0.05)] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[hsl(352_33%_59%/0.05)] to-transparent" />
         <SparkleEffect count={10} />
         
         <div className="container-wide relative z-10">
@@ -378,8 +378,8 @@ export default function Services() {
             <div className="flex-1">
               <FadeUp>
                 <div className="flex items-center gap-3 mb-4">
-                  <Zap className="h-6 w-6 text-[hsl(43_74%_49%)]" />
-                  <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)]">
+                  <Zap className="h-6 w-6 text-[hsl(352_33%_59%)]" />
+                  <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)]">
                     Included in all packages
                   </span>
                 </div>
@@ -390,7 +390,7 @@ export default function Services() {
                   Every package above Essential includes molecular elements — 
                   smoke bubbles, aromatic mists, and champagne foams that turn drinks into experiences.
                 </p>
-                <Link to="/molecular" className="inline-flex items-center gap-2 text-[hsl(43_74%_49%)] hover:underline">
+                <Link to="/molecular" className="inline-flex items-center gap-2 text-[hsl(352_33%_59%)] hover:underline">
                   Learn about molecular mixology
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -401,14 +401,14 @@ export default function Services() {
               {['Smoke Bubbles', 'Aromatic Mists', 'Foam Art'].map((tech, i) => (
                 <motion.div
                   key={tech}
-                  className="text-center p-6 rounded-2xl bg-[hsl(0_0%_5%)] border border-[hsl(43_74%_49%/0.2)]"
+                  className="text-center p-6 rounded-2xl bg-[hsl(0_0%_5%)] border border-[hsl(352_33%_59%/0.2)]"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  whileHover={{ y: -4, borderColor: 'hsl(43, 74%, 49%, 0.5)' }}
+                  whileHover={{ y: -4, borderColor: 'hsl(352, 33%, 59%, 0.5)' }}
                 >
-                  <Sparkles className="h-8 w-8 text-[hsl(43_74%_49%)] mx-auto mb-3" />
+                  <Sparkles className="h-8 w-8 text-[hsl(352_33%_59%)] mx-auto mb-3" />
                   <p className="text-sm text-[hsl(40_33%_95%)]">{tech}</p>
                 </motion.div>
               ))}
@@ -422,13 +422,13 @@ export default function Services() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="section-spacing bg-[hsl(0_0%_3%)] relative">
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-[hsl(43_74%_49%/0.05)] blur-[100px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-[hsl(352_33%_59%/0.05)] blur-[100px]" />
         </div>
         <NoiseTexture />
         
         <div className="container-narrow text-center relative z-10">
           <FadeUp>
-            <Crown className="h-12 w-12 text-[hsl(43_74%_49%)] mx-auto mb-6" />
+            <Crown className="h-12 w-12 text-[hsl(352_33%_59%)] mx-auto mb-6" />
             <h2 className="font-display text-4xl sm:text-5xl text-[hsl(40_33%_95%)] mb-4">
               Ready to elevate your event?
             </h2>
