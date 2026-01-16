@@ -33,7 +33,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         hasScrolled 
-          ? "bg-[hsl(0_0%_2%)]/90 backdrop-blur-xl border-b border-[hsl(43_74%_49%/0.1)]" 
+          ? "bg-[hsl(0_0%_2%)]/90 backdrop-blur-xl border-b border-[hsl(352_33%_59%/0.1)]" 
           : "bg-transparent border-b border-transparent"
       )}
       initial={{ y: -100, opacity: 0 }}
@@ -75,8 +75,8 @@ export function Navbar() {
                   className={cn(
                     'relative flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full transition-all',
                     location.pathname === item.href 
-                      ? 'bg-gradient-to-r from-[hsl(43_74%_49%)] to-[hsl(280_60%_50%)] text-[hsl(0_0%_2%)]' 
-                      : 'bg-gradient-to-r from-[hsl(43_74%_49%/0.15)] to-[hsl(280_60%_50%/0.15)] text-[hsl(43_74%_49%)] hover:from-[hsl(43_74%_49%/0.25)] hover:to-[hsl(280_60%_50%/0.25)]'
+                      ? 'bg-gradient-to-r from-[hsl(352_33%_59%)] to-[hsl(280_60%_50%)] text-[hsl(0_0%_2%)]' 
+                      : 'bg-gradient-to-r from-[hsl(352_33%_59%/0.15)] to-[hsl(280_60%_50%/0.15)] text-[hsl(352_33%_59%)] hover:from-[hsl(352_33%_59%/0.25)] hover:to-[hsl(280_60%_50%/0.25)]'
                   )}
                   data-testid={`nav-${item.label.toLowerCase().replace(/ /g, '-')}`}
                 >
@@ -89,7 +89,7 @@ export function Navbar() {
                   className={cn(
                     'relative px-4 py-2 text-sm font-medium transition-colors',
                     location.pathname === item.href 
-                      ? 'text-[hsl(43_74%_49%)]' 
+                      ? 'text-[hsl(352_33%_59%)]' 
                       : 'text-[hsl(40_20%_75%)] hover:text-[hsl(40_33%_95%)]'
                   )}
                   data-testid={`nav-${item.label.toLowerCase().replace(/ /g, '-')}`}
@@ -97,7 +97,7 @@ export function Navbar() {
                   {item.label}
                   {/* Animated underline */}
                   <motion.span
-                    className="absolute bottom-0 left-4 right-4 h-[2px] bg-[hsl(43_74%_49%)]"
+                    className="absolute bottom-0 left-4 right-4 h-[2px] bg-[hsl(352_33%_59%)]"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: location.pathname === item.href ? 1 : 0 }}
                     whileHover={{ scaleX: 1 }}
@@ -116,13 +116,13 @@ export function Navbar() {
             href={getWhatsAppLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(43_74%_49%)] hover:bg-[hsl(43_74%_49%/0.1)] transition-all duration-300"
+            className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(352_33%_59%)] hover:bg-[hsl(352_33%_59%/0.1)] transition-all duration-300"
             aria-label="WhatsApp"
             data-testid="nav-whatsapp"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <MessageCircle className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+            <MessageCircle className="h-4 w-4 text-[hsl(352_33%_59%)]" />
           </motion.a>
           
           <Link
@@ -130,7 +130,7 @@ export function Navbar() {
             data-testid="nav-quote-btn"
           >
             <motion.span
-              className="hidden sm:inline-flex items-center gap-2 bg-[hsl(43_74%_49%)] text-[hsl(0_0%_2%)] text-sm font-medium h-10 px-5 rounded-full"
+              className="hidden sm:inline-flex items-center gap-2 bg-[hsl(352_33%_59%)] text-[hsl(0_0%_2%)] text-sm font-medium h-10 px-5 rounded-full"
               whileHover={{ scale: 1.02, backgroundColor: 'hsl(43, 74%, 55%)' }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
@@ -143,7 +143,7 @@ export function Navbar() {
           {/* Mobile Toggle */}
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden h-10 w-10 flex items-center justify-center rounded-full border border-white/10 hover:border-[hsl(43_74%_49%/0.5)] transition-colors"
+            className="lg:hidden h-10 w-10 flex items-center justify-center rounded-full border border-white/10 hover:border-[hsl(352_33%_59%/0.5)] transition-colors"
             aria-label="Menu"
             whileTap={{ scale: 0.9 }}
           >
@@ -182,7 +182,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.4, ease: [0.2, 0.8, 0.2, 1] }}
-            className="lg:hidden bg-[hsl(0_0%_2%)]/95 backdrop-blur-xl border-t border-[hsl(43_74%_49%/0.1)]"
+            className="lg:hidden bg-[hsl(0_0%_2%)]/95 backdrop-blur-xl border-t border-[hsl(352_33%_59%/0.1)]"
           >
             <nav className="container-wide py-6 flex flex-col gap-1">
               {navItems.map((item, i) => (
@@ -198,7 +198,7 @@ export function Navbar() {
                     className={cn(
                       'flex items-center justify-between px-4 py-4 rounded-xl text-base font-medium transition-all',
                       location.pathname === item.href 
-                        ? 'text-[hsl(43_74%_49%)] bg-[hsl(43_74%_49%/0.1)]' 
+                        ? 'text-[hsl(352_33%_59%)] bg-[hsl(352_33%_59%/0.1)]' 
                         : 'text-[hsl(40_33%_95%)] hover:bg-white/5'
                     )}
                   >
@@ -214,7 +214,7 @@ export function Navbar() {
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <div className="h-px bg-gradient-to-r from-transparent via-[hsl(43_74%_49%/0.3)] to-transparent" />
+                <div className="h-px bg-gradient-to-r from-transparent via-[hsl(352_33%_59%/0.3)] to-transparent" />
               </motion.div>
               
               <motion.div
@@ -225,7 +225,7 @@ export function Navbar() {
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center gap-2 bg-[hsl(43_74%_49%)] text-[hsl(0_0%_2%)] font-medium py-4 rounded-xl"
+                  className="flex items-center justify-center gap-2 bg-[hsl(352_33%_59%)] text-[hsl(0_0%_2%)] font-medium py-4 rounded-xl"
                 >
                   Get a Quote
                   <ArrowRight className="h-4 w-4" />

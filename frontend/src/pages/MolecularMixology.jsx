@@ -116,7 +116,7 @@ export default function MolecularMixology() {
             }}
             transition={{ duration: 8, repeat: Infinity }}
           />
-          <SparkleEffect count={30} color="hsl(43, 74%, 49%)" />
+          <SparkleEffect count={30} color="hsl(352, 33%, 59%)" />
           <NoiseTexture />
         </div>
 
@@ -130,13 +130,13 @@ export default function MolecularMixology() {
               <FadeUp>
                 <div className="flex items-center gap-3 mb-6">
                   <motion.div
-                    className="p-3 rounded-2xl bg-gradient-to-br from-[hsl(43_74%_49%)] to-[hsl(280_60%_50%)]"
+                    className="p-3 rounded-2xl bg-gradient-to-br from-[hsl(352_33%_59%)] to-[hsl(280_60%_50%)]"
                     animate={{ rotate: [0, 5, -5, 0] }}
                     transition={{ duration: 4, repeat: Infinity }}
                   >
                     <Atom className="h-8 w-8 text-white" />
                   </motion.div>
-                  <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)]">
+                  <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)]">
                     The Science of Drinks
                   </span>
                 </div>
@@ -146,7 +146,7 @@ export default function MolecularMixology() {
                 <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-[hsl(40_33%_95%)] mb-6 leading-[1.1]">
                   Molecular
                   <br />
-                  <span className="bg-gradient-to-r from-[hsl(43_74%_49%)] to-[hsl(280_60%_50%)] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[hsl(352_33%_59%)] to-[hsl(280_60%_50%)] bg-clip-text text-transparent">
                     Mixology Lab
                   </span>
                 </h1>
@@ -154,7 +154,7 @@ export default function MolecularMixology() {
 
               <FadeUp delay={0.2}>
                 <p className="text-xl text-[hsl(40_20%_75%)] mb-8 max-w-xl">
-                  Explore <span className="text-[hsl(43_74%_49%)] font-semibold">{totalTechniques}+</span> mind-bending 
+                  Explore <span className="text-[hsl(352_33%_59%)] font-semibold">{totalTechniques}+</span> mind-bending 
                   techniques that transform drinks into unforgettable experiences. From smoke bubbles to liquid nitrogen magic.
                 </p>
               </FadeUp>
@@ -184,7 +184,7 @@ export default function MolecularMixology() {
                 <GradientBorder>
                   <div className="p-8 bg-[hsl(0_0%_5%)]">
                     <div className="flex items-center gap-3 mb-6">
-                      <Trophy className="h-6 w-6 text-[hsl(43_74%_49%)]" />
+                      <Trophy className="h-6 w-6 text-[hsl(352_33%_59%)]" />
                       <span className="font-display text-xl text-[hsl(40_33%_95%)]">Your Progress</span>
                     </div>
 
@@ -216,7 +216,7 @@ export default function MolecularMixology() {
                           />
                           <defs>
                             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                              <stop offset="0%" stopColor="hsl(43, 74%, 49%)" />
+                              <stop offset="0%" stopColor="hsl(352, 33%, 59%)" />
                               <stop offset="100%" stopColor="hsl(280, 60%, 50%)" />
                             </linearGradient>
                           </defs>
@@ -235,8 +235,8 @@ export default function MolecularMixology() {
                     {/* Points */}
                     <div className="text-center mb-6">
                       <div className="flex items-center justify-center gap-2 mb-1">
-                        <Zap className="h-5 w-5 text-[hsl(43_74%_49%)]" />
-                        <span className="font-display text-3xl text-[hsl(43_74%_49%)]">
+                        <Zap className="h-5 w-5 text-[hsl(352_33%_59%)]" />
+                        <span className="font-display text-3xl text-[hsl(352_33%_59%)]">
                           <CountUp target={earnedPoints} duration={1500} />
                         </span>
                         <span className="text-[hsl(40_20%_65%)]">/ {totalPoints} pts</span>
@@ -276,7 +276,7 @@ export default function MolecularMixology() {
 
                 {/* Floating Badges */}
                 <motion.div
-                  className="absolute -top-4 -right-4 p-3 rounded-full bg-[hsl(43_74%_49%)] shadow-lg"
+                  className="absolute -top-4 -right-4 p-3 rounded-full bg-[hsl(352_33%_59%)] shadow-lg"
                   animate={{ y: [0, -5, 0], rotate: [0, 5, 0] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
@@ -293,7 +293,7 @@ export default function MolecularMixology() {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <ChevronDown className="h-6 w-6 text-[hsl(43_74%_49%)]" />
+          <ChevronDown className="h-6 w-6 text-[hsl(352_33%_59%)]" />
         </motion.div>
       </section>
 
@@ -323,7 +323,7 @@ export default function MolecularMixology() {
                 className={cn(
                   "shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all",
                   selectedDifficulty === 'all'
-                    ? "bg-[hsl(43_74%_49%)] text-[hsl(0_0%_2%)]"
+                    ? "bg-[hsl(352_33%_59%)] text-[hsl(0_0%_2%)]"
                     : "border border-white/10 text-[hsl(40_20%_75%)] hover:border-white/20"
                 )}
               >
@@ -413,7 +413,7 @@ export default function MolecularMixology() {
                         className={cn(
                           "group relative h-full rounded-2xl overflow-hidden cursor-pointer",
                           "bg-gradient-to-b from-[hsl(0_0%_10%)] to-[hsl(0_0%_5%)]",
-                          "border border-white/5 hover:border-[hsl(43_74%_49%/0.3)]",
+                          "border border-white/5 hover:border-[hsl(352_33%_59%/0.3)]",
                           "transition-all duration-300"
                         )}
                         onClick={() => {
@@ -445,8 +445,8 @@ export default function MolecularMixology() {
 
                           {/* Points Badge */}
                           <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 rounded-full bg-black/50 backdrop-blur-sm text-xs">
-                            <Zap className="h-3 w-3 text-[hsl(43_74%_49%)]" />
-                            <span className="text-[hsl(43_74%_49%)]">+{level.points}</span>
+                            <Zap className="h-3 w-3 text-[hsl(352_33%_59%)]" />
+                            <span className="text-[hsl(352_33%_59%)]">+{level.points}</span>
                           </div>
 
                           {/* Viewed Badge */}
@@ -464,7 +464,7 @@ export default function MolecularMixology() {
                                 className={cn(
                                   "h-3 w-3",
                                   j < Math.round(technique.wowFactor / 2) 
-                                    ? "fill-[hsl(43_74%_49%)] text-[hsl(43_74%_49%)]"
+                                    ? "fill-[hsl(352_33%_59%)] text-[hsl(352_33%_59%)]"
                                     : "text-white/20"
                                 )}
                               />
@@ -474,7 +474,7 @@ export default function MolecularMixology() {
 
                         {/* Content */}
                         <div className="p-4">
-                          <h3 className="font-display text-lg text-[hsl(40_33%_95%)] mb-1 group-hover:text-[hsl(43_74%_49%)] transition-colors">
+                          <h3 className="font-display text-lg text-[hsl(40_33%_95%)] mb-1 group-hover:text-[hsl(352_33%_59%)] transition-colors">
                             {technique.name}
                           </h3>
                           <p className="text-sm text-[hsl(40_20%_65%)] line-clamp-2">
@@ -493,7 +493,7 @@ export default function MolecularMixology() {
                         <motion.div
                           className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity"
                         >
-                          <span className="flex items-center gap-2 text-[hsl(43_74%_49%)] font-medium">
+                          <span className="flex items-center gap-2 text-[hsl(352_33%_59%)] font-medium">
                             <Eye className="h-5 w-5" />
                             View Details
                           </span>
@@ -527,7 +527,7 @@ export default function MolecularMixology() {
         <SparkleEffect count={10} />
         <div className="container-narrow text-center relative z-10">
           <FadeUp>
-            <Atom className="h-12 w-12 text-[hsl(43_74%_49%)] mx-auto mb-6" />
+            <Atom className="h-12 w-12 text-[hsl(352_33%_59%)] mx-auto mb-6" />
             <h2 className="font-display text-3xl sm:text-4xl text-[hsl(40_33%_95%)] mb-4">
               Want molecular magic at your event?
             </h2>
@@ -590,7 +590,7 @@ function TechniqueDetail({ technique, onClose }) {
             {level.icon} {level.label}
           </span>
           <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-sm text-sm">
-            <Zap className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+            <Zap className="h-4 w-4 text-[hsl(352_33%_59%)]" />
             +{level.points} points
           </span>
         </div>
@@ -598,7 +598,7 @@ function TechniqueDetail({ technique, onClose }) {
         {/* Title overlay */}
         <div className="absolute bottom-4 left-4 right-4">
           <h2 className="font-display text-3xl text-white mb-1">{technique.name}</h2>
-          <p className="text-lg text-[hsl(43_74%_49%)]">{technique.tagline}</p>
+          <p className="text-lg text-[hsl(352_33%_59%)]">{technique.tagline}</p>
         </div>
       </div>
 
@@ -612,7 +612,7 @@ function TechniqueDetail({ technique, onClose }) {
               className={cn(
                 "w-6 h-2 rounded-full",
                 i < technique.wowFactor 
-                  ? "bg-gradient-to-r from-[hsl(43_74%_49%)] to-[hsl(280_60%_50%)]"
+                  ? "bg-gradient-to-r from-[hsl(352_33%_59%)] to-[hsl(280_60%_50%)]"
                   : "bg-white/10"
               )}
               initial={{ scaleX: 0 }}
@@ -621,7 +621,7 @@ function TechniqueDetail({ technique, onClose }) {
             />
           ))}
         </div>
-        <span className="text-sm font-medium text-[hsl(43_74%_49%)]">{technique.wowFactor}/10</span>
+        <span className="text-sm font-medium text-[hsl(352_33%_59%)]">{technique.wowFactor}/10</span>
       </div>
 
       {/* Description */}
@@ -644,7 +644,7 @@ function TechniqueDetail({ technique, onClose }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.1 }}
             >
-              <span className="w-6 h-6 rounded-full bg-[hsl(43_74%_49%)] flex items-center justify-center text-xs font-bold text-[hsl(0_0%_2%)]">
+              <span className="w-6 h-6 rounded-full bg-[hsl(352_33%_59%)] flex items-center justify-center text-xs font-bold text-[hsl(0_0%_2%)]">
                 {i + 1}
               </span>
               <span className="text-[hsl(40_33%_95%)] flex-1">{step}</span>
@@ -659,7 +659,7 @@ function TechniqueDetail({ technique, onClose }) {
         <div className="grid gap-2">
           {technique.proTips.map((tip, i) => (
             <div key={i} className="flex items-start gap-2 text-[hsl(40_20%_75%)]">
-              <Star className="h-4 w-4 text-[hsl(43_74%_49%)] shrink-0 mt-0.5" />
+              <Star className="h-4 w-4 text-[hsl(352_33%_59%)] shrink-0 mt-0.5" />
               <span>{tip}</span>
             </div>
           ))}
@@ -667,7 +667,7 @@ function TechniqueDetail({ technique, onClose }) {
       </div>
 
       {/* Fun Fact */}
-      <div className="p-4 rounded-xl bg-gradient-to-r from-[hsl(43_74%_49%/0.1)] to-[hsl(280_60%_50%/0.1)] border border-[hsl(43_74%_49%/0.2)]">
+      <div className="p-4 rounded-xl bg-gradient-to-r from-[hsl(352_33%_59%/0.1)] to-[hsl(280_60%_50%/0.1)] border border-[hsl(352_33%_59%/0.2)]">
         <p className="flex items-start gap-2">
           <span className="text-xl">💡</span>
           <span className="text-[hsl(40_33%_95%)]">
@@ -683,7 +683,7 @@ function TechniqueDetail({ technique, onClose }) {
           <ul className="space-y-2">
             {technique.equipmentNeeded.map((item, i) => (
               <li key={i} className="flex items-center gap-2 text-[hsl(40_20%_75%)]">
-                <Beaker className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+                <Beaker className="h-4 w-4 text-[hsl(352_33%_59%)]" />
                 {item}
               </li>
             ))}
@@ -724,7 +724,7 @@ function TechniqueDetail({ technique, onClose }) {
           {technique.perfectFor.map((event, i) => (
             <span 
               key={i}
-              className="px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] text-[hsl(43_74%_49%)] text-sm"
+              className="px-3 py-1.5 rounded-full bg-[hsl(352_33%_59%/0.15)] text-[hsl(352_33%_59%)] text-sm"
             >
               {event}
             </span>
