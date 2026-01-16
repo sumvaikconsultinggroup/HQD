@@ -2,7 +2,7 @@ import { motion, useMotionValue, useSpring, animate } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 
 // Sparkle particle effect
-export function SparkleEffect({ count = 20, color = 'hsl(43, 74%, 49%)' }) {
+export function SparkleEffect({ count = 20, color = 'hsl(352, 33%, 59%)' }) {
   const [sparkles, setSparkles] = useState([]);
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export function FloatingParticles({ count = 30 }) {
       {particles.map(particle => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-[hsl(43_74%_49%/0.3)]"
+          className="absolute rounded-full bg-[hsl(352_33%_59%/0.3)]"
           style={{
             left: `${particle.x}%`,
             width: particle.size,
@@ -102,7 +102,7 @@ export function FloatingParticles({ count = 30 }) {
 // Morphing blob shape
 export function MorphingBlob({ 
   className = '', 
-  color = 'hsl(43, 74%, 49%, 0.1)',
+  color = 'hsl(352, 33%, 59%, 0.1)',
   size = 400 
 }) {
   const paths = [
@@ -139,7 +139,7 @@ export function MorphingBlob({
 }
 
 // Glow effect on hover
-export function GlowCard({ children, className = '', glowColor = 'hsl(43, 74%, 49%)' }) {
+export function GlowCard({ children, className = '', glowColor = 'hsl(352, 33%, 59%)' }) {
   const cardRef = useRef(null);
   const [glowPosition, setGlowPosition] = useState({ x: 50, y: 50 });
 
@@ -235,7 +235,7 @@ export function GradientBorder({ children, className = '' }) {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'conic-gradient(from 0deg, hsl(43, 74%, 49%), hsl(43, 74%, 30%), hsl(43, 74%, 49%))',
+          background: 'conic-gradient(from 0deg, hsl(352, 33%, 59%), hsl(352, 28%, 45%), hsl(352, 33%, 59%))',
         }}
         animate={{ rotate: 360 }}
         transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
@@ -253,7 +253,7 @@ export function ShimmerText({ children, className = '' }) {
     <span className={`relative inline-block ${className}`}>
       <span className="relative z-10">{children}</span>
       <motion.span
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-[hsl(43_74%_49%/0.3)] to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-[hsl(352_33%_59%/0.3)] to-transparent"
         style={{ backgroundSize: '200% 100%' }}
         animate={{ backgroundPosition: ['200% 0', '-200% 0'] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}

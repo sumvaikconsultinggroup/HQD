@@ -131,7 +131,7 @@ export function Navbar() {
           >
             <motion.span
               className="hidden sm:inline-flex items-center gap-2 bg-[hsl(352_33%_59%)] text-[hsl(0_0%_2%)] text-sm font-medium h-10 px-5 rounded-full"
-              whileHover={{ scale: 1.02, backgroundColor: 'hsl(43, 74%, 55%)' }}
+              whileHover={{ scale: 1.02, backgroundColor: 'hsl(352, 33%, 65%)' }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.2 }}
             >

@@ -44,15 +44,15 @@ export function Footer() {
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(43_74%_49%/0.5)] transition-colors"
+                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(352_33%_59%/0.5)] transition-colors"
               >
-                <MessageCircle className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+                <MessageCircle className="h-4 w-4 text-[hsl(352_33%_59%)]" />
               </a>
               <a
                 href={`mailto:${BRAND.email}`}
-                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(43_74%_49%/0.5)] transition-colors"
+                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(352_33%_59%/0.5)] transition-colors"
               >
-                <Mail className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+                <Mail className="h-4 w-4 text-[hsl(352_33%_59%)]" />
               </a>
             </div>
           </div>
@@ -63,7 +63,7 @@ export function Footer() {
             <ul className="space-y-3">
               {links.explore.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors">
+                  <Link to={link.href} className="body-sm hover:text-[hsl(352_33%_59%)] transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -77,7 +77,7 @@ export function Footer() {
             <ul className="space-y-3">
               {links.company.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors">
+                  <Link to={link.href} className="body-sm hover:text-[hsl(352_33%_59%)] transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -93,7 +93,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link 
                     to={link.href} 
-                    className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors inline-flex items-center gap-1"
+                    className="body-sm hover:text-[hsl(352_33%_59%)] transition-colors inline-flex items-center gap-1"
                   >
                     {link.label}
                     <ArrowUpRight className="h-3 w-3" />
@@ -116,12 +116,12 @@ export function Footer() {
               href="https://www.Sumvaik.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-[hsl(43_74%_49%)] hover:text-[hsl(43_74%_60%)] transition-colors"
+              className="text-[hsl(352_33%_59%)] hover:text-[hsl(352_40%_65%)] transition-colors"
             >
               Sumvaik Consulting Group
             </a>
           </p>
-          <p className="text-xs text-[hsl(43_74%_49%)]">
+          <p className="text-xs text-[hsl(352_33%_59%)]">
             Bars only — We do not provide food or catering.
           </p>
         </div>
