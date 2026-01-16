@@ -6,12 +6,13 @@
 
 @layer base {
   :root {
-    /* HQ.D Luxury Noir Palette */
+    /* HQ.D Luxury Rose Gold Palette */
     --color-bg: 0 0% 2%;
     --color-bg-elevated: 0 0% 5%;
     --color-bg-card: 0 0% 7%;
-    --color-gold: 43 74% 49%;
-    --color-gold-light: 43 60% 70%;
+    --color-accent: 352 33% 59%;           /* Rose Gold #B76E79 */
+    --color-accent-light: 352 40% 72%;     /* Lighter Rose Gold */
+    --color-accent-dark: 352 30% 48%;      /* Darker Rose Gold */
     --color-cream: 40 33% 95%;
     --color-cream-muted: 40 20% 75%;
     --color-pearl: 40 20% 96%;
@@ -22,19 +23,19 @@
     --card-foreground: 40 33% 95%;
     --popover: 0 0% 5%;
     --popover-foreground: 40 33% 95%;
-    --primary: 43 74% 49%;
-    --primary-foreground: 0 0% 2%;
+    --primary: 352 33% 59%;                /* Rose Gold */
+    --primary-foreground: 0 0% 100%;       /* White text on rose gold */
     --secondary: 0 0% 10%;
     --secondary-foreground: 40 33% 95%;
     --muted: 0 0% 15%;
     --muted-foreground: 40 20% 65%;
-    --accent: 43 74% 49%;
-    --accent-foreground: 0 0% 2%;
+    --accent: 352 33% 59%;                 /* Rose Gold */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 40 33% 95%;
     --border: 0 0% 15%;
     --input: 0 0% 15%;
-    --ring: 43 74% 49%;
+    --ring: 352 33% 59%;                   /* Rose Gold */
     --radius: 12px;
   }
 }
@@ -88,9 +89,9 @@
 ═══════════════════════════════════════════════════════════════════ */
 
 .font-display {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
 }
 
 .font-body {
@@ -99,11 +100,11 @@
 }
 
 .text-gold {
-  color: hsl(43 74% 49%);
+  color: hsl(352 33% 59%);
 }
 
 .text-gold-light {
-  color: hsl(43 60% 70%);
+  color: hsl(352 40% 72%);
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -130,8 +131,8 @@
 /* Hero gradient overlay */
 .hero-gradient {
   background: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, hsl(43 74% 49% / 0.08), transparent),
-    radial-gradient(ellipse 60% 40% at 100% 50%, hsl(43 74% 49% / 0.04), transparent),
+    radial-gradient(ellipse 80% 50% at 50% -20%, hsl(352 33% 59% / 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, hsl(352 33% 59% / 0.04), transparent),
     radial-gradient(ellipse 50% 30% at 0% 80%, hsl(0 0% 100% / 0.02), transparent);
 }
 
@@ -141,16 +142,16 @@
 
 .gold-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, hsl(43 74% 49% / 0.5), transparent);
+  background: linear-gradient(90deg, transparent, hsl(352 33% 59% / 0.5), transparent);
 }
 
 .gold-glow {
-  box-shadow: 0 0 40px hsl(43 74% 49% / 0.15);
+  box-shadow: 0 0 40px hsl(352 33% 59% / 0.15);
 }
 
 .card-glow {
   box-shadow: 
-    0 0 0 1px hsl(43 74% 49% / 0.1),
+    0 0 0 1px hsl(352 33% 59% / 0.1),
     0 4px 20px hsl(0 0% 0% / 0.3);
 }
 
@@ -172,7 +173,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(43 74% 49% / 0.6);
+  background: hsl(352 33% 59% / 0.6);
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -194,24 +195,24 @@
 
 .btn-primary {
   @apply inline-flex items-center justify-center gap-2 px-7 h-12 rounded-full;
-  @apply bg-[hsl(43_74%_49%)] text-[hsl(0_0%_2%)] font-medium;
+  @apply bg-[hsl(352_33%_59%)] text-white font-medium;
   @apply transition-all duration-300 ease-out;
-  @apply hover:bg-[hsl(43_74%_55%)] hover:shadow-lg hover:shadow-[hsl(43_74%_49%/0.2)];
+  @apply hover:bg-[hsl(352_33%_65%)] hover:shadow-lg hover:shadow-[hsl(352_33%_59%/0.2)];
   @apply active:scale-[0.98];
 }
 
 .btn-outline {
   @apply inline-flex items-center justify-center gap-2 px-7 h-12 rounded-full;
-  @apply border border-[hsl(43_74%_49%/0.4)] text-[hsl(40_33%_95%)];
+  @apply border border-[hsl(352_33%_59%/0.4)] text-[hsl(40_33%_95%)];
   @apply transition-all duration-300 ease-out;
-  @apply hover:border-[hsl(43_74%_49%)] hover:bg-[hsl(43_74%_49%/0.08)];
+  @apply hover:border-[hsl(352_33%_59%)] hover:bg-[hsl(352_33%_59%/0.08)];
   @apply active:scale-[0.98];
 }
 
 .btn-ghost {
   @apply inline-flex items-center justify-center gap-2 px-4 h-10;
   @apply text-[hsl(40_33%_95%)] transition-colors duration-300;
-  @apply hover:text-[hsl(43_74%_49%)];
+  @apply hover:text-[hsl(352_33%_59%)];
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -221,13 +222,13 @@
 .card-minimal {
   @apply rounded-3xl border border-[hsl(0_0%_12%)] bg-[hsl(0_0%_5%)];
   @apply transition-all duration-500 ease-out;
-  @apply hover:border-[hsl(43_74%_49%/0.25)];
+  @apply hover:border-[hsl(352_33%_59%/0.25)];
 }
 
 .card-elevated {
   @apply rounded-3xl border border-[hsl(0_0%_15%)] bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)];
   @apply transition-all duration-500 ease-out;
-  @apply hover:border-[hsl(43_74%_49%/0.3)] hover:shadow-xl hover:shadow-[hsl(0_0%_0%/0.3)];
+  @apply hover:border-[hsl(352_33%_59%/0.3)] hover:shadow-xl hover:shadow-[hsl(0_0%_0%/0.3)];
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -279,7 +280,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: hsl(43 74% 49%);
+  background: hsl(352 33% 59%);
   transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -296,7 +297,7 @@
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, hsl(43 74% 49%), hsl(43 60% 65%));
+  background: linear-gradient(135deg, hsl(352 33% 59%), hsl(352 40% 72%));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -316,7 +317,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    hsl(43 74% 49% / 0.1) 50%,
+    hsl(352 33% 59% / 0.1) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -326,10 +327,10 @@
 /* Pulse glow */
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 20px hsl(43 74% 49% / 0.2);
+    box-shadow: 0 0 20px hsl(352 33% 59% / 0.2);
   }
   50% {
-    box-shadow: 0 0 40px hsl(43 74% 49% / 0.4);
+    box-shadow: 0 0 40px hsl(352 33% 59% / 0.4);
   }
 }
 
