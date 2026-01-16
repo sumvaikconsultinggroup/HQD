@@ -160,12 +160,12 @@ export default function Home() {
                 {/* Eyebrow */}
                 <motion.div variants={slideIn} className="flex items-center gap-3">
                   <motion.div 
-                    className="h-px w-12 bg-[hsl(43_74%_49%)]"
+                    className="h-px w-12 bg-[hsl(352_33%_59%)]"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                   />
-                  <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)]">
+                  <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)]">
                     Luxury Bar Experiences
                   </span>
                 </motion.div>
@@ -177,7 +177,7 @@ export default function Home() {
                       Cinematic Bars.
                     </TextRevealWord>
                     <br />
-                    <TextRevealWord className="text-[hsl(43_74%_49%)]" delay={0.8}>
+                    <TextRevealWord className="text-[hsl(352_33%_59%)]" delay={0.8}>
                       Editorial Drinks.
                     </TextRevealWord>
                   </h1>
@@ -189,14 +189,14 @@ export default function Home() {
                   className="text-lg sm:text-xl text-[hsl(40_20%_75%)] max-w-xl leading-relaxed"
                 >
                   Premium cocktail & mocktail bar setups for weddings, corporate events, 
-                  and private celebrations. <span className="text-[hsl(43_74%_49%)]">Molecular mixology</span> included.
+                  and private celebrations. <span className="text-[hsl(352_33%_59%)]">Molecular mixology</span> included.
                 </motion.p>
                 
                 {/* CTAs */}
                 <motion.div variants={slideUp} className="flex flex-wrap gap-4 pt-4">
                   <Link to="/contact" data-testid="hero-cta-quote">
                     <MagneticButton 
-                      className="group relative px-8 py-4 bg-[hsl(43_74%_49%)] text-[hsl(0_0%_2%)] rounded-full font-medium overflow-hidden"
+                      className="group relative px-8 py-4 bg-[hsl(352_33%_59%)] text-[hsl(0_0%_2%)] rounded-full font-medium overflow-hidden"
                       strength={0.2}
                     >
                       <span className="relative z-10 flex items-center gap-2">
@@ -210,7 +210,7 @@ export default function Home() {
                         </motion.span>
                       </span>
                       <motion.div 
-                        className="absolute inset-0 bg-[hsl(43_74%_55%)]"
+                        className="absolute inset-0 bg-[hsl(352_33%_65%)]"
                         initial={{ x: '-100%' }}
                         whileHover={{ x: 0 }}
                         transition={{ duration: 0.3 }}
@@ -220,7 +220,7 @@ export default function Home() {
                   
                   <Link to="/bar-setups" data-testid="hero-cta-setups">
                     <MagneticButton 
-                      className="group px-8 py-4 border border-[hsl(43_74%_49%/0.4)] text-[hsl(40_33%_95%)] rounded-full font-medium hover:border-[hsl(43_74%_49%)] transition-colors duration-300"
+                      className="group px-8 py-4 border border-[hsl(43_74%_49%/0.4)] text-[hsl(40_33%_95%)] rounded-full font-medium hover:border-[hsl(352_33%_59%)] transition-colors duration-300"
                       strength={0.2}
                     >
                       <span className="flex items-center gap-2">
@@ -237,21 +237,21 @@ export default function Home() {
                   className="flex items-center gap-8 pt-8 mt-8 border-t border-white/5"
                 >
                   <div className="text-center">
-                    <div className="text-3xl font-display text-[hsl(43_74%_49%)]">
+                    <div className="text-3xl font-display text-[hsl(352_33%_59%)]">
                       <CountUp target={500} suffix="+" />
                     </div>
                     <div className="text-xs text-[hsl(40_20%_65%)] mt-1">Events Served</div>
                   </div>
                   <div className="h-10 w-px bg-white/10" />
                   <div className="text-center">
-                    <div className="text-3xl font-display text-[hsl(43_74%_49%)]">
+                    <div className="text-3xl font-display text-[hsl(352_33%_59%)]">
                       <CountUp target={50} suffix="+" />
                     </div>
                     <div className="text-xs text-[hsl(40_20%_65%)] mt-1">Signature Drinks</div>
                   </div>
                   <div className="h-10 w-px bg-white/10" />
                   <div className="text-center">
-                    <div className="text-3xl font-display text-[hsl(43_74%_49%)]">
+                    <div className="text-3xl font-display text-[hsl(352_33%_59%)]">
                       <CountUp target={15} suffix="+" />
                     </div>
                     <div className="text-xs text-[hsl(40_20%_65%)] mt-1">Cities</div>
@@ -312,13 +312,13 @@ export default function Home() {
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-2">
                       {[...Array(3)].map((_, i) => (
-                        <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(43_74%_49%)] to-[hsl(43_74%_35%)] border-2 border-[hsl(0_0%_5%)]" />
+                        <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(352_33%_59%)] to-[hsl(43_74%_35%)] border-2 border-[hsl(0_0%_5%)]" />
                       ))}
                     </div>
                     <div>
                       <div className="flex items-center gap-1">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-3 w-3 fill-[hsl(43_74%_49%)] text-[hsl(43_74%_49%)]" />
+                          <Star key={i} className="h-3 w-3 fill-[hsl(352_33%_59%)] text-[hsl(352_33%_59%)]" />
                         ))}
                       </div>
                       <p className="text-xs text-[hsl(40_20%_65%)] mt-0.5">200+ Happy Couples</p>
@@ -344,7 +344,7 @@ export default function Home() {
             onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
           >
             <span className="text-xs text-[hsl(40_20%_65%)] tracking-widest uppercase">Scroll</span>
-            <ChevronDown className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+            <ChevronDown className="h-4 w-4 text-[hsl(352_33%_59%)]" />
           </motion.div>
         </motion.div>
       </section>
@@ -363,7 +363,7 @@ export default function Home() {
               {['Weddings', 'Corporate Events', 'Private Parties', 'Sangeet', 'Reception', 'Pool Parties'].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <span className="text-lg text-[hsl(40_20%_65%)] whitespace-nowrap font-light">{item}</span>
-                  <Sparkles className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+                  <Sparkles className="h-4 w-4 text-[hsl(352_33%_59%)]" />
                 </div>
               ))}
             </div>
@@ -379,13 +379,13 @@ export default function Home() {
         <div className="container-wide relative z-10">
           <FadeUp>
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-4 block">
                 What We Do
               </span>
               <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[hsl(40_33%_95%)] mb-6">
                 Crafting experiences,
                 <br />
-                <span className="text-[hsl(43_74%_49%)]">not just drinks</span>
+                <span className="text-[hsl(352_33%_59%)]">not just drinks</span>
               </h2>
               <p className="text-lg text-[hsl(40_20%_75%)]">
                 From molecular magic to classic elegance, we transform every event into an unforgettable celebration.
@@ -440,19 +440,19 @@ export default function Home() {
                         className="absolute top-4 right-4 w-12 h-12 rounded-2xl bg-[hsl(43_74%_49%/0.1)] backdrop-blur-sm flex items-center justify-center border border-[hsl(43_74%_49%/0.2)]"
                         whileHover={{ scale: 1.1, rotate: 5 }}
                       >
-                        <item.icon className="h-5 w-5 text-[hsl(43_74%_49%)]" />
+                        <item.icon className="h-5 w-5 text-[hsl(352_33%_59%)]" />
                       </motion.div>
                     </div>
                     
                     {/* Content */}
                     <div className="p-6">
-                      <h3 className="font-display text-2xl text-[hsl(40_33%_95%)] mb-3 group-hover:text-[hsl(43_74%_49%)] transition-colors duration-300">
+                      <h3 className="font-display text-2xl text-[hsl(40_33%_95%)] mb-3 group-hover:text-[hsl(352_33%_59%)] transition-colors duration-300">
                         {item.title}
                       </h3>
                       <p className="text-[hsl(40_20%_65%)] mb-4 leading-relaxed">
                         {item.desc}
                       </p>
-                      <span className="inline-flex items-center gap-2 text-sm font-medium text-[hsl(43_74%_49%)]">
+                      <span className="inline-flex items-center gap-2 text-sm font-medium text-[hsl(352_33%_59%)]">
                         Learn more
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
                       </span>
@@ -477,18 +477,18 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <FadeUp>
               <div>
-                <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+                <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-4 block">
                   Our Setups
                 </span>
                 <h2 className="font-display text-4xl sm:text-5xl text-[hsl(40_33%_95%)]">
-                  For every <span className="text-[hsl(43_74%_49%)]">occasion</span>
+                  For every <span className="text-[hsl(352_33%_59%)]">occasion</span>
                 </h2>
               </div>
             </FadeUp>
             <FadeUp delay={0.2}>
               <Link 
                 to="/bar-setups" 
-                className="group inline-flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] transition-colors"
+                className="group inline-flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(352_33%_59%)] transition-colors"
                 data-testid="view-all-setups"
               >
                 View all setups
@@ -551,7 +551,7 @@ export default function Home() {
                       <h3 className="font-display text-2xl text-white mb-2">{setup.title}</h3>
                       <p className="text-sm text-white/70 mb-3">Best for {setup.best_for}</p>
                       {setup.molecular_tag && (
-                        <span className="inline-block text-xs px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] text-[hsl(43_74%_49%)] border border-[hsl(43_74%_49%/0.3)]">
+                        <span className="inline-block text-xs px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] text-[hsl(352_33%_59%)] border border-[hsl(43_74%_49%/0.3)]">
                           {setup.molecular_tag}
                         </span>
                       )}
@@ -576,7 +576,7 @@ export default function Home() {
         <div className="container-wide relative z-10">
           <FadeUp>
             <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-4 block">
                 Free Tools
               </span>
               <h2 className="font-display text-4xl sm:text-5xl text-[hsl(0_0%_10%)] mb-4">
@@ -612,14 +612,14 @@ export default function Home() {
                   data-testid={`tool-card-${i}`}
                 >
                   <TiltCard maxTilt={6} className="h-full">
-                    <div className={`relative h-full p-8 lg:p-10 rounded-3xl bg-gradient-to-br ${tool.gradient} border border-[hsl(0_0%_85%)] hover:border-[hsl(43_74%_49%)] transition-all duration-300 hover:shadow-xl flex flex-col`}>
+                    <div className={`relative h-full p-8 lg:p-10 rounded-3xl bg-gradient-to-br ${tool.gradient} border border-[hsl(0_0%_85%)] hover:border-[hsl(352_33%_59%)] transition-all duration-300 hover:shadow-xl flex flex-col`}>
                       {/* Icon */}
                       <motion.div 
                         className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center mb-6"
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ type: 'spring', stiffness: 400 }}
                       >
-                        <tool.icon className="h-7 w-7 text-[hsl(43_74%_49%)]" />
+                        <tool.icon className="h-7 w-7 text-[hsl(352_33%_59%)]" />
                       </motion.div>
                       
                       <h3 className="font-display text-2xl text-[hsl(0_0%_10%)] mb-3">
@@ -629,7 +629,7 @@ export default function Home() {
                         {tool.desc}
                       </p>
                       
-                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[hsl(43_74%_49%)] mt-auto">
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-[hsl(352_33%_59%)] mt-auto">
                         Try it free
                         <motion.span
                           className="inline-block"
@@ -659,11 +659,11 @@ export default function Home() {
         <div className="container-wide relative z-10">
           <FadeUp>
             <div className="text-center mb-16">
-              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-4 block">
                 Testimonials
               </span>
               <h2 className="font-display text-4xl sm:text-5xl text-[hsl(40_33%_95%)]">
-                What our <span className="text-[hsl(43_74%_49%)]">clients</span> say
+                What our <span className="text-[hsl(352_33%_59%)]">clients</span> say
               </h2>
             </div>
           </FadeUp>
@@ -684,7 +684,7 @@ export default function Home() {
                   
                   <div className="mt-auto">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(43_74%_49%)] to-[hsl(43_74%_35%)]" />
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(352_33%_59%)] to-[hsl(43_74%_35%)]" />
                       <div>
                         <p className="font-medium text-[hsl(40_33%_95%)]">{t.name}</p>
                         <p className="text-sm text-[hsl(40_20%_65%)]">{t.event_type} • {t.location}</p>
@@ -694,7 +694,7 @@ export default function Home() {
                     {/* Stars */}
                     <div className="flex items-center gap-1 mt-4 pt-4 border-t border-white/5">
                       {[...Array(5)].map((_, j) => (
-                        <Star key={j} className="h-4 w-4 fill-[hsl(43_74%_49%)] text-[hsl(43_74%_49%)]" />
+                        <Star key={j} className="h-4 w-4 fill-[hsl(352_33%_59%)] text-[hsl(352_33%_59%)]" />
                       ))}
                     </div>
                   </div>
@@ -707,7 +707,7 @@ export default function Home() {
             <div className="text-center mt-10">
               <Link 
                 to="/reviews" 
-                className="inline-flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] transition-colors"
+                className="inline-flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(352_33%_59%)] transition-colors"
               >
                 Read more reviews
                 <ArrowRight className="h-4 w-4" />
@@ -724,11 +724,11 @@ export default function Home() {
         <div className="container-wide">
           <FadeUp>
             <div className="text-center mb-12">
-              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-4 block">
                 Our Work
               </span>
               <h2 className="font-display text-4xl sm:text-5xl text-[hsl(40_33%_95%)]">
-                See us in <span className="text-[hsl(43_74%_49%)]">action</span>
+                See us in <span className="text-[hsl(352_33%_59%)]">action</span>
               </h2>
             </div>
           </FadeUp>
@@ -737,7 +737,7 @@ export default function Home() {
           <div className="relative group">
             {/* Left Arrow */}
             <motion.button
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(43_74%_49%/0.3)] flex items-center justify-center text-[hsl(43_74%_49%)] hover:bg-[hsl(43_74%_49%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 -translate-x-2 md:-translate-x-6 opacity-0 group-hover:opacity-100 disabled:opacity-30"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(43_74%_49%/0.3)] flex items-center justify-center text-[hsl(352_33%_59%)] hover:bg-[hsl(352_33%_59%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 -translate-x-2 md:-translate-x-6 opacity-0 group-hover:opacity-100 disabled:opacity-30"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -751,7 +751,7 @@ export default function Home() {
 
             {/* Right Arrow */}
             <motion.button
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(43_74%_49%/0.3)] flex items-center justify-center text-[hsl(43_74%_49%)] hover:bg-[hsl(43_74%_49%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 translate-x-2 md:translate-x-6 opacity-0 group-hover:opacity-100"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(43_74%_49%/0.3)] flex items-center justify-center text-[hsl(352_33%_59%)] hover:bg-[hsl(352_33%_59%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 translate-x-2 md:translate-x-6 opacity-0 group-hover:opacity-100"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -811,7 +811,7 @@ export default function Home() {
         <div className="container-narrow relative z-10">
           <FadeUp>
             <div className="text-center mb-12">
-              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-4 block">
+              <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-4 block">
                 FAQs
               </span>
               <h2 className="font-display text-4xl sm:text-5xl text-[hsl(40_33%_95%)]">
@@ -829,7 +829,7 @@ export default function Home() {
                   className="border border-white/10 rounded-2xl px-6 data-[state=open]:border-[hsl(43_74%_49%/0.3)] transition-colors overflow-hidden bg-[hsl(0_0%_5%)]"
                 >
                   <AccordionTrigger 
-                    className="text-left text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] py-5 text-lg font-display"
+                    className="text-left text-[hsl(40_33%_95%)] hover:text-[hsl(352_33%_59%)] py-5 text-lg font-display"
                     data-testid={`faq-trigger-${i}`}
                   >
                     {faq.question}
@@ -846,7 +846,7 @@ export default function Home() {
             <div className="text-center mt-8">
               <Link 
                 to="/faqs" 
-                className="inline-flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] transition-colors"
+                className="inline-flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(352_33%_59%)] transition-colors"
               >
                 View all FAQs
                 <ArrowRight className="h-4 w-4" />
@@ -878,7 +878,7 @@ export default function Home() {
               <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[hsl(40_33%_95%)] mb-6">
                 Ready to elevate
                 <br />
-                <span className="text-[hsl(43_74%_49%)]">your celebration?</span>
+                <span className="text-[hsl(352_33%_59%)]">your celebration?</span>
               </h2>
               <p className="text-xl text-[hsl(40_20%_75%)] mb-10 max-w-2xl mx-auto">
                 Let's create an unforgettable bar experience. Get a custom quote within 24 hours.
@@ -887,7 +887,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/contact" data-testid="final-cta-quote">
                   <MagneticButton 
-                    className="px-10 py-5 bg-[hsl(43_74%_49%)] text-[hsl(0_0%_2%)] rounded-full text-lg font-medium hover:bg-[hsl(43_74%_55%)] transition-colors"
+                    className="px-10 py-5 bg-[hsl(352_33%_59%)] text-[hsl(0_0%_2%)] rounded-full text-lg font-medium hover:bg-[hsl(352_33%_65%)] transition-colors"
                     strength={0.15}
                   >
                     <span className="flex items-center gap-3">
@@ -904,7 +904,7 @@ export default function Home() {
                   data-testid="final-cta-whatsapp"
                 >
                   <MagneticButton 
-                    className="px-10 py-5 border border-[hsl(43_74%_49%/0.4)] text-[hsl(40_33%_95%)] rounded-full text-lg font-medium hover:border-[hsl(43_74%_49%)] transition-colors"
+                    className="px-10 py-5 border border-[hsl(43_74%_49%/0.4)] text-[hsl(40_33%_95%)] rounded-full text-lg font-medium hover:border-[hsl(352_33%_59%)] transition-colors"
                     strength={0.15}
                   >
                     WhatsApp Us
