@@ -153,7 +153,7 @@ export default function BarSetups() {
                         "shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
                         isActive
                           ? "bg-[hsl(352_33%_59%)] text-[hsl(0_0%_2%)]"
-                          : "border border-white/10 text-[hsl(40_20%_75%)] hover:border-[hsl(43_74%_49%/0.5)] hover:text-[hsl(40_33%_95%)]"
+                          : "border border-white/10 text-[hsl(40_20%_75%)] hover:border-[hsl(352_33%_59%/0.5)] hover:text-[hsl(40_33%_95%)]"
                       )}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -174,7 +174,7 @@ export default function BarSetups() {
                 className={cn(
                   "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all",
                   showFilters || selectedStyle !== 'all'
-                    ? "bg-[hsl(43_74%_49%/0.1)] text-[hsl(352_33%_59%)] border border-[hsl(43_74%_49%/0.3)]"
+                    ? "bg-[hsl(352_33%_59%/0.1)] text-[hsl(352_33%_59%)] border border-[hsl(352_33%_59%/0.3)]"
                     : "border border-white/10 text-[hsl(40_20%_75%)] hover:border-white/20"
                 )}
                 whileTap={{ scale: 0.95 }}
@@ -357,7 +357,7 @@ function SetupCardGrid({ setup, isHovered }) {
   return (
     <Link to={`/bar-setups/${setup.slug}`} data-testid={`setup-card-${setup.slug}`}>
       <TiltCard maxTilt={6} className="h-full">
-        <div className="group relative rounded-3xl overflow-hidden bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)] border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-all duration-500 h-full">
+        <div className="group relative rounded-3xl overflow-hidden bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)] border border-white/5 hover:border-[hsl(352_33%_59%/0.3)] transition-all duration-500 h-full">
           {/* Image */}
           <div className="relative aspect-[4/3] overflow-hidden bg-[hsl(0_0%_8%)]">
             <img 
@@ -374,7 +374,7 @@ function SetupCardGrid({ setup, isHovered }) {
             {/* Molecular Tag */}
             {setup.molecular_tag && (
               <motion.span 
-                className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] backdrop-blur-sm text-xs font-medium text-[hsl(352_33%_59%)] border border-[hsl(43_74%_49%/0.3)]"
+                className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-[hsl(352_33%_59%/0.15)] backdrop-blur-sm text-xs font-medium text-[hsl(352_33%_59%)] border border-[hsl(352_33%_59%/0.3)]"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
@@ -458,7 +458,7 @@ function SetupCardList({ setup, isHovered }) {
   return (
     <Link to={`/bar-setups/${setup.slug}`} data-testid={`setup-card-${setup.slug}`}>
       <motion.div 
-        className="group flex gap-6 p-4 rounded-2xl bg-[hsl(0_0%_5%)] border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-all duration-300"
+        className="group flex gap-6 p-4 rounded-2xl bg-[hsl(0_0%_5%)] border border-white/5 hover:border-[hsl(352_33%_59%/0.3)] transition-all duration-300"
         animate={{ x: isHovered ? 4 : 0 }}
       >
         {/* Image */}
@@ -473,7 +473,7 @@ function SetupCardList({ setup, isHovered }) {
             className="w-full h-full object-cover"
           />
           {setup.molecular_tag && (
-            <span className="absolute bottom-2 left-2 px-2 py-1 rounded-full bg-[hsl(43_74%_49%/0.15)] backdrop-blur-sm text-[10px] font-medium text-[hsl(352_33%_59%)]">
+            <span className="absolute bottom-2 left-2 px-2 py-1 rounded-full bg-[hsl(352_33%_59%/0.15)] backdrop-blur-sm text-[10px] font-medium text-[hsl(352_33%_59%)]">
               {setup.molecular_tag}
             </span>
           )}

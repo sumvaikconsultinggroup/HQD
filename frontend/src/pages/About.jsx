@@ -226,20 +226,20 @@ export default function About() {
           className="absolute inset-0 pointer-events-none"
           style={{ y: bgY }}
         >
-          <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full bg-[hsl(43_74%_49%/0.03)] blur-[100px]" />
+          <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full bg-[hsl(352_33%_59%/0.03)] blur-[100px]" />
           <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full bg-[hsl(280_60%_50%/0.02)] blur-[80px]" />
         </motion.div>
         
         {/* Floating Decorations */}
         <motion.div
-          className="absolute top-20 right-10 text-[hsl(43_74%_49%/0.15)]"
+          className="absolute top-20 right-10 text-[hsl(352_33%_59%/0.15)]"
           animate={{ y: [-10, 10, -10], rotate: [0, 10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
           <PartyPopper className="h-24 w-24" />
         </motion.div>
         <motion.div
-          className="absolute bottom-32 left-10 text-[hsl(43_74%_49%/0.1)]"
+          className="absolute bottom-32 left-10 text-[hsl(352_33%_59%/0.1)]"
           animate={{ y: [10, -10, 10], rotate: [0, -10, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -259,7 +259,7 @@ export default function About() {
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(43_74%_49%/0.1)] border border-[hsl(43_74%_49%/0.2)] mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[hsl(352_33%_59%/0.1)] border border-[hsl(352_33%_59%/0.2)] mb-6"
             >
               <Sparkles className="h-4 w-4 text-[hsl(352_33%_59%)]" />
               <span className="text-sm font-medium text-[hsl(352_33%_59%)]">The People Behind The Magic</span>
@@ -325,7 +325,7 @@ export default function About() {
             ].map((stat, i) => (
               <motion.div
                 key={i}
-                className="text-center p-6 rounded-2xl bg-[hsl(0_0%_8%)] border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-colors"
+                className="text-center p-6 rounded-2xl bg-[hsl(0_0%_8%)] border border-white/5 hover:border-[hsl(352_33%_59%/0.3)] transition-colors"
                 whileHover={{ y: -5, scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 400 }}
               >

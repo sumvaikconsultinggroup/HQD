@@ -220,7 +220,7 @@ export default function Home() {
                   
                   <Link to="/bar-setups" data-testid="hero-cta-setups">
                     <MagneticButton 
-                      className="group px-8 py-4 border border-[hsl(43_74%_49%/0.4)] text-[hsl(40_33%_95%)] rounded-full font-medium hover:border-[hsl(352_33%_59%)] transition-colors duration-300"
+                      className="group px-8 py-4 border border-[hsl(352_33%_59%/0.4)] text-[hsl(40_33%_95%)] rounded-full font-medium hover:border-[hsl(352_33%_59%)] transition-colors duration-300"
                       strength={0.2}
                     >
                       <span className="flex items-center gap-2">
@@ -303,7 +303,7 @@ export default function Home() {
                 
                 {/* Floating badge */}
                 <motion.div 
-                  className="absolute -bottom-6 -left-6 bg-[hsl(0_0%_5%)] border border-[hsl(43_74%_49%/0.3)] rounded-2xl px-5 py-4 shadow-2xl"
+                  className="absolute -bottom-6 -left-6 bg-[hsl(0_0%_5%)] border border-[hsl(352_33%_59%/0.3)] rounded-2xl px-5 py-4 shadow-2xl"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 1.5, duration: 0.6 }}
@@ -312,7 +312,7 @@ export default function Home() {
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-2">
                       {[...Array(3)].map((_, i) => (
-                        <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(352_33%_59%)] to-[hsl(43_74%_35%)] border-2 border-[hsl(0_0%_5%)]" />
+                        <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(352_33%_59%)] to-[hsl(352_28%_50%)] border-2 border-[hsl(0_0%_5%)]" />
                       ))}
                     </div>
                     <div>
@@ -421,7 +421,7 @@ export default function Home() {
                 <TiltCard maxTilt={8} className="h-full">
                   <Link 
                     to={item.link} 
-                    className="group block h-full bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)] rounded-3xl overflow-hidden border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-colors duration-500"
+                    className="group block h-full bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)] rounded-3xl overflow-hidden border border-white/5 hover:border-[hsl(352_33%_59%/0.3)] transition-colors duration-500"
                     data-testid={`feature-card-${i}`}
                   >
                     {/* Image with parallax */}
@@ -437,7 +437,7 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[hsl(0_0%_5%)] via-transparent to-transparent" />
                       <motion.div 
-                        className="absolute top-4 right-4 w-12 h-12 rounded-2xl bg-[hsl(43_74%_49%/0.1)] backdrop-blur-sm flex items-center justify-center border border-[hsl(43_74%_49%/0.2)]"
+                        className="absolute top-4 right-4 w-12 h-12 rounded-2xl bg-[hsl(352_33%_59%/0.1)] backdrop-blur-sm flex items-center justify-center border border-[hsl(352_33%_59%/0.2)]"
                         whileHover={{ scale: 1.1, rotate: 5 }}
                       >
                         <item.icon className="h-5 w-5 text-[hsl(352_33%_59%)]" />
@@ -470,7 +470,7 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="section-spacing bg-[hsl(0_0%_3%)] relative">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[hsl(43_74%_49%/0.03)] blur-[100px]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[hsl(352_33%_59%/0.03)] blur-[100px]" />
         </div>
         
         <div className="container-wide relative z-10">
@@ -551,7 +551,7 @@ export default function Home() {
                       <h3 className="font-display text-2xl text-white mb-2">{setup.title}</h3>
                       <p className="text-sm text-white/70 mb-3">Best for {setup.best_for}</p>
                       {setup.molecular_tag && (
-                        <span className="inline-block text-xs px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] text-[hsl(352_33%_59%)] border border-[hsl(43_74%_49%/0.3)]">
+                        <span className="inline-block text-xs px-3 py-1.5 rounded-full bg-[hsl(352_33%_59%/0.15)] text-[hsl(352_33%_59%)] border border-[hsl(352_33%_59%/0.3)]">
                           {setup.molecular_tag}
                         </span>
                       )}
@@ -570,7 +570,7 @@ export default function Home() {
       <section className="section-spacing bg-[hsl(40_20%_96%)] relative overflow-hidden">
         {/* Background decoration */}
         <div className="absolute top-0 right-0 w-1/2 h-full">
-          <div className="absolute inset-0 bg-gradient-to-l from-[hsl(43_74%_49%/0.05)] to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-l from-[hsl(352_33%_59%/0.05)] to-transparent" />
         </div>
         
         <div className="container-wide relative z-10">
@@ -595,7 +595,7 @@ export default function Home() {
                 title: 'Wedding Hashtag Generator',
                 desc: 'Create the perfect hashtag for your special day. Get 20-40 creative suggestions based on your names and vibe.',
                 link: '/tools/hashtag-generator',
-                gradient: 'from-[hsl(43_74%_49%/0.1)] to-[hsl(43_74%_49%/0.02)]'
+                gradient: 'from-[hsl(352_33%_59%/0.1)] to-[hsl(352_33%_59%/0.02)]'
               },
               {
                 icon: Wine,
@@ -641,7 +641,7 @@ export default function Home() {
                       </span>
                       
                       {/* Decorative corner */}
-                      <div className="absolute top-4 right-4 w-20 h-20 rounded-full bg-[hsl(43_74%_49%/0.05)] -z-10" />
+                      <div className="absolute top-4 right-4 w-20 h-20 rounded-full bg-[hsl(352_33%_59%/0.05)] -z-10" />
                     </div>
                   </TiltCard>
                 </Link>
@@ -672,11 +672,11 @@ export default function Home() {
             {testimonials.map((t, i) => (
               <FadeUp key={t.id} delay={i * 0.1} className="h-full">
                 <motion.div
-                  className="group h-full p-8 rounded-3xl bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)] border border-white/5 hover:border-[hsl(43_74%_49%/0.2)] transition-all duration-300 flex flex-col"
+                  className="group h-full p-8 rounded-3xl bg-gradient-to-b from-[hsl(0_0%_8%)] to-[hsl(0_0%_5%)] border border-white/5 hover:border-[hsl(352_33%_59%/0.2)] transition-all duration-300 flex flex-col"
                   whileHover={{ y: -4 }}
                 >
                   {/* Quote mark */}
-                  <div className="text-6xl font-display text-[hsl(43_74%_49%/0.2)] leading-none mb-4">"</div>
+                  <div className="text-6xl font-display text-[hsl(352_33%_59%/0.2)] leading-none mb-4">"</div>
                   
                   <p className="text-lg text-[hsl(40_33%_95%)] mb-6 leading-relaxed flex-grow">
                     {t.quote}
@@ -684,7 +684,7 @@ export default function Home() {
                   
                   <div className="mt-auto">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(352_33%_59%)] to-[hsl(43_74%_35%)]" />
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[hsl(352_33%_59%)] to-[hsl(352_28%_50%)]" />
                       <div>
                         <p className="font-medium text-[hsl(40_33%_95%)]">{t.name}</p>
                         <p className="text-sm text-[hsl(40_20%_65%)]">{t.event_type} • {t.location}</p>
@@ -737,7 +737,7 @@ export default function Home() {
           <div className="relative group">
             {/* Left Arrow */}
             <motion.button
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(43_74%_49%/0.3)] flex items-center justify-center text-[hsl(352_33%_59%)] hover:bg-[hsl(352_33%_59%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 -translate-x-2 md:-translate-x-6 opacity-0 group-hover:opacity-100 disabled:opacity-30"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(352_33%_59%/0.3)] flex items-center justify-center text-[hsl(352_33%_59%)] hover:bg-[hsl(352_33%_59%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 -translate-x-2 md:-translate-x-6 opacity-0 group-hover:opacity-100 disabled:opacity-30"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -751,7 +751,7 @@ export default function Home() {
 
             {/* Right Arrow */}
             <motion.button
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(43_74%_49%/0.3)] flex items-center justify-center text-[hsl(352_33%_59%)] hover:bg-[hsl(352_33%_59%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 translate-x-2 md:translate-x-6 opacity-0 group-hover:opacity-100"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-[hsl(0_0%_5%)/0.9] backdrop-blur-sm border border-[hsl(352_33%_59%/0.3)] flex items-center justify-center text-[hsl(352_33%_59%)] hover:bg-[hsl(352_33%_59%)] hover:text-[hsl(0_0%_5%)] transition-all duration-300 translate-x-2 md:translate-x-6 opacity-0 group-hover:opacity-100"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
@@ -779,7 +779,7 @@ export default function Home() {
                     whileHover={{ scale: 1.03, y: -8 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="aspect-[9/16] rounded-2xl overflow-hidden border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-colors">
+                    <div className="aspect-[9/16] rounded-2xl overflow-hidden border border-white/5 hover:border-[hsl(352_33%_59%/0.3)] transition-colors">
                       <VideoReel src={video} className="w-full h-full object-cover" testid={`reel-${i}`} />
                     </div>
                   </motion.div>
@@ -826,7 +826,7 @@ export default function Home() {
                 <AccordionItem 
                   key={faq.id} 
                   value={faq.id}
-                  className="border border-white/10 rounded-2xl px-6 data-[state=open]:border-[hsl(43_74%_49%/0.3)] transition-colors overflow-hidden bg-[hsl(0_0%_5%)]"
+                  className="border border-white/10 rounded-2xl px-6 data-[state=open]:border-[hsl(352_33%_59%/0.3)] transition-colors overflow-hidden bg-[hsl(0_0%_5%)]"
                 >
                   <AccordionTrigger 
                     className="text-left text-[hsl(40_33%_95%)] hover:text-[hsl(352_33%_59%)] py-5 text-lg font-display"
@@ -863,7 +863,7 @@ export default function Home() {
         {/* Background with gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(0_0%_5%)] via-[hsl(0_0%_3%)] to-[hsl(0_0%_2%)]" />
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] rounded-full bg-[hsl(43_74%_49%/0.05)] blur-[120px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] rounded-full bg-[hsl(352_33%_59%/0.05)] blur-[120px]" />
         </div>
         <NoiseTexture />
         
@@ -904,7 +904,7 @@ export default function Home() {
                   data-testid="final-cta-whatsapp"
                 >
                   <MagneticButton 
-                    className="px-10 py-5 border border-[hsl(43_74%_49%/0.4)] text-[hsl(40_33%_95%)] rounded-full text-lg font-medium hover:border-[hsl(352_33%_59%)] transition-colors"
+                    className="px-10 py-5 border border-[hsl(352_33%_59%/0.4)] text-[hsl(40_33%_95%)] rounded-full text-lg font-medium hover:border-[hsl(352_33%_59%)] transition-colors"
                     strength={0.15}
                   >
                     WhatsApp Us

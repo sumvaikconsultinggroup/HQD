@@ -86,7 +86,7 @@ export default function BarSetupDetail() {
                   </span>
                 )}
                 {setup.molecular_tag && (
-                  <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] backdrop-blur-sm text-[hsl(352_33%_59%)] text-xs font-medium border border-[hsl(43_74%_49%/0.3)]">
+                  <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-[hsl(352_33%_59%/0.15)] backdrop-blur-sm text-[hsl(352_33%_59%)] text-xs font-medium border border-[hsl(352_33%_59%/0.3)]">
                     <Sparkles className="h-3 w-3" />
                     {setup.molecular_tag}
                   </span>
@@ -156,7 +156,7 @@ export default function BarSetupDetail() {
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.05 }}
                       >
-                        <div className="w-6 h-6 rounded-full bg-[hsl(43_74%_49%/0.15)] flex items-center justify-center shrink-0">
+                        <div className="w-6 h-6 rounded-full bg-[hsl(352_33%_59%/0.15)] flex items-center justify-center shrink-0">
                           <Check className="h-3.5 w-3.5 text-[hsl(352_33%_59%)]" />
                         </div>
                         <span className="text-[hsl(40_33%_95%)]">{feature}</span>
@@ -197,7 +197,7 @@ export default function BarSetupDetail() {
                     {setup.molecular_techniques.map((technique, i) => (
                       <motion.div
                         key={i}
-                        className="p-6 rounded-2xl bg-gradient-to-b from-[hsl(43_74%_49%/0.1)] to-transparent border border-[hsl(43_74%_49%/0.2)] text-center"
+                        className="p-6 rounded-2xl bg-gradient-to-b from-[hsl(352_33%_59%/0.1)] to-transparent border border-[hsl(352_33%_59%/0.2)] text-center"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -223,7 +223,7 @@ export default function BarSetupDetail() {
                         <Link 
                           key={eventId}
                           to={`/bar-setups?event=${eventId}`}
-                          className="px-4 py-2 rounded-full bg-[hsl(0_0%_7%)] border border-white/10 text-[hsl(40_33%_95%)] hover:border-[hsl(43_74%_49%/0.5)] hover:text-[hsl(352_33%_59%)] transition-colors"
+                          className="px-4 py-2 rounded-full bg-[hsl(0_0%_7%)] border border-white/10 text-[hsl(40_33%_95%)] hover:border-[hsl(352_33%_59%/0.5)] hover:text-[hsl(352_33%_59%)] transition-colors"
                         >
                           {event.label}
                         </Link>
@@ -239,7 +239,7 @@ export default function BarSetupDetail() {
               <div className="sticky top-28">
                 <FadeUp>
                   <TiltCard maxTilt={4}>
-                    <div className="p-8 rounded-3xl bg-gradient-to-b from-[hsl(0_0%_10%)] to-[hsl(0_0%_5%)] border border-[hsl(43_74%_49%/0.2)]">
+                    <div className="p-8 rounded-3xl bg-gradient-to-b from-[hsl(0_0%_10%)] to-[hsl(0_0%_5%)] border border-[hsl(352_33%_59%/0.2)]">
                       <h3 className="font-display text-2xl text-[hsl(40_33%_95%)] mb-2">
                         Book this setup
                       </h3>
@@ -322,7 +322,7 @@ export default function BarSetupDetail() {
                 <FadeUp key={relatedSetup.id} delay={i * 0.1}>
                   <Link to={`/bar-setups/${relatedSetup.slug}`}>
                     <motion.div 
-                      className="group rounded-2xl overflow-hidden bg-[hsl(0_0%_7%)] border border-white/5 hover:border-[hsl(43_74%_49%/0.3)] transition-all"
+                      className="group rounded-2xl overflow-hidden bg-[hsl(0_0%_7%)] border border-white/5 hover:border-[hsl(352_33%_59%/0.3)] transition-all"
                       whileHover={{ y: -4 }}
                     >
                       <div className="aspect-[4/3] overflow-hidden">
