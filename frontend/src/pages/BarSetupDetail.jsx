@@ -61,7 +61,7 @@ export default function BarSetupDetail() {
           <div className="container-wide">
             <button 
               onClick={() => navigate(-1)}
-              className="flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] transition-colors"
+              className="flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(352_33%_59%)] transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to setups
@@ -80,13 +80,13 @@ export default function BarSetupDetail() {
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {setup.featured && (
-                  <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%)] text-[hsl(0_0%_2%)] text-xs font-medium">
+                  <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-[hsl(352_33%_59%)] text-[hsl(0_0%_2%)] text-xs font-medium">
                     <Star className="h-3 w-3 fill-current" />
                     Featured
                   </span>
                 )}
                 {setup.molecular_tag && (
-                  <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] backdrop-blur-sm text-[hsl(43_74%_49%)] text-xs font-medium border border-[hsl(43_74%_49%/0.3)]">
+                  <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-[hsl(43_74%_49%/0.15)] backdrop-blur-sm text-[hsl(352_33%_59%)] text-xs font-medium border border-[hsl(43_74%_49%/0.3)]">
                     <Sparkles className="h-3 w-3" />
                     {setup.molecular_tag}
                   </span>
@@ -100,22 +100,22 @@ export default function BarSetupDetail() {
               <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl text-[hsl(40_33%_95%)] mb-4">
                 {setup.title}
               </h1>
-              <p className="text-xl text-[hsl(43_74%_49%)] mb-6">
+              <p className="text-xl text-[hsl(352_33%_59%)] mb-6">
                 {setup.subtitle}
               </p>
 
               {/* Quick Stats */}
               <div className="flex flex-wrap items-center gap-6 text-[hsl(40_20%_75%)]">
                 <span className="flex items-center gap-2">
-                  <Users className="h-5 w-5 text-[hsl(43_74%_49%)]" />
+                  <Users className="h-5 w-5 text-[hsl(352_33%_59%)]" />
                   {setup.best_for}
                 </span>
                 <span className="flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-[hsl(43_74%_49%)]" />
+                  <Clock className="h-5 w-5 text-[hsl(352_33%_59%)]" />
                   {setup.setup_time} setup
                 </span>
                 <span className="flex items-center gap-2">
-                  <Users className="h-5 w-5 text-[hsl(43_74%_49%)]" />
+                  <Users className="h-5 w-5 text-[hsl(352_33%_59%)]" />
                   {setup.staff_included} staff included
                 </span>
               </div>
@@ -157,7 +157,7 @@ export default function BarSetupDetail() {
                         transition={{ delay: i * 0.05 }}
                       >
                         <div className="w-6 h-6 rounded-full bg-[hsl(43_74%_49%/0.15)] flex items-center justify-center shrink-0">
-                          <Check className="h-3.5 w-3.5 text-[hsl(43_74%_49%)]" />
+                          <Check className="h-3.5 w-3.5 text-[hsl(352_33%_59%)]" />
                         </div>
                         <span className="text-[hsl(40_33%_95%)]">{feature}</span>
                       </motion.div>
@@ -179,9 +179,9 @@ export default function BarSetupDetail() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.05 }}
-                        whileHover={{ scale: 1.05, borderColor: 'hsl(43, 74%, 49%, 0.5)' }}
+                        whileHover={{ scale: 1.05, borderColor: 'hsl(352, 33%, 59%, 0.5)' }}
                       >
-                        <Wine className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+                        <Wine className="h-4 w-4 text-[hsl(352_33%_59%)]" />
                         {drink}
                       </motion.span>
                     ))}
@@ -204,7 +204,7 @@ export default function BarSetupDetail() {
                         transition={{ delay: i * 0.1 }}
                         whileHover={{ scale: 1.02, y: -4 }}
                       >
-                        <Sparkles className="h-8 w-8 text-[hsl(43_74%_49%)] mx-auto mb-3" />
+                        <Sparkles className="h-8 w-8 text-[hsl(352_33%_59%)] mx-auto mb-3" />
                         <span className="font-medium text-[hsl(40_33%_95%)]">{technique}</span>
                       </motion.div>
                     ))}
@@ -223,7 +223,7 @@ export default function BarSetupDetail() {
                         <Link 
                           key={eventId}
                           to={`/bar-setups?event=${eventId}`}
-                          className="px-4 py-2 rounded-full bg-[hsl(0_0%_7%)] border border-white/10 text-[hsl(40_33%_95%)] hover:border-[hsl(43_74%_49%/0.5)] hover:text-[hsl(43_74%_49%)] transition-colors"
+                          className="px-4 py-2 rounded-full bg-[hsl(0_0%_7%)] border border-white/10 text-[hsl(40_33%_95%)] hover:border-[hsl(43_74%_49%/0.5)] hover:text-[hsl(352_33%_59%)] transition-colors"
                         >
                           {event.label}
                         </Link>
@@ -262,7 +262,7 @@ export default function BarSetupDetail() {
                         </div>
                         <div className="flex items-center justify-between py-3">
                           <span className="text-[hsl(40_20%_65%)]">Pricing tier</span>
-                          <span className="text-[hsl(43_74%_49%)] font-medium capitalize">{setup.pricing_tier}</span>
+                          <span className="text-[hsl(352_33%_59%)] font-medium capitalize">{setup.pricing_tier}</span>
                         </div>
                       </div>
 
@@ -300,7 +300,7 @@ export default function BarSetupDetail() {
             <FadeUp>
               <div className="flex items-end justify-between mb-12">
                 <div>
-                  <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(43_74%_49%)] mb-3 block">
+                  <span className="text-xs font-medium tracking-[0.25em] uppercase text-[hsl(352_33%_59%)] mb-3 block">
                     Similar Setups
                   </span>
                   <h2 className="font-display text-3xl sm:text-4xl text-[hsl(40_33%_95%)]">
@@ -309,7 +309,7 @@ export default function BarSetupDetail() {
                 </div>
                 <Link 
                   to="/bar-setups" 
-                  className="hidden sm:flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(43_74%_49%)] transition-colors"
+                  className="hidden sm:flex items-center gap-2 text-[hsl(40_33%_95%)] hover:text-[hsl(352_33%_59%)] transition-colors"
                 >
                   View all
                   <ArrowRight className="h-4 w-4" />
@@ -333,7 +333,7 @@ export default function BarSetupDetail() {
                         />
                       </div>
                       <div className="p-5">
-                        <h3 className="font-display text-lg text-[hsl(40_33%_95%)] group-hover:text-[hsl(43_74%_49%)] transition-colors mb-1">
+                        <h3 className="font-display text-lg text-[hsl(40_33%_95%)] group-hover:text-[hsl(352_33%_59%)] transition-colors mb-1">
                           {relatedSetup.title}
                         </h3>
                         <p className="text-sm text-[hsl(40_20%_65%)]">{relatedSetup.subtitle}</p>
