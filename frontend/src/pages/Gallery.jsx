@@ -4,24 +4,14 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const categories = ['all', 'wedding', 'corporate', 'private'];
+import galleryData from '../data/galleryData.json';
 
-const galleryImages = [
-    { id: 1, image_url: '/gallary-images/img-1.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-    { id: 2, image_url: '/gallary-images/img-2.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-    { id: 3, image_url: '/gallary-images/img-3.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-    { id: 4, image_url: '/gallary-images/img-4.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-    { id: 5, image_url: '/gallary-images/img-5.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-    { id: 6, image_url: '/gallary-images/img-6.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-    { id: 7, image_url: '/gallary-images/img-7.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-    { id: 8, image_url: '/gallary-images/img-8.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-    { id: 9, image_url: '/gallary-images/img-9.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-    { id: 10, image_url: '/gallary-images/img-10.webp', title: 'Wedding Party Drinks', category: 'wedding' },
-];
+const uniqueCategories = [...new Set(galleryData.map(item => item.category))];
+const categories = ['all', ...uniqueCategories.sort()];
 
 export default function Gallery() {
-  const [items, setItems] = useState(galleryImages);
-  const [filteredItems, setFilteredItems] = useState(galleryImages);
+  const [items, setItems] = useState(galleryData);
+  const [filteredItems, setFilteredItems] = useState(galleryData);
   const [filter, setFilter] = useState('all');
   const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -38,8 +28,8 @@ export default function Gallery() {
       {/* Hero */}
       <section className="section-spacing pb-12">
         <div className="container-wide">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
           >
@@ -77,36 +67,36 @@ export default function Gallery() {
       {/* Grid */}
       <section className="section-spacing pt-12">
         <div className="container-wide">
-            {filteredItems.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                    {filteredItems.map((item, i) => (
-                    <motion.div
-                        key={item.id}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: i * 0.03 }}
-                        className="aspect-square rounded-xl overflow-hidden cursor-pointer group relative"
-                        onClick={() => setSelectedIndex(i)}
-                    >
-                        <img 
-                        src={item.image_url} 
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="absolute bottom-4 left-4 right-4">
-                            <p className="font-medium text-[hsl(40_33%_95%)] text-sm">{item.title}</p>
-                        </div>
-                        </div>
-                    </motion.div>
-                    ))}
-                </div>
-            ) : (
-                <div className="text-center py-12">
-                    <p className="text-lg text-[hsl(40_33%_95%)]">More images coming soon!</p>
-                    <p className="text-sm text-white/50">We are currently curating our gallery for this category.</p>
-                </div>
-            )}
+          {filteredItems.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+              {filteredItems.map((item, i) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.03 }}
+                  className="aspect-square rounded-xl overflow-hidden cursor-pointer group relative"
+                  onClick={() => setSelectedIndex(i)}
+                >
+                  <img
+                    src={item.image_url}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="font-medium text-[hsl(40_33%_95%)] text-sm">{item.title}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-lg text-[hsl(40_33%_95%)]">More images coming soon!</p>
+              <p className="text-sm text-white/50">We are currently curating our gallery for this category.</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -115,8 +105,8 @@ export default function Gallery() {
         <DialogContent className="max-w-5xl bg-black/95 border-none p-0">
           {selectedIndex !== null && filteredItems[selectedIndex] && (
             <div className="relative">
-              <img 
-                src={filteredItems[selectedIndex].image_url} 
+              <img
+                src={filteredItems[selectedIndex].image_url}
                 alt={filteredItems[selectedIndex].title}
                 className="w-full max-h-[80vh] object-contain"
               />
