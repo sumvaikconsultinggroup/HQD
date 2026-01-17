@@ -7,33 +7,50 @@ export const CustomCursor = memo(function CustomCursor() {
   const [cursorText, setCursorText] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
-  
+
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
-  
+
   const springConfig = { damping: 25, stiffness: 400 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
-  
-  // Check for touch device and reduced motion
+
+  // Check for device capabilities
   useEffect(() => {
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    // Use matchMedia to correctly detect if the user has a fine pointer (mouse/trackpad)
+    // The previous check (navigator.maxTouchPoints > 0) incorrectly disabled the cursor on touchscreen laptops
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    setShouldRender(!isTouchDevice && !prefersReducedMotion);
+
+    // Only render custom cursor if we have a fine pointer and no reduced motion preference
+    setShouldRender(hasFinePointer && !prefersReducedMotion);
   }, []);
+
+  // Safety net: Restore system cursor if custom cursor is disabled
+  useEffect(() => {
+    if (shouldRender) {
+      document.documentElement.style.cursor = 'none';
+    } else {
+      document.documentElement.style.cursor = ''; // Revert to stylesheet or default
+    }
+
+    return () => {
+      document.documentElement.style.cursor = '';
+    };
+  }, [shouldRender]);
 
   useEffect(() => {
     if (!shouldRender) return;
-    
+
     const moveCursor = (e) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
     };
-    
+
     const handleMouseDown = () => setIsClicking(true);
     const handleMouseUp = () => setIsClicking(false);
-    
+
     const handleMouseOver = (e) => {
       const target = e.target;
       if (target.closest('a, button, [data-cursor="pointer"]')) {
@@ -42,7 +59,7 @@ export const CustomCursor = memo(function CustomCursor() {
         if (text) setCursorText(text);
       }
     };
-    
+
     const handleMouseOut = (e) => {
       const target = e.target;
       if (target.closest('a, button, [data-cursor="pointer"]')) {
@@ -50,13 +67,13 @@ export const CustomCursor = memo(function CustomCursor() {
         setCursorText('');
       }
     };
-    
+
     window.addEventListener('mousemove', moveCursor, { passive: true });
     window.addEventListener('mousedown', handleMouseDown, { passive: true });
     window.addEventListener('mouseup', handleMouseUp, { passive: true });
     window.addEventListener('mouseover', handleMouseOver, { passive: true });
     window.addEventListener('mouseout', handleMouseOut, { passive: true });
-    
+
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       window.removeEventListener('mousedown', handleMouseDown);
@@ -65,10 +82,10 @@ export const CustomCursor = memo(function CustomCursor() {
       window.removeEventListener('mouseout', handleMouseOut);
     };
   }, [shouldRender, cursorX, cursorY, isVisible]);
-  
+
   // Don't render on touch devices or if reduced motion is preferred
   if (!shouldRender || !isVisible) return null;
-  
+
   return (
     <>
       {/* Outer ring */}
@@ -97,7 +114,7 @@ export const CustomCursor = memo(function CustomCursor() {
           )}
         </motion.div>
       </motion.div>
-      
+
       {/* Inner dot */}
       <motion.div
         className="fixed top-0 left-0 w-1 h-1 bg-white rounded-full pointer-events-none z-[10001] mix-blend-difference will-change-transform"
