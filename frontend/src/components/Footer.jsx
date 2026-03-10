@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { MessageCircle, Mail, ArrowUpRight } from 'lucide-react';
+import { MessageCircle, Mail, ArrowUpRight, MapPin } from 'lucide-react';
 import { BRAND, getWhatsAppLink } from '@/lib/constants';
+import { LOCATIONS } from '@/lib/locations';
 
 export function Footer() {
   const links = {
@@ -26,33 +27,35 @@ export function Footer() {
   return (
     <footer className="bg-[hsl(0_0%_3%)] border-t border-white/5">
       <div className="container-wide section-spacing">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 lg:gap-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8">
           {/* Brand */}
-          <div className="col-span-2 lg:col-span-2">
+          <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <img src={BRAND.logo} alt="HQ.D" className="h-12 w-12" />
+              <img src={BRAND.logo} alt="HQ.D" className="h-12 w-12" loading="lazy" />
               <div>
                 <span className="font-display text-xl text-[hsl(40_33%_95%)] block">HQ.D</span>
                 <span className="text-xs text-[hsl(40_20%_65%)]">{BRAND.tagline}</span>
               </div>
             </Link>
             <p className="body-sm max-w-xs mb-6">
-              Premium cocktail & mocktail bar setups for weddings, corporate events, and private celebrations.
+              Premium cocktail & mocktail bar setups for weddings, corporate events, and private celebrations across India.
             </p>
             <div className="flex items-center gap-3">
               <a
                 href={getWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(352_33%_59%/0.5)] transition-colors"
+                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(43_74%_49%/0.5)] transition-colors"
+                aria-label="WhatsApp"
               >
-                <MessageCircle className="h-4 w-4 text-[hsl(352_33%_59%)]" />
+                <MessageCircle className="h-4 w-4 text-[hsl(43_74%_49%)]" />
               </a>
               <a
                 href={`mailto:${BRAND.email}`}
-                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(352_33%_59%/0.5)] transition-colors"
+                className="h-10 w-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[hsl(43_74%_49%/0.5)] transition-colors"
+                aria-label="Email"
               >
-                <Mail className="h-4 w-4 text-[hsl(352_33%_59%)]" />
+                <Mail className="h-4 w-4 text-[hsl(43_74%_49%)]" />
               </a>
             </div>
           </div>
@@ -63,7 +66,7 @@ export function Footer() {
             <ul className="space-y-3">
               {links.explore.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="body-sm hover:text-[hsl(352_33%_59%)] transition-colors">
+                  <Link to={link.href} className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -77,26 +80,39 @@ export function Footer() {
             <ul className="space-y-3">
               {links.company.map((link) => (
                 <li key={link.href}>
-                  <Link to={link.href} className="body-sm hover:text-[hsl(352_33%_59%)] transition-colors">
+                  <Link to={link.href} className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors">
                     {link.label}
+                  </Link>
+                </li>
+              ))}
+              {links.tools.map((link) => (
+                <li key={link.href}>
+                  <Link 
+                    to={link.href} 
+                    className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors inline-flex items-center gap-1"
+                  >
+                    {link.label}
+                    <ArrowUpRight className="h-3 w-3" />
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Tools */}
-          <div>
-            <h4 className="text-sm font-medium text-[hsl(40_33%_95%)] mb-4">Free Tools</h4>
-            <ul className="space-y-3">
-              {links.tools.map((link) => (
-                <li key={link.href}>
+          {/* Locations - SEO Internal Links */}
+          <div className="col-span-2">
+            <h4 className="text-sm font-medium text-[hsl(40_33%_95%)] mb-4 flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-[hsl(43_74%_49%)]" />
+              We Serve Across India
+            </h4>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
+              {LOCATIONS.map((loc) => (
+                <li key={loc.id}>
                   <Link 
-                    to={link.href} 
-                    className="body-sm hover:text-[hsl(352_33%_59%)] transition-colors inline-flex items-center gap-1"
+                    to={`/locations/${loc.slug}`} 
+                    className="body-sm hover:text-[hsl(43_74%_49%)] transition-colors text-[hsl(40_20%_65%)]"
                   >
-                    {link.label}
-                    <ArrowUpRight className="h-3 w-3" />
+                    {loc.city}
                   </Link>
                 </li>
               ))}
@@ -108,7 +124,7 @@ export function Footer() {
         <div className="gold-line mt-16 mb-8" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[hsl(40_20%_50%)]">
-            © {new Date().getFullYear()} {BRAND.fullName}. All rights reserved.
+            &copy; {new Date().getFullYear()} {BRAND.fullName}. All rights reserved.
           </p>
           <p className="text-xs text-[hsl(40_20%_50%)]">
             Site made by:{' '}
@@ -116,13 +132,13 @@ export function Footer() {
               href="https://www.Sumvaik.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-[hsl(352_33%_59%)] hover:text-[hsl(352_40%_65%)] transition-colors"
+              className="text-[hsl(43_74%_49%)] hover:text-[hsl(43_80%_58%)] transition-colors"
             >
               Sumvaik Consulting Group
             </a>
           </p>
-          <p className="text-xs text-[hsl(352_33%_59%)]">
-            Bars only — We do not provide food or catering.
+          <p className="text-xs text-[hsl(43_74%_49%)]">
+            Bars only &mdash; We do not provide food or catering.
           </p>
         </div>
       </div>

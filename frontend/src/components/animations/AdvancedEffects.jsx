@@ -1,38 +1,21 @@
-import { motion, useMotionValue, useSpring, animate } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 
-// Sparkle particle effect
-export function SparkleEffect({ count = 20, color = 'hsl(352, 33%, 59%)' }) {
-  const [sparkles, setSparkles] = useState([]);
-
-  useEffect(() => {
-    const generateSparkle = () => ({
-      id: Math.random(),
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 4 + 2,
-      duration: Math.random() * 2 + 1,
-      delay: Math.random() * 2,
-    });
-
-    setSparkles(Array.from({ length: count }, generateSparkle));
-
-    const interval = setInterval(() => {
-      setSparkles(prev => {
-        const newSparkles = [...prev];
-        const indexToReplace = Math.floor(Math.random() * count);
-        newSparkles[indexToReplace] = generateSparkle();
-        return newSparkles;
-      });
-    }, 500);
-
-    return () => clearInterval(interval);
-  }, [count]);
+// Sparkle particle effect - Optimized with CSS animations instead of JS-driven intervals
+export function SparkleEffect({ count = 20, color = 'hsl(43, 74%, 49%)' }) {
+  const sparkles = Array.from({ length: Math.min(count, 15) }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 4 + 2,
+    duration: Math.random() * 3 + 2,
+    delay: Math.random() * 4,
+  }));
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {sparkles.map(sparkle => (
-        <motion.div
+        <div
           key={sparkle.id}
           className="absolute rounded-full"
           style={{
@@ -41,60 +24,53 @@ export function SparkleEffect({ count = 20, color = 'hsl(352, 33%, 59%)' }) {
             width: sparkle.size,
             height: sparkle.size,
             backgroundColor: color,
-            boxShadow: `0 0 ${sparkle.size * 2}px ${color}`,
-          }}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0],
-          }}
-          transition={{
-            duration: sparkle.duration,
-            delay: sparkle.delay,
-            repeat: Infinity,
-            repeatDelay: Math.random() * 3,
+            animation: `sparkle-pulse ${sparkle.duration}s ease-in-out ${sparkle.delay}s infinite`,
+            willChange: 'opacity, transform',
           }}
         />
       ))}
+      <style>{`
+        @keyframes sparkle-pulse {
+          0%, 100% { opacity: 0; transform: scale(0); }
+          50% { opacity: 1; transform: scale(1); }
+        }
+      `}</style>
     </div>
   );
 }
 
-// Floating particles
-export function FloatingParticles({ count = 30 }) {
-  const particles = Array.from({ length: count }, (_, i) => ({
+// Floating particles - CSS animation based for better performance
+export function FloatingParticles({ count = 15 }) {
+  const particles = Array.from({ length: Math.min(count, 15) }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
-    y: Math.random() * 100,
     size: Math.random() * 3 + 1,
     duration: Math.random() * 20 + 20,
-    delay: Math.random() * -20,
+    delay: Math.random() * 10,
   }));
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {particles.map(particle => (
-        <motion.div
+        <div
           key={particle.id}
-          className="absolute rounded-full bg-[hsl(352_33%_59%/0.3)]"
+          className="absolute rounded-full bg-[hsl(43_74%_49%/0.3)]"
           style={{
             left: `${particle.x}%`,
             width: particle.size,
             height: particle.size,
-          }}
-          initial={{ y: '100vh', opacity: 0 }}
-          animate={{ 
-            y: '-10vh',
-            opacity: [0, 0.5, 0.5, 0],
-          }}
-          transition={{
-            duration: particle.duration,
-            delay: particle.delay,
-            repeat: Infinity,
-            ease: 'linear',
+            animation: `float-up ${particle.duration}s linear ${particle.delay}s infinite`,
           }}
         />
       ))}
+      <style>{`
+        @keyframes float-up {
+          0% { transform: translateY(100vh); opacity: 0; }
+          10% { opacity: 0.5; }
+          90% { opacity: 0.5; }
+          100% { transform: translateY(-10vh); opacity: 0; }
+        }
+      `}</style>
     </div>
   );
 }
@@ -102,7 +78,7 @@ export function FloatingParticles({ count = 30 }) {
 // Morphing blob shape
 export function MorphingBlob({ 
   className = '', 
-  color = 'hsl(352, 33%, 59%, 0.1)',
+  color = 'hsl(43, 74%, 49%, 0.1)',
   size = 400 
 }) {
   const paths = [
@@ -139,7 +115,7 @@ export function MorphingBlob({
 }
 
 // Glow effect on hover
-export function GlowCard({ children, className = '', glowColor = 'hsl(352, 33%, 59%)' }) {
+export function GlowCard({ children, className = '', glowColor = 'hsl(43, 74%, 49%)' }) {
   const cardRef = useRef(null);
   const [glowPosition, setGlowPosition] = useState({ x: 50, y: 50 });
 
@@ -235,7 +211,7 @@ export function GradientBorder({ children, className = '' }) {
       <motion.div
         className="absolute inset-0"
         style={{
-          background: 'conic-gradient(from 0deg, hsl(352, 33%, 59%), hsl(352, 28%, 45%), hsl(352, 33%, 59%))',
+          background: 'conic-gradient(from 0deg, hsl(43, 74%, 49%), hsl(43, 70%, 38%), hsl(43, 74%, 49%))',
         }}
         animate={{ rotate: 360 }}
         transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
@@ -253,7 +229,7 @@ export function ShimmerText({ children, className = '' }) {
     <span className={`relative inline-block ${className}`}>
       <span className="relative z-10">{children}</span>
       <motion.span
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-[hsl(352_33%_59%/0.3)] to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-[hsl(43_74%_49%/0.3)] to-transparent"
         style={{ backgroundSize: '200% 100%' }}
         animate={{ backgroundPosition: ['200% 0', '-200% 0'] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}

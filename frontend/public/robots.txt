@@ -1,19 +1,9 @@
-# robots.txt for HQ.D Website
 User-agent: *
 Allow: /
-
-# Allow all crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
+Disallow: /api/
 
 # Sitemap
 Sitemap: https://headquartersofdrinks.com/sitemap.xml
 
-# Disallow admin/private areas
-Disallow: /api/
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
+# Host
+Host: https://headquartersofdrinks.com
