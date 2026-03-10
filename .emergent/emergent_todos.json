@@ -1,26 +1,26 @@
 [
   {
-    "content": "Phase 2: Core build completed",
+    "content": "Phase 1: Revert Rose Gold to Golden (#D4AF37) across all CSS and JSX files",
     "status": "completed"
   },
   {
-    "content": "Phase 3: Major UI Redesign - Minimal aesthetic, better fonts, proper animations",
+    "content": "Phase 2: Page speed optimization - videos, images, animations",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 3: SEO location pages (NCR, Agra, Jim Corbett, Jaipur, Udaipur, Goa, Mumbai, etc.)",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 4: Update Footer with location links and SEO structure",
+    "status": "completed"
+  },
+  {
+    "content": "Phase 5: Update sitemap.xml, robots.txt, and structured data for all pages",
+    "status": "completed"
+  },
+  {
+    "content": "Testing and verification",
     "status": "in_progress"
-  },
-  {
-    "content": "Phase 3: Fix video placement - ONLY on homepage above footer",
-    "status": "pending"
-  },
-  {
-    "content": "Phase 3: Add Framer Motion animations throughout",
-    "status": "pending"
-  },
-  {
-    "content": "Phase 3: Make Hashtag & Drink Generator tools visible/accessible",
-    "status": "pending"
-  },
-  {
-    "content": "Phase 3: End to End Testing",
-    "status": "pending"
   }
 ]

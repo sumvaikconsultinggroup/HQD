@@ -56,7 +56,7 @@
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: hsl(352 33% 59%);
+  color: hsl(43 74% 49%);
 }
 
 /* Animations */
@@ -105,7 +105,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: hsl(352 33% 59%);
+  background: hsl(43 74% 49%);
   transition: width 0.3s ease;
 }
 

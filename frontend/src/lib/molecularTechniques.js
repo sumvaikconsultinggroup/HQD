@@ -3,7 +3,7 @@
 
 export const DIFFICULTY_LEVELS = {
   beginner: { label: 'Beginner', color: 'hsl(142, 76%, 36%)', points: 100, icon: '🌱' },
-  intermediate: { label: 'Intermediate', color: 'hsl(352, 33%, 59%)', points: 250, icon: '⚡' },
+  intermediate: { label: 'Intermediate', color: 'hsl(43, 74%, 49%)', points: 250, icon: '⚡' },
   advanced: { label: 'Advanced', color: 'hsl(280, 60%, 50%)', points: 500, icon: '🔥' },
   master: { label: 'Master', color: 'hsl(0, 84%, 60%)', points: 1000, icon: '👑' },
 };
